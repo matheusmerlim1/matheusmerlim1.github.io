@@ -1,5 +1,8 @@
-# Currículos — não versionar
+# Currículos e documentos pessoais — não versionar
 *.pdf
+
+# Guia local de uso do GitHub
+githubGuia.md
 
 # Sistema
 .DS_Store
