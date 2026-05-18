@@ -1,10 +1,10 @@
 # Matheus Pinheiro Raposo
 
-Profissional multidisciplinar com formação em **Física**, **Engenharia Mecânica** e **Sistemas de Informação**. Atualmente Projetista Mecânico Pleno na Friplan e graduando em Sistemas de Informação no CEFET/RJ.
+Profissional multidisciplinar com formação em **Física**, **Engenharia Mecânica** e **Sistemas de Informação**. Atualmente **Engenheiro Projetista na FriPlan** (desde 2025) e graduando em Sistemas de Informação no CEFET/RJ.
 
 ## Sobre mim
 
-Combino base científica rigorosa com experiência prática em projetos de manufatura, prototipagem e desenvolvimento de software. Ao longo da carreira atuei como professor de Física por mais de 9 anos, desenvolvi projetos maker com Arduino e impressão 3D, e hoje desenvolvo sistemas e aplicativos nas horas vagas.
+Combino base científica rigorosa com experiência prática em projetos de manufatura, prototipagem e desenvolvimento de software. Ao longo da carreira atuei como professor de Física por mais de 9 anos, desenvolvi projetos maker com Arduino e impressão 3D, e atualmente trabalho como **Engenheiro Projetista na FriPlan**, desenvolvendo projetos mecânicos industriais.
 
 ## Formação
 
