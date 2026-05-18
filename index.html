@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matheus Pinheiro Raposo — Portfólio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <div class="nav-logo">Matheus <span>Raposo</span></div>
+  <div class="nav-links">
+    <a href="#fisica"      class="hide-sm">Física</a>
+    <a href="#engenharia"  class="hide-sm">Engenharia</a>
+    <a href="#programacao" class="hide-sm">Programação</a>
+    <button id="nav-search-btn" class="nav-search-btn" aria-label="Buscar projetos">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      Buscar projetos
+      <kbd>Ctrl K</kbd>
+    </button>
+    <a href="#contato" class="pill">Contato</a>
+  </div>
+</nav>
+
+<!-- ══ SEARCH OVERLAY ══ -->
+<div id="search-overlay" class="search-overlay" role="dialog" aria-modal="true" aria-label="Buscar projetos">
+  <div class="search-box">
+    <div class="search-input-wrap">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input id="search-input" type="text" placeholder="Buscar por nome, linguagem ou descrição..." autocomplete="off" spellcheck="false" />
+      <button class="search-close" onclick="closeSearch()">Esc</button>
+    </div>
+    <div id="search-results"></div>
+    <div class="search-footer">
+      <span><kbd>↑↓</kbd> navegar</span>
+      <span><kbd>Enter</kbd> abrir</span>
+      <span><kbd>Esc</kbd> fechar</span>
+      <span id="search-count"></span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <div class="hero-photo">MP</div>
+  <h1>Matheus <span>Pinheiro Raposo</span></h1>
+  <p class="hero-sub">
+    Físico, Mestre em Materiais, Engenheiro Mecânico e Desenvolvedor de Software.<br>
+    Nova Friburgo – RJ &nbsp;|&nbsp; 31 anos
+  </p>
+
+  <div class="pill-row">
+    <span class="pill-tag tag-fisica">⚛️ Física &amp; Docência</span>
+    <span class="pill-tag tag-mec">⚙️ Engenharia Mecânica</span>
+    <span class="pill-tag tag-prog">💻 Desenvolvimento de Software</span>
+  </div>
+
+  <div class="hero-links">
+    <a href="https://github.com/matheusmerlim1" target="_blank" rel="noopener" class="btn btn-accent">
+      <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      GitHub
+    </a>
+    <a href="https://www.linkedin.com/in/matheus-pinheiro-raposo-847a42311/" target="_blank" rel="noopener" class="btn btn-linkedin">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      LinkedIn
+    </a>
+    <a href="http://lattes.cnpq.br/7035288661680105" target="_blank" rel="noopener" class="btn btn-lattes">🎓 Lattes</a>
+    <a href="#contato" class="btn btn-outline">Ver contato</a>
+  </div>
+</div>
+
+<!-- ══ STATS ══ -->
+<div class="stats">
+  <div class="stat-card fade-in">
+    <div class="stat-num" style="color:var(--fisica)">4</div>
+    <div class="stat-label">Formações Acadêmicas</div>
+  </div>
+  <div class="stat-card fade-in">
+    <div class="stat-num" style="color:var(--mec)">1</div>
+    <div class="stat-label">Patente Registrada</div>
+  </div>
+  <div class="stat-card fade-in">
+    <div class="stat-num" style="color:var(--prog)">22</div>
+    <div class="stat-label">Repositórios GitHub</div>
+  </div>
+  <div class="stat-card fade-in">
+    <div class="stat-num" style="color:var(--green)">9+</div>
+    <div class="stat-label">Anos em Docência</div>
+  </div>
+</div>
+
+<!-- ══ SOBRE ══ -->
+<section id="sobre">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:rgba(88,166,255,.12)">👤</div>
+    <h2>Sobre</h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-card fade-in">
+      <h3>🎯 Perfil</h3>
+      <p>
+        Profissional multidisciplinar com sólida formação em Física (Licenciatura e Mestrado),
+        Engenharia Mecânica e Sistemas de Informação. Combina base científica rigorosa com
+        experiência prática em projetos de manufatura, prototipagem e desenvolvimento de software.
+        <br><br>
+        Atua atualmente como <span class="highlight">Projetista Mecânico Pleno na Friplan</span>
+        e cursa Sistemas de Informação no CEFET/RJ, integrando as três áreas em projetos que
+        unem física, mecânica e tecnologia.
+      </p>
+    </div>
+    <div class="about-card fade-in">
+      <h3>🗣️ Idiomas</h3>
+      <ul>
+        <li><span class="highlight">Inglês</span> — Fluente</li>
+        <li><span class="highlight">Português</span> — Nativo</li>
+        <li>Espanhol — Iniciante</li>
+        <li>Mandarim Simplificado — Iniciante</li>
+      </ul>
+      <br>
+      <h3 style="margin-bottom:.6rem">📍 Localização</h3>
+      <p>Nova Friburgo – RJ, Brasil</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FORMAÇÃO ══ -->
+<section id="formacao">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:rgba(227,179,65,.12)">🎓</div>
+    <h2>Formação Acadêmica</h2>
+  </div>
+  <div class="about-card fade-in">
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-dot" style="background:var(--prog)"></div>
+        <div class="tl-date">2023 – Atualidade</div>
+        <div class="tl-title">Bacharelado em Sistemas de Informação</div>
+        <div class="tl-sub">CEFET/RJ — Centro Federal de Educação Tecnológica Celso Suckow da Fonseca</div>
+        <span class="tl-badge" style="background:rgba(34,211,238,.1);color:var(--prog);border:1px solid rgba(34,211,238,.3)">Em andamento</span>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot" style="background:var(--mec)"></div>
+        <div class="tl-date">2014 – 2019</div>
+        <div class="tl-title">Bacharelado em Engenharia Mecânica</div>
+        <div class="tl-sub">IPRJ – Universidade do Estado do Rio de Janeiro (UERJ)</div>
+        <div class="tl-sub" style="margin-top:.2rem;font-style:italic">TCC: Análise preliminar do projeto de forno de produção de ligas metaestáveis</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot" style="background:var(--purple)"></div>
+        <div class="tl-date">2013 – 2016</div>
+        <div class="tl-title">Mestrado em Ciência e Tecnologia dos Materiais</div>
+        <div class="tl-sub">IPRJ – UERJ &nbsp;|&nbsp; Bolsista CAPES</div>
+        <div class="tl-sub" style="margin-top:.2rem;font-style:italic">Dissertação: Modificação Química do Polietileno de Alto Peso Molecular através de Radiação Gama para aplicação em Biomateriais</div>
+        <span class="tl-badge" style="background:rgba(188,140,255,.1);color:var(--purple);border:1px solid rgba(188,140,255,.3)">Bolsista CAPES</span>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot" style="background:var(--fisica)"></div>
+        <div class="tl-date">2009 – 2013</div>
+        <div class="tl-title">Licenciatura em Física</div>
+        <div class="tl-sub">CEFET/RJ — Centro Federal de Educação Tecnológica Celso Suckow da Fonseca</div>
+        <div class="tl-sub" style="margin-top:.2rem;font-style:italic">TCC: Utilização de novas tecnologias no currículo mínimo de física do Estado do Rio de Janeiro</div>
+        <span class="tl-badge" style="background:rgba(129,140,248,.1);color:var(--fisica);border:1px solid rgba(129,140,248,.3)">PIBID – Bolsista CAPES 2010–2014</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ ⚛️ FÍSICA & DOCÊNCIA ══ -->
+<section id="fisica" class="area-fisica">
+  <div class="sec-header area-header">
+    <div class="sec-icon" style="background:rgba(129,140,248,.12)">⚛️</div>
+    <h2>Física &amp; Docência</h2>
+    <span class="sec-count">6 experiências</span>
+  </div>
+
+  <div class="exp-grid">
+
+    <div class="exp-card area-fisica fade-in">
+      <div class="exp-card-top">
+        <span class="exp-icon">🏫</span>
+        <div>
+          <h3>Professor de Física — CIEP 322</h3>
+          <div class="exp-period">2019 – 2024 &nbsp;·&nbsp; Nova Friburgo/RJ</div>
+        </div>
+      </div>
+      <p>Docência em Física para Ensino Médio em escola pública estadual, com desenvolvimento de metodologias ativas e projetos experimentais.</p>
+      <div class="exp-tags">
+        <span class="exp-tag">Ensino Médio</span>
+        <span class="exp-tag">Escola Pública</span>
+        <span class="exp-tag">5 anos</span>
+      </div>
+    </div>
+
+    <div class="exp-card area-fisica fade-in">
+      <div class="exp-card-top">
+        <span class="exp-icon">🎖️</span>
+        <div>
+          <h3>Professor de Física &amp; Ciências — CPM</h3>
+          <div class="exp-period">2015 – 2024 &nbsp;·&nbsp; Centro Preparatório Maximus</div>
+        </div>
+      </div>
+      <p>Física para Ensino Médio, Medicina (ENEM), Pré-vestibular e cursos militares (IME, ITA, EFOMM, EPCAR). Ciências para Ensino Fundamental.</p>
+      <div class="exp-tags">
+        <span class="exp-tag">Vestibulares</span>
+        <span class="exp-tag">IME/ITA/EFOMM</span>
+        <span class="exp-tag">9 anos</span>
+      </div>
+    </div>
+
+    <div class="exp-card area-fisica fade-in">
+      <div class="exp-card-top">
+        <span class="exp-icon">📐</span>
+        <div>
+          <h3>Professor Particular</h3>
+          <div class="exp-period">Física, Química e Matemática</div>
+        </div>
+      </div>
+      <p>Aulas de reforço em Física, Química e Matemática para Ensino Médio, Fundamental e preparatórios para concursos.</p>
+      <div class="exp-tags">
+        <span class="exp-tag">Física</span>
+        <span class="exp-tag">Química</span>
+        <span class="exp-tag">Matemática</span>
+      </div>
+    </div>
+
+    <div class="exp-card area-fisica fade-in">
+      <div class="exp-card-top">
+        <span class="exp-icon">🎓</span>
+        <div>
+          <h3>Monitor de Física — CSJB / K2</h3>
+          <div class="exp-period">2012 – 2015</div>
+        </div>
+      </div>
+      <p>Monitor de física para cursos pré-militares (física térmica e cálculo) e pré-vestibular.</p>
+      <div class="exp-tags">
+        <span class="exp-tag">Pré-militar</span>
+        <span class="exp-tag">Pré-vestibular</span>
+      </div>
+    </div>
+
+    <div class="exp-card area-fisica fade-in">
+      <div class="exp-card-top">
+        <span class="exp-icon">🔬</span>
+        <div>
+          <h3>PIBID — Bolsista CAPES</h3>
+          <div class="exp-period">2010 – 2014 &nbsp;·&nbsp; CEFET/RJ</div>
+        </div>
+      </div>
+      <p>Projeto de Iniciação à Docência com inovações metodológicas no ensino de Física. Bolsista CAPES durante a graduação em Física.</p>
+      <div class="exp-tags">
+        <span class="exp-tag">Pesquisa em Ensino</span>
+        <span class="exp-tag">CAPES</span>
+        <span class="exp-tag">4 anos</span>
+      </div>
+    </div>
+
+    <div class="exp-card area-fisica fade-in">
+      <div class="exp-card-top">
+        <span class="exp-icon">🧫</span>
+        <div>
+          <h3>Mestrado — Biomateriais</h3>
+          <div class="exp-period">2013 – 2016 &nbsp;·&nbsp; IPRJ/UERJ &nbsp;·&nbsp; Bolsista CAPES</div>
+        </div>
+      </div>
+      <p>Pesquisa em modificação química de polietileno de alto peso molecular por radiação gama para biomateriais. Orient.: Profa. Marisa C. G. Rocha.</p>
+      <div class="exp-tags">
+        <span class="exp-tag">Polímeros</span>
+        <span class="exp-tag">Radiação Gama</span>
+        <span class="exp-tag">Biomateriais</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Publicações -->
+  <div style="margin-top:2rem">
+    <h3 style="font-size:1rem;font-weight:700;margin-bottom:1rem;color:var(--fisica)">📄 Publicações &amp; Eventos Científicos</h3>
+    <div class="pub-list">
+
+      <div class="pub-item fade-in">
+        <span class="pub-year">2016</span>
+        <div>
+          <div class="pub-title">III Semana da Física — CEFET/RJ</div>
+          <div class="pub-venue">Artigo publicado &nbsp;·&nbsp; Centro Federal de Educação Tecnológica</div>
+        </div>
+      </div>
+
+      <div class="pub-item fade-in">
+        <span class="pub-year">2016</span>
+        <div>
+          <div class="pub-title">II Semana da Física — CEFET/RJ</div>
+          <div class="pub-venue">Artigo publicado &nbsp;·&nbsp; Centro Federal de Educação Tecnológica</div>
+        </div>
+      </div>
+
+      <div class="pub-item fade-in">
+        <span class="pub-year">2016</span>
+        <div>
+          <div class="pub-title">I Semana da Física — CEFET/RJ</div>
+          <div class="pub-venue">Artigo publicado &nbsp;·&nbsp; Centro Federal de Educação Tecnológica</div>
+        </div>
+      </div>
+
+      <div class="pub-item fade-in">
+        <span class="pub-year">2015</span>
+        <div>
+          <div class="pub-title">Modificação Química do Polietileno de Alto Peso Molecular por Radiação Gama</div>
+          <div class="pub-venue">13º Congresso Brasileiro de Polímeros &nbsp;·&nbsp; Natal, RN &nbsp;·&nbsp; RAPOSO, M. P.; ROSA, M. C. G.</div>
+        </div>
+      </div>
+
+      <div class="pub-item fade-in">
+        <span class="pub-year">2019</span>
+        <div>
+          <div class="pub-title">Determinação dos Parâmetros da Equação de Antoine para Metano, Álcool, Acetona e Etanol</div>
+          <div class="pub-venue">VII ETARSERRA &nbsp;·&nbsp; Congresso Regional</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ ⚙️ ENGENHARIA MECÂNICA ══ -->
+<section id="engenharia" class="area-mec">
+  <div class="sec-header area-header">
+    <div class="sec-icon" style="background:rgba(249,115,22,.12)">⚙️</div>
+    <h2>Engenharia Mecânica</h2>
+    <span class="sec-count">5 experiências</span>
+  </div>
+
+  <!-- Patente em destaque -->
+  <div class="patent-card fade-in">
+    <div class="patent-badge">🛡️</div>
+    <div>
+      <h3>Patente Registrada — Protetor Facial (Face Shield) Reutilizável</h3>
+      <p>Desenvolvimento e registro de protetor facial reutilizável criado para o combate à pandemia de COVID-19. Foco em ergonomia, resistência e reutilização para proteção de profissionais de saúde.</p>
+      <span class="patent-num">BR20202001520398 &nbsp;·&nbsp; Registrado em 27/07/2020</span>
+    </div>
+  </div>
+
+  <div class="exp-grid">
+
+    <div class="exp-card area-mec fade-in">
+      <div class="exp-card-top">
+        <span class="exp-icon">🏭</span>
+        <div>
+          <h3>Projetista Mecânico Pleno — Friplan</h3>
+          <div class="exp-period">Dezembro 2024 – Atualidade</div>
+        </div>
+      </div>
+      <p>Desenvolvimento de projetos de engenharia mecânica, modelagem de peças e conjuntos industriais.</p>
+      <div class="exp-tags">
+        <span class="exp-tag">SOLIDWORKS</span>
+        <span class="exp-tag">Projetos Industriais</span>
+        <span class="exp-tag">Atual</span>
+      </div>
+    </div>
+
+    <div class="exp-card area-mec fade-in">
+      <div class="exp-card-top">
+        <span class="exp-icon">🤖</span>
+        <div>
+          <h3>Técnico em Mecatrônica — SENAI/RJ</h3>
+          <div class="exp-period">2019 – 2021 &nbsp;·&nbsp; 120h</div>
+        </div>
+      </div>
+      <p>Formação técnica integrando mecânica, eletrônica e programação de sistemas automatizados.</p>
+      <div class="exp-tags">
+        <span class="exp-tag">Mecatrônica</span>
+        <span class="exp-tag">Automação</span>
+        <span class="exp-tag">SENAI</span>
+      </div>
+    </div>
+
+    <div class="exp-card area-mec fade-in">
+      <div class="exp-card-top">
+        <span class="exp-icon">🔧</span>
+        <div>
+          <h3>Assistente de FabLab — SENAI/RJ</h3>
+          <div class="exp-period">2018</div>
+        </div>
+      </div>
+      <p>Operação de impressoras 3D, cortadoras laser e equipamentos de prototipagem rápida no laboratório de fabricação digital.</p>
+      <div class="exp-tags">
+        <span class="exp-tag">Impressão 3D</span>
+        <span class="exp-tag">FabLab</span>
+        <span class="exp-tag">Prototipagem</span>
+      </div>
+    </div>
+
+    <div class="exp-card area-mec fade-in">
+      <div class="exp-card-top">
+        <span class="exp-icon">📏</span>
+        <div>
+          <h3>Medição Industrial — SENAI/RJ</h3>
+          <div class="exp-period">2018 &nbsp;·&nbsp; 40h</div>
+        </div>
+      </div>
+      <p>Técnicas de medição industrial, calibração de instrumentos, metrologia dimensional e controle de qualidade.</p>
+      <div class="exp-tags">
+        <span class="exp-tag">Metrologia</span>
+        <span class="exp-tag">Controle de Qualidade</span>
+      </div>
+    </div>
+
+    <div class="exp-card area-mec fade-in">
+      <div class="exp-card-top">
+        <span class="exp-icon">⚒️</span>
+        <div>
+          <h3>Processos de Fabricação Mecânica</h3>
+          <div class="exp-period">2016 – 2017 &nbsp;·&nbsp; SENAI/RJ &nbsp;·&nbsp; 40h</div>
+        </div>
+      </div>
+      <p>Usinagem, conformação, soldagem e tratamentos térmicos.</p>
+      <div class="exp-tags">
+        <span class="exp-tag">Usinagem</span>
+        <span class="exp-tag">Soldagem</span>
+        <span class="exp-tag">Conformação</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Projetos Maker -->
+  <div style="margin-top:2rem">
+    <h3 style="font-size:1rem;font-weight:700;margin-bottom:1rem;color:var(--mec)">🔨 Projetos de Engenharia &amp; Maker</h3>
+    <div class="exp-grid">
+
+      <div class="exp-card area-mec fade-in">
+        <div class="exp-card-top"><span class="exp-icon">🖨️</span>
+          <div><h3>CNC Router — Construção</h3><div class="exp-period">2024</div></div>
+        </div>
+        <p>Projeto completo de construção de CNC Router: design mecânico, seleção de componentes, montagem e firmware.</p>
+        <div class="exp-tags"><span class="exp-tag">CNC</span><span class="exp-tag">Mecânica</span><span class="exp-tag">Eletrônica</span></div>
+      </div>
+
+      <div class="exp-card area-mec fade-in">
+        <div class="exp-card-top"><span class="exp-icon">🧠</span>
+          <div><h3>DoorMan — Crânio Arduino</h3><div class="exp-period">2018 &nbsp;·&nbsp; Projeto de Ensino</div></div>
+        </div>
+        <p>Crânio impresso em 3D com olhos controlados por Arduino. Apresentado na feira de ciências do colégio.</p>
+        <div class="exp-tags"><span class="exp-tag">Impressão 3D</span><span class="exp-tag">Arduino</span><span class="exp-tag">Servo</span></div>
+      </div>
+
+      <div class="exp-card area-mec fade-in">
+        <div class="exp-card-top"><span class="exp-icon">⚡</span>
+          <div><h3>Bobina de Tesla Musical</h3><div class="exp-period">2018 &nbsp;·&nbsp; Feira de Ciências</div></div>
+        </div>
+        <p>Bobina de Tesla com 45 kV controlada por Arduino para gerar músicas via modulação de raios elétricos.</p>
+        <div class="exp-tags"><span class="exp-tag">Tesla</span><span class="exp-tag">Arduino</span><span class="exp-tag">HV</span></div>
+      </div>
+
+      <div class="exp-card area-mec fade-in">
+        <div class="exp-card-top"><span class="exp-icon">💧</span>
+          <div><h3>Sistema de Irrigação Automática</h3><div class="exp-period">2019 &nbsp;·&nbsp; Arduino</div></div>
+        </div>
+        <p>Sistema com sensor de umidade do solo que aciona automaticamente a válvula de irrigação via Arduino.</p>
+        <div class="exp-tags"><span class="exp-tag">Arduino</span><span class="exp-tag">Sensores</span><span class="exp-tag">IoT</span></div>
+      </div>
+
+      <div class="exp-card area-mec fade-in">
+        <div class="exp-card-top"><span class="exp-icon">☕</span>
+          <div><h3>Máquina de Café Automatizada</h3><div class="exp-period">2019 &nbsp;·&nbsp; Arduino</div></div>
+        </div>
+        <p>Cafeteira controlada por Arduino ativada via padrões sonoros. Desenvolvida com alunos do 6° ano.</p>
+        <div class="exp-tags"><span class="exp-tag">Arduino</span><span class="exp-tag">Sensor Sonoro</span></div>
+      </div>
+
+      <div class="exp-card area-mec fade-in">
+        <div class="exp-card-top"><span class="exp-icon">🚗</span>
+          <div><h3>Controle de Nível de Água (Carro)</h3><div class="exp-period">2020</div></div>
+        </div>
+        <p>Sistema elétrico que acende LED de alerta quando o nível do reservatório de água do carro cai abaixo do recomendado.</p>
+        <div class="exp-tags"><span class="exp-tag">Eletrônica</span><span class="exp-tag">Sensores</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Ferramentas -->
+  <div style="margin-top:2rem">
+    <h3 style="font-size:1rem;font-weight:700;margin-bottom:1rem;color:var(--mec)">🛠️ Ferramentas &amp; Softwares</h3>
+    <div class="skills-grid">
+      <div class="skill-group fade-in">
+        <h4>CAD / Simulação</h4>
+        <div class="skill-list">
+          <span class="skill hi">SOLIDWORKS</span>
+          <span class="skill hi">COMSOL</span>
+          <span class="skill">Impressão 3D</span>
+          <span class="skill">FabLab</span>
+        </div>
+      </div>
+      <div class="skill-group fade-in">
+        <h4>Fabricação</h4>
+        <div class="skill-list">
+          <span class="skill hi">CNC</span>
+          <span class="skill">Usinagem</span>
+          <span class="skill">Soldagem</span>
+          <span class="skill">Metrologia</span>
+        </div>
+      </div>
+      <div class="skill-group fade-in">
+        <h4>Eletrônica / Automação</h4>
+        <div class="skill-list">
+          <span class="skill hi">Arduino</span>
+          <span class="skill">Sensores</span>
+          <span class="skill">Servo Motors</span>
+          <span class="skill">Eletrônica</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 💻 PROGRAMAÇÃO ══ -->
+<section id="programacao" class="area-prog">
+  <div class="sec-header area-header">
+    <div class="sec-icon" style="background:rgba(34,211,238,.12)">💻</div>
+    <h2>Programação &amp; Sistemas de Informação</h2>
+    <span class="sec-count">22 repositórios</span>
+  </div>
+
+  <!-- Skills -->
+  <div class="skills-grid" style="margin-bottom:2rem">
+    <div class="skill-group fade-in">
+      <h4>Web / Front-end</h4>
+      <div class="skill-list">
+        <span class="skill hi">JavaScript</span>
+        <span class="skill hi">HTML5</span>
+        <span class="skill hi">CSS3</span>
+        <span class="skill">HTTP/REST</span>
+      </div>
+    </div>
+    <div class="skill-group fade-in">
+      <h4>Mobile</h4>
+      <div class="skill-list">
+        <span class="skill hi">Flutter</span>
+        <span class="skill hi">Dart</span>
+      </div>
+    </div>
+    <div class="skill-group fade-in">
+      <h4>Back-end / Dados</h4>
+      <div class="skill-list">
+        <span class="skill hi">Python</span>
+        <span class="skill">MySQL</span>
+        <span class="skill">Java</span>
+        <span class="skill">C / C++</span>
+      </div>
+    </div>
+    <div class="skill-group fade-in">
+      <h4>Infraestrutura</h4>
+      <div class="skill-list">
+        <span class="skill">Redes</span>
+        <span class="skill">TCP/IP</span>
+        <span class="skill">Manutenção PC</span>
+        <span class="skill hi">Git / GitHub</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Projetos Web -->
+  <h3 style="font-size:.95rem;font-weight:700;margin-bottom:1rem;color:var(--prog)">🌐 Aplicações Web &amp; Ferramentas</h3>
+  <div class="proj-grid" style="margin-bottom:2rem">
+
+    <div class="proj-card fade-in" data-repo="previsao-do-tempo">
+      <div class="proj-top"><span class="proj-icon">🌤️</span><span class="lang-chip"><span class="lang-dot lc-js"></span>JavaScript</span></div>
+      <h3>Previsão do Tempo</h3>
+      <p>Site de previsão do tempo com geolocalização automática por IP. Exibe condições climáticas em tempo real.</p>
+      <div class="proj-footer">
+        <a class="proj-link" href="https://github.com/matheusmerlim1/previsao-do-tempo" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="commit-badge loading">...</span>
+      </div>
+    </div>
+
+    <div class="proj-card fade-in" data-repo="Verificador-de-texto-IA">
+      <div class="proj-top"><span class="proj-icon">🤖</span><span class="lang-chip"><span class="lang-dot lc-js"></span>JavaScript</span></div>
+      <h3>Verificador de Texto IA</h3>
+      <p>Ferramenta web para verificar o percentual de conteúdo gerado por IA em um artigo.</p>
+      <div class="proj-footer">
+        <a class="proj-link" href="https://github.com/matheusmerlim1/Verificador-de-texto-IA" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="commit-badge loading">...</span>
+      </div>
+    </div>
+
+    <div class="proj-card fade-in" data-repo="Construtora">
+      <div class="proj-top"><span class="proj-icon">🏗️</span><span class="lang-chip"><span class="lang-dot lc-js"></span>JavaScript</span></div>
+      <h3>Construtora</h3>
+      <p>Sistema de cadastro com registro de clientes, empresas e projetos de construção.</p>
+      <div class="proj-footer">
+        <a class="proj-link" href="https://github.com/matheusmerlim1/Construtora" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="commit-badge loading">...</span>
+      </div>
+    </div>
+
+    <div class="proj-card fade-in" data-repo="Cafeteria">
+      <div class="proj-top"><span class="proj-icon">☕</span><span class="lang-chip"><span class="lang-dot lc-js"></span>JavaScript</span></div>
+      <h3>Cafeteria</h3>
+      <p>Site para uma cafeteria com apresentação de produtos e cardápio visual.</p>
+      <div class="proj-footer">
+        <a class="proj-link" href="https://github.com/matheusmerlim1/Cafeteria" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="commit-badge loading">...</span>
+      </div>
+    </div>
+
+    <div class="proj-card fade-in" data-repo="DLM-PDF-API">
+      <div class="proj-top"><span class="proj-icon">📄</span><span class="lang-chip"><span class="lang-dot lc-html"></span>HTML</span></div>
+      <h3>DLM PDF API</h3>
+      <p>Interface web para manipulação e geração de arquivos PDF via API no navegador.</p>
+      <div class="proj-footer">
+        <a class="proj-link" href="https://github.com/matheusmerlim1/DLM-PDF-API" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="commit-badge loading">...</span>
+      </div>
+    </div>
+
+    <div class="proj-card fade-in" data-repo="DLM-PDF-encriptador">
+      <div class="proj-top"><span class="proj-icon">🔒</span><span class="lang-chip"><span class="lang-dot lc-js"></span>JavaScript</span></div>
+      <h3>DLM PDF Encriptador</h3>
+      <p>Encriptação de arquivos PDF diretamente no navegador, sem dependências externas.</p>
+      <div class="proj-footer">
+        <a class="proj-link" href="https://github.com/matheusmerlim1/DLM-PDF-encriptador" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="commit-badge loading">...</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Projetos API -->
+  <h3 style="font-size:.95rem;font-weight:700;margin-bottom:1rem;color:var(--prog)">⚡ Projetos com API</h3>
+  <div class="proj-grid" style="margin-bottom:2rem">
+
+    <div class="proj-card fade-in" data-repo="api-Filmes">
+      <div class="proj-top"><span class="proj-icon">🎬</span><span class="lang-chip"><span class="lang-dot lc-js"></span>JavaScript</span></div>
+      <h3>API de Filmes</h3>
+      <p>Busca e exibe informações de filmes consumindo API REST — sinopse, avaliações e mais.</p>
+      <div class="proj-footer">
+        <a class="proj-link" href="https://github.com/matheusmerlim1/api-Filmes" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="commit-badge loading">...</span>
+      </div>
+    </div>
+
+    <div class="proj-card fade-in" data-repo="Catalogo_filmes">
+      <div class="proj-top"><span class="proj-icon">🎭</span><span class="lang-chip"><span class="lang-dot lc-js"></span>JavaScript</span></div>
+      <h3>Catálogo de Filmes</h3>
+      <p>Catálogo visual com listagem e filtros de filmes em JavaScript.</p>
+      <div class="proj-footer">
+        <a class="proj-link" href="https://github.com/matheusmerlim1/Catalogo_filmes" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="commit-badge loading">...</span>
+      </div>
+    </div>
+
+    <div class="proj-card fade-in" data-repo="Api-Piadas">
+      <div class="proj-top"><span class="proj-icon">😂</span><span class="lang-chip"><span class="lang-dot lc-js"></span>JavaScript</span></div>
+      <h3>API de Piadas</h3>
+      <p>Exibe piadas aleatórias consumindo API REST com chamadas JavaScript.</p>
+      <div class="proj-footer">
+        <a class="proj-link" href="https://github.com/matheusmerlim1/Api-Piadas" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="commit-badge loading">...</span>
+      </div>
+    </div>
+
+    <div class="proj-card fade-in" data-repo="lab-api">
+      <div class="proj-top"><span class="proj-icon">🧪</span><span class="lang-chip"><span class="lang-dot lc-js"></span>JavaScript</span></div>
+      <h3>Laboratório de API</h3>
+      <p>Ambiente de estudo para consumo de APIs REST com JavaScript.</p>
+      <div class="proj-footer">
+        <a class="proj-link" href="https://github.com/matheusmerlim1/lab-api" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="commit-badge loading">...</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Flutter -->
+  <h3 style="font-size:.95rem;font-weight:700;margin-bottom:1rem;color:var(--prog)">📱 Aplicativos Mobile — Flutter</h3>
+  <div class="proj-grid" style="margin-bottom:2rem">
+
+    <div class="proj-card fade-in" data-repo="Despesas-pessoais">
+      <div class="proj-top"><span class="proj-icon">💰</span><span class="lang-chip"><span class="lang-dot lc-flutter"></span>Flutter</span></div>
+      <h3>Despesas Pessoais</h3>
+      <p>App mobile em Flutter para registrar, categorizar e acompanhar despesas pessoais.</p>
+      <div class="proj-footer">
+        <a class="proj-link" href="https://github.com/matheusmerlim1/Despesas-pessoais" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="commit-badge loading">...</span>
+      </div>
+    </div>
+
+    <div class="proj-card fade-in" data-repo="comparador_de_preco">
+      <div class="proj-top"><span class="proj-icon">🏷️</span><span class="lang-chip"><span class="lang-dot lc-flutter"></span>Flutter</span></div>
+      <h3>Comparador de Preço</h3>
+      <p>App Flutter para comparar preços do mesmo produto em diferentes estabelecimentos.</p>
+      <div class="proj-footer">
+        <a class="proj-link" href="https://github.com/matheusmerlim1/comparador_de_preco" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="commit-badge loading">...</span>
+      </div>
+    </div>
+
+    <div class="proj-card fade-in" data-repo="flutter-programa-de-perguntas">
+      <div class="proj-top"><span class="proj-icon">❓</span><span class="lang-chip"><span class="lang-dot lc-flutter"></span>Flutter</span></div>
+      <h3>Programa de Perguntas</h3>
+      <p>App quiz em Flutter com questionário interativo e feedback de respostas.</p>
+      <div class="proj-footer">
+        <a class="proj-link" href="https://github.com/matheusmerlim1/flutter-programa-de-perguntas" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="commit-badge loading">...</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Fundamentos -->
+  <h3 style="font-size:.95rem;font-weight:700;margin-bottom:1rem;color:var(--prog)">📚 Fundamentos &amp; Aprendizado</h3>
+  <div class="proj-grid">
+
+    <div class="proj-card fade-in" data-repo="dart-fundamental">
+      <div class="proj-top"><span class="proj-icon">🎯</span><span class="lang-chip"><span class="lang-dot lc-dart"></span>Dart</span></div>
+      <h3>Dart Fundamental</h3>
+      <p>Programas básicos de aprendizado da linguagem Dart: lógica, estruturas e sintaxe.</p>
+      <div class="proj-footer">
+        <a class="proj-link" href="https://github.com/matheusmerlim1/dart-fundamental" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="commit-badge loading">...</span>
+      </div>
+    </div>
+
+    <div class="proj-card fade-in" data-repo="LaboratorioArray">
+      <div class="proj-top"><span class="proj-icon">📋</span><span class="lang-chip"><span class="lang-dot lc-js"></span>JavaScript</span></div>
+      <h3>Laboratório de Arrays</h3>
+      <p>Exercícios com map, filter, reduce e outros métodos de arrays em JavaScript.</p>
+      <div class="proj-footer">
+        <a class="proj-link" href="https://github.com/matheusmerlim1/LaboratorioArray" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="commit-badge loading">...</span>
+      </div>
+    </div>
+
+    <div class="proj-card fade-in" data-repo="String-Data">
+      <div class="proj-top"><span class="proj-icon">📅</span><span class="lang-chip"><span class="lang-dot lc-js"></span>JavaScript</span></div>
+      <h3>String &amp; Data</h3>
+      <p>Manipulação de strings e datas em JavaScript: formatação e operações com texto.</p>
+      <div class="proj-footer">
+        <a class="proj-link" href="https://github.com/matheusmerlim1/String-Data" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="commit-badge loading">...</span>
+      </div>
+    </div>
+
+    <div class="proj-card fade-in" data-repo="ProgramacaoClienteWeb">
+      <div class="proj-top"><span class="proj-icon">💻</span><span class="lang-chip"><span class="lang-dot lc-html"></span>HTML</span></div>
+      <h3>Programação Cliente Web</h3>
+      <p>Estudos de programação client-side: HTML, formulários, eventos e DOM.</p>
+      <div class="proj-footer">
+        <a class="proj-link" href="https://github.com/matheusmerlim1/ProgramacaoClienteWeb" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="commit-badge loading">...</span>
+      </div>
+    </div>
+
+    <div class="proj-card fade-in" data-repo="Diagramacao_MatheusRaposo">
+      <div class="proj-top"><span class="proj-icon">🎨</span><span class="lang-chip"><span class="lang-dot lc-css"></span>CSS</span></div>
+      <h3>Diagramação — Fundamentos Web</h3>
+      <p>Exercícios de layout e estilização para a disciplina de Fundamentos da Web.</p>
+      <div class="proj-footer">
+        <a class="proj-link" href="https://github.com/matheusmerlim1/Diagramacao_MatheusRaposo" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="commit-badge loading">...</span>
+      </div>
+    </div>
+
+    <div class="proj-card fade-in" data-repo="Momentos-perfeitos">
+      <div class="proj-top"><span class="proj-icon">📷</span><span class="lang-chip"><span class="lang-dot lc-html"></span>HTML</span></div>
+      <h3>Momentos Perfeitos</h3>
+      <p>Site de galeria fotográfica com layout elegante desenvolvido em HTML.</p>
+      <div class="proj-footer">
+        <a class="proj-link" href="https://github.com/matheusmerlim1/Momentos-perfeitos" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="commit-badge loading">...</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ CONTATO ══ -->
+<section id="contato">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:rgba(63,185,80,.12)">📬</div>
+    <h2>Contato</h2>
+  </div>
+  <div class="contact-grid">
+
+    <a class="contact-card fade-in" href="mailto:matheusmerlim@hotmail.com">
+      <span class="contact-icon">📧</span>
+      <div><div class="contact-label">E-mail</div><div class="contact-val">matheusmerlim@hotmail.com</div></div>
+    </a>
+
+    <a class="contact-card fade-in" href="tel:+5522992074505">
+      <span class="contact-icon">📞</span>
+      <div><div class="contact-label">Telefone / WhatsApp</div><div class="contact-val">(22) 99207-4505</div></div>
+    </a>
+
+    <a class="contact-card fade-in" href="https://www.linkedin.com/in/matheus-pinheiro-raposo-847a42311/" target="_blank" rel="noopener">
+      <span class="contact-icon">💼</span>
+      <div><div class="contact-label">LinkedIn</div><div class="contact-val">matheus-pinheiro-raposo</div></div>
+    </a>
+
+    <a class="contact-card fade-in" href="https://github.com/matheusmerlim1" target="_blank" rel="noopener">
+      <span class="contact-icon">🐙</span>
+      <div><div class="contact-label">GitHub</div><div class="contact-val">matheusmerlim1</div></div>
+    </a>
+
+    <a class="contact-card fade-in" href="http://lattes.cnpq.br/7035288661680105" target="_blank" rel="noopener">
+      <span class="contact-icon">🎓</span>
+      <div><div class="contact-label">Currículo Lattes</div><div class="contact-val">lattes.cnpq.br</div></div>
+    </a>
+
+    <div class="contact-card fade-in">
+      <span class="contact-icon">📍</span>
+      <div><div class="contact-label">Localização</div><div class="contact-val">Nova Friburgo – RJ</div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <p>Matheus Pinheiro Raposo &nbsp;·&nbsp; <a href="https://github.com/matheusmerlim1" target="_blank" rel="noopener">github.com/matheusmerlim1</a></p>
+  <div id="last-updated">Carregando dados dos repositórios...</div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
