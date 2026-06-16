@@ -18,7 +18,7 @@ Combino base científica rigorosa com experiência prática em projetos de manuf
 ## Áreas de atuação
 
 - **⚛️ Física & Docência** — Professor de Física por 9+ anos (Ensino Médio, pré-militar IME/ITA/EFOMM, ENEM)
-- **⚙️ Engenharia Mecânica** — SOLIDWORKS, COMSOL, impressão 3D, CNC, Arduino, patente registrada
+- **⚙️ Engenharia Mecânica** — SOLIDWORKS, COMSOL, SAP2000, SmartPlant 3D, CAESAR II, impressão 3D, CNC, Arduino, patente registrada
 - **💻 Programação** — JavaScript, Flutter, Dart, Python, C/C++, MySQL
 
 ## Destaque

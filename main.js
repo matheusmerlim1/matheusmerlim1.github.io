@@ -101,6 +101,8 @@ const PROJECTS = [
   { repo: 'Catalogo_filmes',            icon: '🎭', name: 'Catálogo de Filmes',        lang: 'JavaScript', desc: 'Catálogo visual de filmes com listagem e filtros.' },
   { repo: 'Api-Piadas',                 icon: '😂', name: 'API de Piadas',             lang: 'JavaScript', desc: 'Exibe piadas aleatórias consumindo API REST.' },
   { repo: 'lab-api',                    icon: '🧪', name: 'Laboratório de API',        lang: 'JavaScript', desc: 'Laboratório de aprendizado de APIs REST com JavaScript.' },
+  { repo: 'simulado-pcw',               icon: '📝', name: 'Simulado — Programação Cliente Web', lang: 'JavaScript', desc: 'Simulado interativo da disciplina de Programação de Clientes Web do CEFET/RJ.' },
+  { repo: 'simulado-teste-manutencao-software', icon: '🧪', name: 'Simulado — Teste & Manutenção de Software', lang: 'JavaScript', desc: 'Simulado interativo sobre Teste e Manutenção de Software com JUnit 5 e Katalon.' },
   { repo: 'Despesas-pessoais',          icon: '💰', name: 'Despesas Pessoais',         lang: 'Flutter',    desc: 'App mobile para controle de despesas pessoais em Flutter.' },
   { repo: 'comparador_de_preco',        icon: '🏷️', name: 'Comparador de Preço',      lang: 'Flutter',    desc: 'App Flutter para comparar preços de produtos em lojas.' },
   { repo: 'flutter-programa-de-perguntas', icon: '❓', name: 'Programa de Perguntas', lang: 'Flutter',    desc: 'App quiz em Flutter com questionário interativo e feedback.' },
@@ -188,12 +190,37 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// ── COUNT-UP DE NÚMEROS ───────────────────────────────────────
+function animateCount(el) {
+  const raw    = el.textContent.trim();
+  const target = parseInt(raw.replace(/\D/g, ''), 10);
+  if (!target) return;
+  const suffix = raw.replace(/[0-9]/g, '');
+  const dur    = 1100;
+  const start  = performance.now();
+  function step(now) {
+    const p = Math.min((now - start) / dur, 1);
+    const eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.round(target * eased) + suffix;
+    if (p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
 // ── ANIMATIONS ────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.08 });
   document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
+  // count-up dos números dos stats (só uma vez)
+  const countIO = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { animateCount(e.target); countIO.unobserve(e.target); }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.stat-num').forEach(el => countIO.observe(el));
 
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
@@ -204,3 +231,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
   loadProjects();
 });
+
+// ── EFEITOS INTERATIVOS ───────────────────────────────────────
+(() => {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // barra de progresso de scroll
+  const bar = document.getElementById('scroll-progress');
+  function onScroll() {
+    const h = document.documentElement;
+    const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight);
+    if (bar) bar.style.width = (scrolled * 100) + '%';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  if (reduce) return;
+
+  // glow que segue o cursor
+  const glow = document.getElementById('cursor-glow');
+  // spotlight nos cards (variáveis CSS --mx / --my)
+  const glowCards = '.exp-card, .proj-card';
+
+  window.addEventListener('pointermove', e => {
+    if (glow) {
+      glow.style.opacity = '1';
+      glow.style.left = e.clientX + 'px';
+      glow.style.top  = e.clientY + 'px';
+    }
+    const card = e.target.closest && e.target.closest(glowCards);
+    if (card) {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      card.style.setProperty('--my', (e.clientY - r.top)  + 'px');
+    }
+  }, { passive: true });
+})();
