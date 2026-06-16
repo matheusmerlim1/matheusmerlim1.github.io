@@ -606,8 +606,9 @@ section { max-width: 1100px; margin: 0 auto; padding: 0 2rem 5rem; }
 .contact-card:hover { border-color: var(--accent); transform: translateY(-3px); text-decoration: none; box-shadow: 0 10px 28px rgba(0,0,0,.35); }
 .contact-icon { font-size: 1.5rem; flex-shrink: 0; transition: transform .25s; }
 .contact-card:hover .contact-icon { transform: scale(1.2) rotate(-8deg); }
+.contact-card > div { min-width: 0; }
 .contact-label { font-size: .72rem; color: var(--text2); }
-.contact-val   { font-size: .88rem; font-weight: 600; color: var(--text); margin-top: .05rem; }
+.contact-val   { font-size: .88rem; font-weight: 600; color: var(--text); margin-top: .05rem; overflow-wrap: anywhere; }
 
 /* ── FOOTER ── */
 footer {
