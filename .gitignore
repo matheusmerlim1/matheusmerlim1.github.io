@@ -7,3 +7,6 @@ githubGuia.md
 # Sistema
 .DS_Store
 Thumbs.db
+
+# Skills locais do Claude Code (nao fazem parte do site)
+.claude/
