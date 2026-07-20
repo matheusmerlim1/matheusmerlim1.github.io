@@ -91,7 +91,7 @@ function showNewCommitsBanner(current, previous) {
 
 // ── SEARCH ────────────────────────────────────────────────────
 const PROJECTS = [
-  { repo: 'CNC_ROUTER',                 icon: '🛠️', name: 'CNC Router — Configurador & Orçamento', lang: 'JavaScript', desc: 'App web para solicitação de CNC routers sob medida: landing, configurador de custo 3D e formulário do cliente.' },
+  { repo: 'CNC_ROUTER',                 icon: '🛠️', name: 'CNC Router: Configurador & Orçamento', lang: 'JavaScript', desc: 'App web para solicitação de CNC routers sob medida: landing, configurador de custo 3D e formulário do cliente.' },
   { repo: 'previsao-do-tempo',          icon: '🌤️', name: 'Previsão do Tempo',        lang: 'JavaScript', desc: 'Site de previsão do tempo com geolocalização automática por IP.' },
   { repo: 'Verificador-de-texto-IA',    icon: '🤖', name: 'Verificador de Texto IA',   lang: 'JavaScript', desc: 'Verifica o percentual de conteúdo gerado por IA em artigos.' },
   { repo: 'Construtora',                icon: '🏗️', name: 'Construtora',               lang: 'JavaScript', desc: 'Sistema de cadastro de clientes, construtoras e projetos de construção.' },
@@ -102,8 +102,8 @@ const PROJECTS = [
   { repo: 'Catalogo_filmes',            icon: '🎭', name: 'Catálogo de Filmes',        lang: 'JavaScript', desc: 'Catálogo visual de filmes com listagem e filtros.' },
   { repo: 'Api-Piadas',                 icon: '😂', name: 'API de Piadas',             lang: 'JavaScript', desc: 'Exibe piadas aleatórias consumindo API REST.' },
   { repo: 'lab-api',                    icon: '🧪', name: 'Laboratório de API',        lang: 'JavaScript', desc: 'Laboratório de aprendizado de APIs REST com JavaScript.' },
-  { repo: 'simulado-pcw',               icon: '📝', name: 'Simulado — Programação Cliente Web', lang: 'JavaScript', desc: 'Simulado interativo da disciplina de Programação de Clientes Web do CEFET/RJ.' },
-  { repo: 'simulado-teste-manutencao-software', icon: '🧪', name: 'Simulado — Teste & Manutenção de Software', lang: 'JavaScript', desc: 'Simulado interativo sobre Teste e Manutenção de Software com JUnit 5 e Katalon.' },
+  { repo: 'simulado-pcw',               icon: '📝', name: 'Simulado: Programação Cliente Web', lang: 'JavaScript', desc: 'Simulado interativo da disciplina de Programação de Clientes Web do CEFET/RJ.' },
+  { repo: 'simulado-teste-manutencao-software', icon: '🧪', name: 'Simulado: Teste & Manutenção de Software', lang: 'JavaScript', desc: 'Simulado interativo sobre Teste e Manutenção de Software com JUnit 5 e Katalon.' },
   { repo: 'Despesas-pessoais',          icon: '💰', name: 'Despesas Pessoais',         lang: 'Flutter',    desc: 'App mobile para controle de despesas pessoais em Flutter.' },
   { repo: 'comparador_de_preco',        icon: '🏷️', name: 'Comparador de Preço',      lang: 'Flutter',    desc: 'App Flutter para comparar preços de produtos em lojas.' },
   { repo: 'flutter-programa-de-perguntas', icon: '❓', name: 'Programa de Perguntas', lang: 'Flutter',    desc: 'App quiz em Flutter com questionário interativo e feedback.' },
@@ -111,7 +111,7 @@ const PROJECTS = [
   { repo: 'LaboratorioArray',           icon: '📋', name: 'Laboratório de Arrays',     lang: 'JavaScript', desc: 'Exercícios de manipulação de arrays em JavaScript.' },
   { repo: 'String-Data',                icon: '📅', name: 'String & Data',             lang: 'JavaScript', desc: 'Manipulação de strings e datas em JavaScript.' },
   { repo: 'ProgramacaoClienteWeb',      icon: '💻', name: 'Programação Cliente Web',   lang: 'HTML',       desc: 'Estudos de programação client-side: HTML, formulários e eventos.' },
-  { repo: 'Diagramacao_MatheusRaposo',  icon: '🎨', name: 'Diagramação — Web',         lang: 'CSS',        desc: 'Exercícios de layout e estilização com HTML e CSS.' },
+  { repo: 'Diagramacao_MatheusRaposo',  icon: '🎨', name: 'Diagramação · Web',         lang: 'CSS',        desc: 'Exercícios de layout e estilização com HTML e CSS.' },
   { repo: 'Momentos-perfeitos',         icon: '📷', name: 'Momentos Perfeitos',        lang: 'HTML',       desc: 'Site de galeria fotográfica com layout elegante.' },
   { repo: 'diagrama-o-3',               icon: '📐', name: 'Diagramação 3',             lang: 'HTML',       desc: 'Terceiro projeto de diagramação com estrutura visual.' },
   { repo: 'trabalho-nilson',            icon: '📝', name: 'Trabalho Nilson',           lang: 'HTML',       desc: 'Projeto acadêmico de desenvolvimento front-end em HTML.' },
