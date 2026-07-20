@@ -515,6 +515,19 @@ section { max-width: 1100px; margin: 0 auto; padding: 0 2rem 5rem; }
 .proj-card:hover::before { opacity: 1; }
 .proj-card.hidden { display: none; }
 
+/* card em destaque */
+.proj-card.featured {
+  border-color: color-mix(in srgb, var(--mec) 45%, var(--border));
+  background: linear-gradient(150deg, color-mix(in srgb, var(--mec) 7%, var(--bg2)), var(--bg2));
+}
+.proj-card.featured::before { background: var(--grad-mec); opacity: 1; }
+.proj-card.featured:hover { border-color: var(--mec); box-shadow: 0 14px 36px rgba(251,146,60,.22); }
+.new-badge {
+  font-size: .64rem; font-weight: 800; letter-spacing: .5px; text-transform: uppercase;
+  color: #fff; padding: .12rem .5rem; border-radius: 20px;
+  background: var(--grad-mec); box-shadow: 0 2px 10px rgba(251,146,60,.5);
+}
+
 .proj-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: .6rem; }
 .proj-icon { font-size: 1.4rem; transition: transform .25s; }
 .proj-card:hover .proj-icon { transform: scale(1.2) rotate(8deg); }

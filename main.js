@@ -91,6 +91,7 @@ function showNewCommitsBanner(current, previous) {
 
 // ── SEARCH ────────────────────────────────────────────────────
 const PROJECTS = [
+  { repo: 'CNC_ROUTER',                 icon: '🛠️', name: 'CNC Router — Configurador & Orçamento', lang: 'JavaScript', desc: 'App web para solicitação de CNC routers sob medida: landing, configurador de custo 3D e formulário do cliente.' },
   { repo: 'previsao-do-tempo',          icon: '🌤️', name: 'Previsão do Tempo',        lang: 'JavaScript', desc: 'Site de previsão do tempo com geolocalização automática por IP.' },
   { repo: 'Verificador-de-texto-IA',    icon: '🤖', name: 'Verificador de Texto IA',   lang: 'JavaScript', desc: 'Verifica o percentual de conteúdo gerado por IA em artigos.' },
   { repo: 'Construtora',                icon: '🏗️', name: 'Construtora',               lang: 'JavaScript', desc: 'Sistema de cadastro de clientes, construtoras e projetos de construção.' },
