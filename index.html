@@ -133,7 +133,7 @@
     <div class="stat-label">Patente Registrada</div>
   </div>
   <div class="stat-card fade-in">
-    <div class="stat-num" style="color:var(--prog)">29</div>
+    <div class="stat-num" id="stat-repos" style="color:var(--prog)">29</div>
     <div class="stat-label">Repositórios GitHub</div>
   </div>
   <div class="stat-card fade-in">
@@ -750,7 +750,7 @@
   <div class="sec-header area-header">
     <div class="sec-icon" style="background:rgba(34,211,238,.12)">💻</div>
     <h2>Programação &amp; Sistemas de Informação</h2>
-    <span class="sec-count">29 repositórios</span>
+    <span class="sec-count" id="prog-count">29 repositórios</span>
   </div>
 
   <!-- Skills -->
@@ -790,6 +790,12 @@
         <span class="skill hi">Git / GitHub</span>
       </div>
     </div>
+  </div>
+
+  <!-- Preenchido sozinho: repositórios que ainda não têm card escrito à mão -->
+  <div id="novos-wrap" hidden>
+    <h3 style="font-size:.82rem;font-weight:700;margin-bottom:.75rem;color:var(--prog)">✨ Adicionados recentemente</h3>
+    <div class="proj-grid" id="novos-grid" style="margin-bottom:2rem"></div>
   </div>
 
   <!-- Projetos Web -->

@@ -2,12 +2,12 @@ name: Atualizar Portfólio
 
 on:
   schedule:
-    # Executa todo dia à meia-noite (UTC)
-    - cron: '0 0 * * *'
+    # De hora em hora. Um repositório novo aparece na página na hora seguinte.
+    - cron: '7 * * * *'
   workflow_dispatch: # Permite executar manualmente
 
 jobs:
-  check-and-update:
+  atualizar:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -16,78 +16,23 @@ jobs:
       - name: Checkout do portfólio
         uses: actions/checkout@v4
 
-      - name: Buscar commits recentes de todos os repositórios
-        id: fetch-commits
-        run: |
-          GITHUB_USER="matheusmerlim1"
+      - name: Gerar projects-data.json
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 .github/scripts/gerar-dados.py
 
-          echo "Buscando repositórios de $GITHUB_USER..."
-
-          # Busca todos os repos e seus últimos commits
-          REPOS=$(curl -s "https://api.github.com/users/$GITHUB_USER/repos?per_page=100&sort=updated" \
-            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-            -H "Accept: application/vnd.github.v3+json")
-
-          # Salva o JSON com os dados atualizados
-          echo "$REPOS" | python3 -c "
-          import json, sys
-          from datetime import datetime, timezone
-
-          repos = json.load(sys.stdin)
-          projects = []
-
-          for r in repos:
-              if r.get('name') == 'matheusmerlim1.github.io':
-                  continue
-              projects.append({
-                  'name': r['name'],
-                  'description': r.get('description') or '',
-                  'url': r['html_url'],
-                  'language': r.get('language') or 'HTML',
-                  'updated_at': r['updated_at'],
-                  'pushed_at': r.get('pushed_at') or r['updated_at'],
-              })
-
-          # Ordena por data de push mais recente
-          projects.sort(key=lambda x: x['pushed_at'], reverse=True)
-
-          with open('projects-data.json', 'w', encoding='utf-8') as f:
-              json.dump({'updated': datetime.now(timezone.utc).isoformat(), 'projects': projects}, f, ensure_ascii=False, indent=2)
-
-          print(f'Total de projetos: {len(projects)}')
-          for p in projects[:5]:
-              print(f'  {p[\"name\"]} — último push: {p[\"pushed_at\"]}')
-          "
-
-      - name: Verificar se houve mudanças
-        id: check-changes
-        run: |
-          if git diff --quiet projects-data.json 2>/dev/null || [ ! -f projects-data.json ]; then
-            echo "changed=false" >> $GITHUB_OUTPUT
-            echo "Nenhuma mudança detectada nos projetos."
-          else
-            echo "changed=true" >> $GITHUB_OUTPUT
-            echo "Mudanças detectadas! Atualizando portfólio..."
-            git diff projects-data.json | head -50
-          fi
-
-      - name: Commit e push das atualizações
-        if: steps.check-changes.outputs.changed == 'true'
+      - name: Commit e push quando houver mudança
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add projects-data.json
-          git commit -m "chore: atualiza dados dos projetos [$(date -u '+%Y-%m-%d %H:%M UTC')]"
-          git push
 
-      - name: Resumo da execução
-        run: |
-          echo "### Verificação de Portfólio" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          if [ "${{ steps.check-changes.outputs.changed }}" == "true" ]; then
-            echo "✅ **Portfólio atualizado** com novos dados dos repositórios." >> $GITHUB_STEP_SUMMARY
+          # git add antes de comparar: o arquivo pode não estar versionado ainda,
+          # e nesse caso "git diff" sozinho não enxerga nada.
+          git add projects-data.json
+          if git diff --cached --quiet; then
+            echo "Nada a commitar." >> $GITHUB_STEP_SUMMARY
           else
-            echo "ℹ️ **Sem mudanças** — portfólio já está atualizado." >> $GITHUB_STEP_SUMMARY
+            git commit -m "chore: atualiza dados dos projetos [$(date -u '+%Y-%m-%d %H:%M UTC')]"
+            git push
+            echo "Dados dos projetos atualizados." >> $GITHUB_STEP_SUMMARY
           fi
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "Data: $(date -u '+%Y-%m-%d %H:%M UTC')" >> $GITHUB_STEP_SUMMARY

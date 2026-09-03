@@ -68,9 +68,14 @@ async function loadProjects() {
   }
 
   REPO_DATA = repoMap;
+  PROJECTS  = buildProjects(repoMap);
+
   applyCommitData(repoMap);
+  renderAutoCards();
+  applyCommitData(repoMap);   // cobre os cards recem-criados
   renderRecent(repoMap);
   renderSidebar();
+  updateCounts();
   showNewCommitsBanner(repoMap, previousMap);
 
   try { localStorage.setItem('portfolio_repos', JSON.stringify(repoMap)); } catch (_) {}
@@ -142,6 +147,66 @@ function renderRecent(repoMap) {
       </div>`;
     grid.appendChild(card);
   });
+}
+
+// ── CARDS AUTOMÁTICOS ─────────────────────────────────
+// Repositório que ainda não tem card escrito à mão ganha um card gerado.
+// Quando alguém escrever o card dele na seção, ele sai daqui sozinho.
+function renderAutoCards() {
+  const wrap = document.getElementById('novos-wrap');
+  const grid = document.getElementById('novos-grid');
+  if (!wrap || !grid) return;
+
+  grid.innerHTML = '';   // antes de olhar quem já tem card
+
+  const jaTem = new Set(
+    Array.from(document.querySelectorAll('#programacao [data-repo]'))
+         .map(el => el.getAttribute('data-repo'))
+  );
+  const faltando = PROJECTS
+    .filter(p => !jaTem.has(p.repo))
+    .sort((a, b) => b.rel - a.rel);
+
+  wrap.hidden = !faltando.length;
+  if (!faltando.length) return;
+
+  faltando.forEach(p => {
+    const repoUrl = `https://github.com/${GITHUB_USER}/${p.repo}`;
+    const card = document.createElement('div');
+    card.className = 'proj-card fade-in visible';
+    card.setAttribute('data-repo', p.repo);
+    card.innerHTML = `
+      <div class="proj-top">
+        <span class="proj-icon">${p.icon}</span>
+        <span style="display:flex;align-items:center;gap:.5rem">
+          <span class="new-badge">Novo</span>
+          <span class="lang-chip"><span class="lang-dot ${LANG_CLASS[p.lang] || 'lc-html'}"></span>${p.lang}</span>
+        </span>
+      </div>
+      <h3>${p.name}</h3>
+      <p>${p.desc}</p>
+      <div class="proj-footer">
+        <span class="proj-links">
+          ${p.site ? `<a class="proj-link" href="${p.site}" target="_blank" rel="noopener">Abrir site \u2192</a>` : ''}
+          <a class="proj-link" href="${repoUrl}" target="_blank" rel="noopener">Reposit\u00f3rio \u2192</a>
+        </span>
+        <span class="commit-badge loading">...</span>
+      </div>`;
+    grid.appendChild(card);
+  });
+}
+
+// contagens que dependem de quantos repositórios existem
+function updateCounts() {
+  const n = PROJECTS.length;
+  const stat = document.getElementById('stat-repos');
+  if (stat) {
+    const suffix = stat.textContent.replace(/[0-9]/g, '');
+    stat.dataset.target = String(n);
+    if (!stat.dataset.animating) stat.textContent = n + suffix;
+  }
+  const sec = document.getElementById('prog-count');
+  if (sec) sec.textContent = n + ' repositórios';
 }
 
 // ── COLUNA LATERAL DE PROJETOS ─────────────────────────
@@ -278,90 +343,122 @@ document.addEventListener('DOMContentLoaded', () => {
 const CATEGORIES = ['Todas', 'Web', 'Simulados', 'API', 'Mobile', 'Fundamentos'];
 
 // site: pagina publicada (quando existe) · cat: categoria · rel: peso de relevancia
-const PROJECTS = [
-  { repo: 'editor-pdf', icon: '📝', name: 'Editor de PDF', lang: 'Python', cat: 'Web', rel: 98,
-    site: 'https://matheusmerlim1.github.io/editor-pdf/',
-    desc: 'Abre um PDF, identifica o texto da página, permite reescrevê-lo no próprio lugar e salva de volta. Roda no navegador ou como programa de mesa no Windows.' },
-  { repo: 'transpetro-enfase-25', icon: '🛢️', name: 'Transpetro Ênfase 25: Engenharia Mecânica', lang: 'HTML', cat: 'Simulados', rel: 96,
-    site: 'https://matheusmerlim1.github.io/transpetro-enfase-25/',
-    desc: '640 questões inéditas no padrão Cesgranrio com modo estudo, simulado cronometrado, fila de erros e formulário de 268 fórmulas.' },
-  { repo: 'simulado-ppc', icon: '⚙️', name: 'Simulado: Programação Paralela & Concorrente', lang: 'JavaScript', cat: 'Simulados', rel: 90,
-    site: 'https://matheusmerlim1.github.io/simulado-ppc/',
-    desc: '167 questões sobre threads, deadlocks, redes de Petri e OpenMP, com resumo da disciplina em 73 tópicos.' },
-  { repo: 'ludoteca-boardgames', icon: '🎲', name: 'Ludoteca: Coleção de Jogos de Tabuleiro', lang: 'Flutter', cat: 'Mobile', rel: 88,
-    desc: 'App Android para registrar partidas de board games e analisar custo por partida, por hora e por mês. Flutter com SQLite local.' },
-  { repo: 'CNC_ROUTER', icon: '🛠️', name: 'CNC Router: Configurador & Orçamento', lang: 'JavaScript', cat: 'Web', rel: 85,
-    site: 'https://matheusmerlim1.github.io/CNC_ROUTER/',
-    desc: 'App web para solicitação de CNC routers sob medida: landing, configurador de custo 3D e formulário do cliente.' },
-  { repo: 'trabalho-nilson', icon: '📚', name: 'DLM Bookstore: Livraria Digital', lang: 'HTML', cat: 'Web', rel: 78,
-    site: 'https://matheusmerlim1.github.io/trabalho-nilson/',
-    desc: 'Livraria digital com catálogo, carrinho e registro de compras em blockchain simulada.' },
-  { repo: 'DLM-PDF-API', icon: '📄', name: 'DLM PDF API', lang: 'HTML', cat: 'Web', rel: 76,
-    site: 'https://matheusmerlim1.github.io/DLM-PDF-API/',
-    desc: 'Documentação e interface web para geração e manipulação de PDFs via API.' },
-  { repo: 'simulado-teste-manutencao-software', icon: '🧪', name: 'Simulado: Teste & Manutenção de Software', lang: 'JavaScript', cat: 'Simulados', rel: 72,
-    site: 'https://matheusmerlim1.github.io/simulado-teste-manutencao-software/',
-    desc: 'Simulado interativo sobre Teste e Manutenção de Software com JUnit 5 e Katalon.' },
-  { repo: 'simulado-pcw', icon: '📑', name: 'Simulado: Programação Cliente Web', lang: 'JavaScript', cat: 'Simulados', rel: 70,
-    site: 'https://matheusmerlim1.github.io/simulado-pcw/',
-    desc: 'Simulado interativo da disciplina de Programação de Clientes Web do CEFET/RJ.' },
-  { repo: 'DLM-PDF-encriptador', icon: '🔒', name: 'DLM PDF Encriptador', lang: 'JavaScript', cat: 'Web', rel: 66,
-    site: 'https://matheusmerlim1.github.io/DLM-PDF-encriptador/',
-    desc: 'Encriptação e leitura de arquivos PDF diretamente no navegador.' },
-  { repo: 'Verificador-de-texto-IA', icon: '🤖', name: 'Verificador de Texto IA', lang: 'JavaScript', cat: 'Web', rel: 62,
-    site: 'https://matheusmerlim1.github.io/Verificador-de-texto-IA/',
-    desc: 'Verifica o percentual de conteúdo gerado por IA em artigos.' },
-  { repo: 'previsao-do-tempo', icon: '🌤️', name: 'Previsão do Tempo', lang: 'JavaScript', cat: 'Web', rel: 60,
-    site: 'https://matheusmerlim1.github.io/previsao-do-tempo/',
-    desc: 'Site de previsão do tempo com geolocalização automática por IP.' },
-  { repo: 'Construtora', icon: '🏗️', name: 'Construtora', lang: 'JavaScript', cat: 'Web', rel: 55,
-    site: 'https://matheusmerlim1.github.io/Construtora/',
-    desc: 'Sistema de cadastro de clientes, construtoras e projetos de construção.' },
-  { repo: 'Despesas-pessoais', icon: '💰', name: 'Despesas Pessoais', lang: 'Flutter', cat: 'Mobile', rel: 52,
-    desc: 'App mobile para controle de despesas pessoais em Flutter.' },
-  { repo: 'comparador_de_preco', icon: '🏷️', name: 'Comparador de Preço', lang: 'Flutter', cat: 'Mobile', rel: 50,
-    desc: 'App Flutter para comparar preços do mesmo produto em lojas diferentes.' },
-  { repo: 'Cafeteria', icon: '☕', name: 'Cafeteria', lang: 'JavaScript', cat: 'Web', rel: 48,
-    site: 'https://matheusmerlim1.github.io/Cafeteria/',
-    desc: 'Site para uma cafeteria com cardápio e interface visual.' },
-  { repo: 'api-Filmes', icon: '🎬', name: 'API de Filmes', lang: 'JavaScript', cat: 'API', rel: 46,
-    site: 'https://matheusmerlim1.github.io/api-Filmes/',
-    desc: 'Busca e exibe informações de filmes consumindo API REST.' },
-  { repo: 'lab-api', icon: '💱', name: 'Câmbio Monetário', lang: 'JavaScript', cat: 'API', rel: 44,
-    site: 'https://matheusmerlim1.github.io/lab-api/',
-    desc: 'Conversão de moedas em tempo real consumindo API de câmbio.' },
-  { repo: 'Catalogo_filmes', icon: '🎭', name: 'Catálogo de Filmes', lang: 'JavaScript', cat: 'API', rel: 42,
-    site: 'https://matheusmerlim1.github.io/Catalogo_filmes/',
-    desc: 'Catálogo visual de filmes e séries com listagem e filtros.' },
-  { repo: 'Api-Piadas', icon: '😂', name: 'API de Piadas', lang: 'JavaScript', cat: 'API', rel: 40,
-    site: 'https://matheusmerlim1.github.io/Api-Piadas/',
-    desc: 'Exibe piadas aleatórias consumindo API REST.' },
-  { repo: 'flutter-programa-de-perguntas', icon: '❓', name: 'Programa de Perguntas', lang: 'Flutter', cat: 'Mobile', rel: 38,
-    desc: 'App quiz em Flutter com questionário interativo e feedback.' },
-  { repo: 'Momentos-perfeitos', icon: '📷', name: 'Momentos Perfeitos', lang: 'HTML', cat: 'Fundamentos', rel: 36,
-    site: 'https://matheusmerlim1.github.io/Momentos-perfeitos/',
-    desc: 'Site de galeria fotográfica com layout elegante.' },
-  { repo: 'ProgramacaoClienteWeb', icon: '💻', name: 'Programação Cliente Web', lang: 'HTML', cat: 'Fundamentos', rel: 32,
-    site: 'https://matheusmerlim1.github.io/ProgramacaoClienteWeb/',
-    desc: 'Estudos de programação client-side: HTML, formulários e eventos.' },
-  { repo: 'dart-fundamental', icon: '🎯', name: 'Dart Fundamental', lang: 'Dart', cat: 'Fundamentos', rel: 30,
-    desc: 'Programas básicos para aprendizado dos fundamentos do Dart.' },
-  { repo: 'LaboratorioArray', icon: '📋', name: 'Laboratório de Arrays', lang: 'JavaScript', cat: 'Fundamentos', rel: 28,
-    site: 'https://matheusmerlim1.github.io/LaboratorioArray/',
-    desc: 'Exercícios de manipulação de arrays em JavaScript.' },
-  { repo: 'diagrama-o-3', icon: '📐', name: 'Diagramação 3', lang: 'HTML', cat: 'Fundamentos', rel: 26,
-    site: 'https://matheusmerlim1.github.io/diagrama-o-3/',
-    desc: 'Terceiro projeto de diagramação com estrutura visual.' },
-  { repo: 'Diagramacao_MatheusRaposo', icon: '🎨', name: 'Diagramação · Web', lang: 'CSS', cat: 'Fundamentos', rel: 24,
-    site: 'https://matheusmerlim1.github.io/Diagramacao_MatheusRaposo/',
-    desc: 'Exercícios de layout e estilização com HTML e CSS.' },
-  { repo: 'String-Data', icon: '📅', name: 'String & Data', lang: 'JavaScript', cat: 'Fundamentos', rel: 22,
-    site: 'https://matheusmerlim1.github.io/String-Data/',
-    desc: 'Manipulação de strings e datas em JavaScript.' },
-  { repo: 'portifolio', icon: '🗂️', name: 'Portfólio Original', lang: 'HTML', cat: 'Fundamentos', rel: 20,
-    site: 'https://matheusmerlim1.github.io/portifolio/',
-    desc: 'Versão anterior do portfólio pessoal em HTML.' },
-];
+// Repositórios que nunca entram na página.
+const IGNORE_REPOS = ['matheusmerlim1.github.io', 'repositorio_teste'];
+
+// Refinamento manual, opcional e por repositório. O que não estiver aqui
+// entra na página do mesmo jeito, usando os dados que vierem do GitHub.
+// Campos: icon, name, lang, cat, rel (0-100), site, desc.
+const PROJECT_META = {
+  'editor-pdf': { icon: '📝', name: 'Editor de PDF', lang: 'Python', cat: 'Web', rel: 98, site: 'https://matheusmerlim1.github.io/editor-pdf/', desc: 'Abre um PDF, identifica o texto da página, permite reescrevê-lo no próprio lugar e salva de volta. Roda no navegador ou como programa de mesa no Windows.' },
+  'transpetro-enfase-25': { icon: '🛢️', name: 'Transpetro Ênfase 25: Engenharia Mecânica', lang: 'HTML', cat: 'Simulados', rel: 96, site: 'https://matheusmerlim1.github.io/transpetro-enfase-25/', desc: '640 questões inéditas no padrão Cesgranrio com modo estudo, simulado cronometrado, fila de erros e formulário de 268 fórmulas.' },
+  'simulado-ppc': { icon: '⚙️', name: 'Simulado: Programação Paralela & Concorrente', lang: 'JavaScript', cat: 'Simulados', rel: 90, site: 'https://matheusmerlim1.github.io/simulado-ppc/', desc: '167 questões sobre threads, deadlocks, redes de Petri e OpenMP, com resumo da disciplina em 73 tópicos.' },
+  'ludoteca-boardgames': { icon: '🎲', name: 'Ludoteca: Coleção de Jogos de Tabuleiro', lang: 'Flutter', cat: 'Mobile', rel: 88, desc: 'App Android para registrar partidas de board games e analisar custo por partida, por hora e por mês. Flutter com SQLite local.' },
+  'CNC_ROUTER': { icon: '🛠️', name: 'CNC Router: Configurador & Orçamento', lang: 'JavaScript', cat: 'Web', rel: 85, site: 'https://matheusmerlim1.github.io/CNC_ROUTER/', desc: 'App web para solicitação de CNC routers sob medida: landing, configurador de custo 3D e formulário do cliente.' },
+  'trabalho-nilson': { icon: '📚', name: 'DLM Bookstore: Livraria Digital', lang: 'HTML', cat: 'Web', rel: 78, site: 'https://matheusmerlim1.github.io/trabalho-nilson/', desc: 'Livraria digital com catálogo, carrinho e registro de compras em blockchain simulada.' },
+  'DLM-PDF-API': { icon: '📄', name: 'DLM PDF API', lang: 'HTML', cat: 'Web', rel: 76, site: 'https://matheusmerlim1.github.io/DLM-PDF-API/', desc: 'Documentação e interface web para geração e manipulação de PDFs via API.' },
+  'simulado-teste-manutencao-software': { icon: '🧪', name: 'Simulado: Teste & Manutenção de Software', lang: 'JavaScript', cat: 'Simulados', rel: 72, site: 'https://matheusmerlim1.github.io/simulado-teste-manutencao-software/', desc: 'Simulado interativo sobre Teste e Manutenção de Software com JUnit 5 e Katalon.' },
+  'simulado-pcw': { icon: '📑', name: 'Simulado: Programação Cliente Web', lang: 'JavaScript', cat: 'Simulados', rel: 70, site: 'https://matheusmerlim1.github.io/simulado-pcw/', desc: 'Simulado interativo da disciplina de Programação de Clientes Web do CEFET/RJ.' },
+  'DLM-PDF-encriptador': { icon: '🔒', name: 'DLM PDF Encriptador', lang: 'JavaScript', cat: 'Web', rel: 66, site: 'https://matheusmerlim1.github.io/DLM-PDF-encriptador/', desc: 'Encriptação e leitura de arquivos PDF diretamente no navegador.' },
+  'Verificador-de-texto-IA': { icon: '🤖', name: 'Verificador de Texto IA', lang: 'JavaScript', cat: 'Web', rel: 62, site: 'https://matheusmerlim1.github.io/Verificador-de-texto-IA/', desc: 'Verifica o percentual de conteúdo gerado por IA em artigos.' },
+  'previsao-do-tempo': { icon: '🌤️', name: 'Previsão do Tempo', lang: 'JavaScript', cat: 'Web', rel: 60, site: 'https://matheusmerlim1.github.io/previsao-do-tempo/', desc: 'Site de previsão do tempo com geolocalização automática por IP.' },
+  'Construtora': { icon: '🏗️', name: 'Construtora', lang: 'JavaScript', cat: 'Web', rel: 55, site: 'https://matheusmerlim1.github.io/Construtora/', desc: 'Sistema de cadastro de clientes, construtoras e projetos de construção.' },
+  'Despesas-pessoais': { icon: '💰', name: 'Despesas Pessoais', lang: 'Flutter', cat: 'Mobile', rel: 52, desc: 'App mobile para controle de despesas pessoais em Flutter.' },
+  'comparador_de_preco': { icon: '🏷️', name: 'Comparador de Preço', lang: 'Flutter', cat: 'Mobile', rel: 50, desc: 'App Flutter para comparar preços do mesmo produto em lojas diferentes.' },
+  'Cafeteria': { icon: '☕', name: 'Cafeteria', lang: 'JavaScript', cat: 'Web', rel: 48, site: 'https://matheusmerlim1.github.io/Cafeteria/', desc: 'Site para uma cafeteria com cardápio e interface visual.' },
+  'api-Filmes': { icon: '🎬', name: 'API de Filmes', lang: 'JavaScript', cat: 'API', rel: 46, site: 'https://matheusmerlim1.github.io/api-Filmes/', desc: 'Busca e exibe informações de filmes consumindo API REST.' },
+  'lab-api': { icon: '💱', name: 'Câmbio Monetário', lang: 'JavaScript', cat: 'API', rel: 44, site: 'https://matheusmerlim1.github.io/lab-api/', desc: 'Conversão de moedas em tempo real consumindo API de câmbio.' },
+  'Catalogo_filmes': { icon: '🎭', name: 'Catálogo de Filmes', lang: 'JavaScript', cat: 'API', rel: 42, site: 'https://matheusmerlim1.github.io/Catalogo_filmes/', desc: 'Catálogo visual de filmes e séries com listagem e filtros.' },
+  'Api-Piadas': { icon: '😂', name: 'API de Piadas', lang: 'JavaScript', cat: 'API', rel: 40, site: 'https://matheusmerlim1.github.io/Api-Piadas/', desc: 'Exibe piadas aleatórias consumindo API REST.' },
+  'flutter-programa-de-perguntas': { icon: '❓', name: 'Programa de Perguntas', lang: 'Flutter', cat: 'Mobile', rel: 38, desc: 'App quiz em Flutter com questionário interativo e feedback.' },
+  'Momentos-perfeitos': { icon: '📷', name: 'Momentos Perfeitos', lang: 'HTML', cat: 'Fundamentos', rel: 36, site: 'https://matheusmerlim1.github.io/Momentos-perfeitos/', desc: 'Site de galeria fotográfica com layout elegante.' },
+  'ProgramacaoClienteWeb': { icon: '💻', name: 'Programação Cliente Web', lang: 'HTML', cat: 'Fundamentos', rel: 32, site: 'https://matheusmerlim1.github.io/ProgramacaoClienteWeb/', desc: 'Estudos de programação client-side: HTML, formulários e eventos.' },
+  'dart-fundamental': { icon: '🎯', name: 'Dart Fundamental', lang: 'Dart', cat: 'Fundamentos', rel: 30, desc: 'Programas básicos para aprendizado dos fundamentos do Dart.' },
+  'LaboratorioArray': { icon: '📋', name: 'Laboratório de Arrays', lang: 'JavaScript', cat: 'Fundamentos', rel: 28, site: 'https://matheusmerlim1.github.io/LaboratorioArray/', desc: 'Exercícios de manipulação de arrays em JavaScript.' },
+  'diagrama-o-3': { icon: '📐', name: 'Diagramação 3', lang: 'HTML', cat: 'Fundamentos', rel: 26, site: 'https://matheusmerlim1.github.io/diagrama-o-3/', desc: 'Terceiro projeto de diagramação com estrutura visual.' },
+  'Diagramacao_MatheusRaposo': { icon: '🎨', name: 'Diagramação · Web', lang: 'CSS', cat: 'Fundamentos', rel: 24, site: 'https://matheusmerlim1.github.io/Diagramacao_MatheusRaposo/', desc: 'Exercícios de layout e estilização com HTML e CSS.' },
+  'String-Data': { icon: '📅', name: 'String & Data', lang: 'JavaScript', cat: 'Fundamentos', rel: 22, site: 'https://matheusmerlim1.github.io/String-Data/', desc: 'Manipulação de strings e datas em JavaScript.' },
+  'portifolio': { icon: '🗂️', name: 'Portfólio Original', lang: 'HTML', cat: 'Fundamentos', rel: 20, site: 'https://matheusmerlim1.github.io/portifolio/', desc: 'Versão anterior do portfólio pessoal em HTML.' },
+};
+
+
+// ── MONTAGEM DA LISTA ───────────────────────────────────
+// A página se monta a partir da lista real de repositórios. PROJECT_META
+// só melhora o que o GitHub não tem como saber (nome em português, ícone,
+// categoria, relevância). Repositório novo entra sozinho.
+
+// 'analisador-de_vibracao' -> 'Analisador de Vibracao'
+const MINUSCULAS = ['de', 'da', 'do', 'das', 'dos', 'e', 'em', 'com', 'para', 'no', 'na'];
+
+function prettyName(repo) {
+  return repo
+    .replace(/[-_]+/g, ' ')
+    .replace(/([a-z])([A-Z])/g, '$1 $2')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .split(' ')
+    .map((w, i) => (i > 0 && MINUSCULAS.includes(w.toLowerCase()))
+      ? w.toLowerCase()
+      : w.charAt(0).toUpperCase() + w.slice(1))
+    .join(' ');
+}
+
+function inferCat(repo, lang) {
+  const n = repo.toLowerCase();
+  if (/simulado|quest|prova|concurso|enfase/.test(n))      return 'Simulados';
+  if (/^api|[-_]api|api[-_]|catalogo|cambio/.test(n))      return 'API';
+  if (['Dart', 'Flutter', 'Kotlin', 'Swift'].includes(lang)) return 'Mobile';
+  if (/diagram|laborat|fundamental|string|array|trabalho/.test(n)) return 'Fundamentos';
+  return 'Web';
+}
+
+// projeto sem relevância definida a mão: quanto mais recente, mais acima
+function autoRel(r) {
+  const d = r && (r.pushed_at || r.updated_at);
+  if (!d) return 45;
+  const dias = (Date.now() - new Date(d).getTime()) / 86400000;
+  if (dias <  30) return 84;
+  if (dias < 180) return 70;
+  if (dias < 365) return 58;
+  return 45;
+}
+
+// site publicado: o homepage declarado no repo ou o GitHub Pages padrão
+function autoSite(repo, r) {
+  if (r && typeof r.homepage === 'string' && /^https?:\/\//.test(r.homepage)) return r.homepage;
+  if (r && r.has_pages) return `https://${GITHUB_USER}.github.io/${repo}/`;
+  return null;
+}
+
+function buildProjects(repoMap) {
+  const nomes = Object.keys(repoMap).filter(n =>
+    !IGNORE_REPOS.includes(n) && !(repoMap[n] && repoMap[n].fork)
+  );
+  // mantém os refinados mesmo se a API falhar ou não listá-los
+  Object.keys(PROJECT_META).forEach(n => {
+    if (!IGNORE_REPOS.includes(n) && !nomes.includes(n)) nomes.push(n);
+  });
+
+  return nomes.map(repo => {
+    const r = repoMap[repo] || {};
+    const m = PROJECT_META[repo] || {};
+    const lang = m.lang || r.language || 'HTML';
+    return {
+      repo,
+      icon:  m.icon || '\u{1F4E6}',
+      name:  m.name || prettyName(repo),
+      lang,
+      cat:   m.cat  || inferCat(repo, lang),
+      rel:   m.rel  != null ? m.rel : autoRel(r),
+      site:  m.site || autoSite(repo, r),
+      desc:  m.desc || r.description || 'Projeto publicado no GitHub.',
+      curado: !!PROJECT_META[repo],
+    };
+  });
+}
+
+// começa com o que já está refinado; é remontada quando os dados chegam
+let PROJECTS = buildProjects({});
 
 // endereco principal de um projeto: o site publicado, quando existe
 function projectUrl(p) {
@@ -444,17 +541,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ── COUNT-UP DE NÚMEROS ───────────────────────────────────────
 function animateCount(el) {
-  const raw    = el.textContent.trim();
-  const target = parseInt(raw.replace(/\D/g, ''), 10);
-  if (!target) return;
+  const raw = el.textContent.trim();
+  if (!el.dataset.target) el.dataset.target = raw.replace(/\D/g, '');
+  if (!parseInt(el.dataset.target, 10)) return;
   const suffix = raw.replace(/[0-9]/g, '');
   const dur    = 1100;
   const start  = performance.now();
+  el.dataset.animating = '1';
   function step(now) {
+    // relê o alvo a cada quadro: se a contagem real chegar no meio do
+    // caminho, a animação segue para o número novo em vez do antigo
+    const target = parseInt(el.dataset.target, 10) || 0;
     const p = Math.min((now - start) / dur, 1);
     const eased = 1 - Math.pow(1 - p, 3);
     el.textContent = Math.round(target * eased) + suffix;
     if (p < 1) requestAnimationFrame(step);
+    else delete el.dataset.animating;
   }
   requestAnimationFrame(step);
 }
