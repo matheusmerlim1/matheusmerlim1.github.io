@@ -25,6 +25,26 @@ Combino base científica rigorosa com experiência prática em projetos de manuf
 
 Titular da patente **BR20202001520398** — Protetor Facial (Face Shield) reutilizável desenvolvido durante a pandemia de COVID-19.
 
+## Navegação
+
+O portfólio tem uma **coluna lateral fixa** com os 29 projetos, sempre visível à esquerda
+(vira gaveta em telas estreitas). Nela dá para buscar por nome, filtrar por categoria
+(Web, Simulados, API, Mobile, Fundamentos) e ordenar por relevância, mais recentes ou nome.
+Cada item abre o **site publicado** do projeto quando ele existe, e o repositório quando não existe.
+
+## Projetos recentes
+
+O portfólio abre com a faixa **Projetos mais recentes**, que ordena os seis últimos repositórios
+pela data do último commit publicado no GitHub e se reordena sozinha a cada visita.
+
+| Projeto | Stack | O que é |
+|---------|-------|---------|
+| [Editor de PDF](https://matheusmerlim1.github.io/editor-pdf/) | Python · pdf.js | Abre um PDF, identifica o texto, permite reescrevê-lo no próprio lugar e salva de volta, no navegador ou como programa de mesa no Windows |
+| [Transpetro Ênfase 25](https://matheusmerlim1.github.io/transpetro-enfase-25/) | HTML | 640 questões no padrão Cesgranrio, simulado cronometrado e formulário de 268 fórmulas |
+| [Simulado PPC](https://matheusmerlim1.github.io/simulado-ppc/) | JavaScript | 167 questões de Programação Paralela e Concorrente com resumo em 73 tópicos |
+| [Ludoteca](https://github.com/matheusmerlim1/ludoteca-boardgames) | Flutter · SQLite | App Android para registrar partidas de board games e analisar custo por partida |
+| [CNC Router](https://matheusmerlim1.github.io/CNC_ROUTER/) | JavaScript | Configurador de custo 3D e orçamento de CNC routers sob medida |
+
 ## Contato
 
 - 📧 matheusmerlim@hotmail.com

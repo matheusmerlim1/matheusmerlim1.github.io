@@ -13,10 +13,56 @@
 <div id="scroll-progress"></div>
 <div id="cursor-glow"></div>
 
+<!-- ══ COLUNA DE PROJETOS ══ -->
+<div id="sb-backdrop" class="sb-backdrop"></div>
+<aside id="sidebar" class="sidebar" aria-label="Lista de projetos">
+  <div class="sb-head">
+    <div class="sb-title">
+      <span>🗂️ Projetos</span>
+      <span class="sb-count" id="sb-count">29 projetos</span>
+    </div>
+
+    <div class="sb-search">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <label class="sr-only" for="sb-input">Buscar projeto por nome</label>
+      <input id="sb-input" type="text" placeholder="Buscar por nome..." autocomplete="off" spellcheck="false" />
+    </div>
+
+    <div class="sb-sort">
+      <label for="sb-sort">Ordenar</label>
+      <select id="sb-sort">
+        <option value="rel">Relevância</option>
+        <option value="recent">Mais recentes</option>
+        <option value="name">Nome (A–Z)</option>
+      </select>
+    </div>
+
+    <div class="sb-cats">
+      <button type="button" class="sb-chip active" data-cat="Todas">Todas</button>
+      <button type="button" class="sb-chip" data-cat="Web">Web</button>
+      <button type="button" class="sb-chip" data-cat="Simulados">Simulados</button>
+      <button type="button" class="sb-chip" data-cat="API">API</button>
+      <button type="button" class="sb-chip" data-cat="Mobile">Mobile</button>
+      <button type="button" class="sb-chip" data-cat="Fundamentos">Fundamentos</button>
+    </div>
+  </div>
+
+  <div class="sb-list" id="sb-list"></div>
+
+  <div class="sb-foot">
+    Os links abrem o site publicado quando existe.
+  </div>
+</aside>
+
 <!-- ══ NAV ══ -->
 <nav>
   <div class="nav-logo">Matheus <span>Raposo</span></div>
   <div class="nav-links">
+    <button id="sb-toggle" class="sb-toggle" aria-label="Abrir lista de projetos" aria-expanded="false">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      <span class="sb-toggle-txt">Projetos</span>
+    </button>
+    <a href="#recentes"    class="hide-sm">Recentes</a>
     <a href="#fisica"      class="hide-sm">Física</a>
     <a href="#engenharia"  class="hide-sm">Engenharia</a>
     <a href="#programacao" class="hide-sm">Programação</a>
@@ -76,6 +122,123 @@
   </div>
 </div>
 
+<!-- ══ PROJETOS RECENTES ══ -->
+<section id="recentes" class="recent-band">
+  <div class="recent-inner">
+    <div class="recent-head-row">
+      <div class="recent-title-wrap">
+        <span class="recent-eyebrow"><span class="live-dot"></span>Atualizado agora</span>
+        <h2>Projetos mais recentes</h2>
+      </div>
+      <a class="recent-all" href="#programacao">Ver todos os projetos →</a>
+    </div>
+    <p class="recent-sub" style="margin-bottom:1rem">Ordenados pelo último commit publicado no GitHub. A lista se reordena sozinha a cada visita.</p>
+    <div class="recent-grid" id="recent-grid">
+
+    <article class="recent-card is-top fade-in" data-repo="editor-pdf">
+      <div class="recent-head">
+        <span class="recent-rank">01</span>
+        <span class="recent-icon">📝</span>
+        <span class="commit-badge loading">...</span>
+      </div>
+      <h3>Editor de PDF</h3>
+      <p>Abre um PDF, identifica o texto da página, permite reescrevê-lo no próprio lugar e salva de volta. Roda no navegador ou como programa de mesa no Windows.</p>
+      <div class="recent-foot">
+        <span class="lang-chip"><span class="lang-dot lc-python"></span>Python</span>
+        <span class="recent-links">
+          <a class="proj-link" href="https://matheusmerlim1.github.io/editor-pdf/" target="_blank" rel="noopener">Abrir →</a>
+          <a class="proj-link" href="https://github.com/matheusmerlim1/editor-pdf" target="_blank" rel="noopener">Código →</a>
+        </span>
+      </div>
+    </article>
+
+    <article class="recent-card fade-in" data-repo="transpetro-enfase-25">
+      <div class="recent-head">
+        <span class="recent-rank">02</span>
+        <span class="recent-icon">🛢️</span>
+        <span class="commit-badge loading">...</span>
+      </div>
+      <h3>Transpetro Ênfase 25: Engenharia Mecânica</h3>
+      <p>640 questões inéditas no padrão Cesgranrio com modo estudo, simulado cronometrado, fila de erros e formulário de 268 fórmulas.</p>
+      <div class="recent-foot">
+        <span class="lang-chip"><span class="lang-dot lc-html"></span>HTML</span>
+        <span class="recent-links">
+          <a class="proj-link" href="https://matheusmerlim1.github.io/transpetro-enfase-25/" target="_blank" rel="noopener">Abrir →</a>
+          <a class="proj-link" href="https://github.com/matheusmerlim1/transpetro-enfase-25" target="_blank" rel="noopener">Código →</a>
+        </span>
+      </div>
+    </article>
+
+    <article class="recent-card fade-in" data-repo="simulado-ppc">
+      <div class="recent-head">
+        <span class="recent-rank">03</span>
+        <span class="recent-icon">⚙️</span>
+        <span class="commit-badge loading">...</span>
+      </div>
+      <h3>Simulado: Programação Paralela &amp; Concorrente</h3>
+      <p>167 questões sobre threads, deadlocks, redes de Petri e OpenMP, com resumo da disciplina em 73 tópicos.</p>
+      <div class="recent-foot">
+        <span class="lang-chip"><span class="lang-dot lc-js"></span>JavaScript</span>
+        <span class="recent-links">
+          <a class="proj-link" href="https://matheusmerlim1.github.io/simulado-ppc/" target="_blank" rel="noopener">Abrir →</a>
+          <a class="proj-link" href="https://github.com/matheusmerlim1/simulado-ppc" target="_blank" rel="noopener">Código →</a>
+        </span>
+      </div>
+    </article>
+
+    <article class="recent-card fade-in" data-repo="ludoteca-boardgames">
+      <div class="recent-head">
+        <span class="recent-rank">04</span>
+        <span class="recent-icon">🎲</span>
+        <span class="commit-badge loading">...</span>
+      </div>
+      <h3>Ludoteca: Coleção de Jogos de Tabuleiro</h3>
+      <p>App Android para registrar partidas de board games e analisar custo por partida, por hora e por mês. Flutter com SQLite local.</p>
+      <div class="recent-foot">
+        <span class="lang-chip"><span class="lang-dot lc-flutter"></span>Flutter</span>
+        <span class="recent-links">
+          <a class="proj-link" href="https://github.com/matheusmerlim1/ludoteca-boardgames" target="_blank" rel="noopener">Código →</a>
+        </span>
+      </div>
+    </article>
+
+    <article class="recent-card fade-in" data-repo="CNC_ROUTER">
+      <div class="recent-head">
+        <span class="recent-rank">05</span>
+        <span class="recent-icon">🛠️</span>
+        <span class="commit-badge loading">...</span>
+      </div>
+      <h3>CNC Router: Configurador &amp; Orçamento</h3>
+      <p>App web para solicitação de CNC routers sob medida: landing, configurador de custo 3D e formulário do cliente.</p>
+      <div class="recent-foot">
+        <span class="lang-chip"><span class="lang-dot lc-js"></span>JavaScript</span>
+        <span class="recent-links">
+          <a class="proj-link" href="https://matheusmerlim1.github.io/CNC_ROUTER/" target="_blank" rel="noopener">Abrir →</a>
+          <a class="proj-link" href="https://github.com/matheusmerlim1/CNC_ROUTER" target="_blank" rel="noopener">Código →</a>
+        </span>
+      </div>
+    </article>
+
+    <article class="recent-card fade-in" data-repo="simulado-teste-manutencao-software">
+      <div class="recent-head">
+        <span class="recent-rank">06</span>
+        <span class="recent-icon">🧪</span>
+        <span class="commit-badge loading">...</span>
+      </div>
+      <h3>Simulado: Teste &amp; Manutenção de Software</h3>
+      <p>Simulado interativo sobre Teste e Manutenção de Software, abordando JUnit 5 e Katalon, com feedback de respostas.</p>
+      <div class="recent-foot">
+        <span class="lang-chip"><span class="lang-dot lc-js"></span>JavaScript</span>
+        <span class="recent-links">
+          <a class="proj-link" href="https://matheusmerlim1.github.io/simulado-teste-manutencao-software/" target="_blank" rel="noopener">Abrir →</a>
+          <a class="proj-link" href="https://github.com/matheusmerlim1/simulado-teste-manutencao-software" target="_blank" rel="noopener">Código →</a>
+        </span>
+      </div>
+    </article>
+    </div>
+  </div>
+</section>
+
 <!-- ══ STATS ══ -->
 <div class="stats">
   <div class="stat-card fade-in">
@@ -87,7 +250,7 @@
     <div class="stat-label">Patente Registrada</div>
   </div>
   <div class="stat-card fade-in">
-    <div class="stat-num" style="color:var(--prog)">25</div>
+    <div class="stat-num" style="color:var(--prog)">29</div>
     <div class="stat-label">Repositórios GitHub</div>
   </div>
   <div class="stat-card fade-in">
@@ -590,7 +753,7 @@
   <div class="sec-header area-header">
     <div class="sec-icon" style="background:rgba(34,211,238,.12)">💻</div>
     <h2>Programação &amp; Sistemas de Informação</h2>
-    <span class="sec-count">25 repositórios</span>
+    <span class="sec-count">29 repositórios</span>
   </div>
 
   <!-- Skills -->
@@ -615,6 +778,7 @@
       <h4>Back-end / Dados</h4>
       <div class="skill-list">
         <span class="skill hi">Python</span>
+        <span class="skill">PyMuPDF</span>
         <span class="skill">MySQL</span>
         <span class="skill">Java</span>
         <span class="skill">C / C++</span>
@@ -635,18 +799,37 @@
   <h3 style="font-size:.82rem;font-weight:700;margin-bottom:.75rem;color:var(--prog)">🌐 Aplicações Web &amp; Ferramentas</h3>
   <div class="proj-grid" style="margin-bottom:2rem">
 
+    <div class="proj-card featured fade-in" data-repo="editor-pdf">
+      <div class="proj-top">
+        <span class="proj-icon">📝</span>
+        <span style="display:flex;align-items:center;gap:.5rem">
+          <span class="new-badge">Novo</span>
+          <span class="lang-chip"><span class="lang-dot lc-python"></span>Python</span>
+        </span>
+      </div>
+      <h3>Editor de PDF</h3>
+      <p>Abre um arquivo PDF, extrai cada trecho de texto com posição, fonte e cor, permite reescrevê-lo no próprio lugar da página e salva tudo de volta em PDF. Duas versões do mesmo editor: no navegador com pdf.js e pdf-lib, sem instalar nada, e como programa de mesa em Python com PyMuPDF e Tkinter, que remove de fato o texto antigo do arquivo. Inclui localizar e substituir, desfazer e executável para Windows.</p>
+      <div class="proj-footer">
+        <span class="proj-links">
+          <a class="proj-link" href="https://matheusmerlim1.github.io/editor-pdf/" target="_blank" rel="noopener">Abrir site →</a>
+          <a class="proj-link" href="https://github.com/matheusmerlim1/editor-pdf" target="_blank" rel="noopener">Repositório →</a>
+        </span>
+        <span class="commit-badge loading">...</span>
+      </div>
+    </div>
+
     <div class="proj-card featured fade-in" data-repo="CNC_ROUTER">
       <div class="proj-top">
         <span class="proj-icon">🛠️</span>
-        <span style="display:flex;align-items:center;gap:.5rem">
-          <span class="new-badge">Novo</span>
-          <span class="lang-chip"><span class="lang-dot lc-js"></span>JavaScript</span>
-        </span>
+        <span class="lang-chip"><span class="lang-dot lc-js"></span>JavaScript</span>
       </div>
       <h3>CNC Router: Configurador &amp; Orçamento</h3>
       <p>Aplicação web multi-página para solicitação de CNC routers sob medida: landing page, configurador de custo dinâmico com visualização 3D e formulário de requisitos do cliente. Tema claro/escuro e testes de validação.</p>
       <div class="proj-footer">
-        <a class="proj-link" href="https://github.com/matheusmerlim1/CNC_ROUTER" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="proj-links">
+          <a class="proj-link" href="https://matheusmerlim1.github.io/CNC_ROUTER/" target="_blank" rel="noopener">Abrir site →</a>
+          <a class="proj-link" href="https://github.com/matheusmerlim1/CNC_ROUTER" target="_blank" rel="noopener">Repositório →</a>
+        </span>
         <span class="commit-badge loading">...</span>
       </div>
     </div>
@@ -656,7 +839,10 @@
       <h3>Previsão do Tempo</h3>
       <p>Site de previsão do tempo com geolocalização automática por IP. Exibe condições climáticas em tempo real.</p>
       <div class="proj-footer">
-        <a class="proj-link" href="https://github.com/matheusmerlim1/previsao-do-tempo" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="proj-links">
+          <a class="proj-link" href="https://matheusmerlim1.github.io/previsao-do-tempo/" target="_blank" rel="noopener">Abrir site →</a>
+          <a class="proj-link" href="https://github.com/matheusmerlim1/previsao-do-tempo" target="_blank" rel="noopener">Repositório →</a>
+        </span>
         <span class="commit-badge loading">...</span>
       </div>
     </div>
@@ -666,7 +852,10 @@
       <h3>Verificador de Texto IA</h3>
       <p>Ferramenta web para verificar o percentual de conteúdo gerado por IA em um artigo.</p>
       <div class="proj-footer">
-        <a class="proj-link" href="https://github.com/matheusmerlim1/Verificador-de-texto-IA" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="proj-links">
+          <a class="proj-link" href="https://matheusmerlim1.github.io/Verificador-de-texto-IA/" target="_blank" rel="noopener">Abrir site →</a>
+          <a class="proj-link" href="https://github.com/matheusmerlim1/Verificador-de-texto-IA" target="_blank" rel="noopener">Repositório →</a>
+        </span>
         <span class="commit-badge loading">...</span>
       </div>
     </div>
@@ -676,7 +865,10 @@
       <h3>Construtora</h3>
       <p>Sistema de cadastro com registro de clientes, empresas e projetos de construção.</p>
       <div class="proj-footer">
-        <a class="proj-link" href="https://github.com/matheusmerlim1/Construtora" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="proj-links">
+          <a class="proj-link" href="https://matheusmerlim1.github.io/Construtora/" target="_blank" rel="noopener">Abrir site →</a>
+          <a class="proj-link" href="https://github.com/matheusmerlim1/Construtora" target="_blank" rel="noopener">Repositório →</a>
+        </span>
         <span class="commit-badge loading">...</span>
       </div>
     </div>
@@ -686,7 +878,23 @@
       <h3>Cafeteria</h3>
       <p>Site para uma cafeteria com apresentação de produtos e cardápio visual.</p>
       <div class="proj-footer">
-        <a class="proj-link" href="https://github.com/matheusmerlim1/Cafeteria" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="proj-links">
+          <a class="proj-link" href="https://matheusmerlim1.github.io/Cafeteria/" target="_blank" rel="noopener">Abrir site →</a>
+          <a class="proj-link" href="https://github.com/matheusmerlim1/Cafeteria" target="_blank" rel="noopener">Repositório →</a>
+        </span>
+        <span class="commit-badge loading">...</span>
+      </div>
+    </div>
+
+    <div class="proj-card fade-in" data-repo="trabalho-nilson">
+      <div class="proj-top"><span class="proj-icon">📚</span><span class="lang-chip"><span class="lang-dot lc-html"></span>HTML</span></div>
+      <h3>DLM Bookstore: Livraria Digital</h3>
+      <p>Livraria digital com catálogo de títulos, carrinho de compras e registro das transações em uma blockchain simulada.</p>
+      <div class="proj-footer">
+        <span class="proj-links">
+          <a class="proj-link" href="https://matheusmerlim1.github.io/trabalho-nilson/" target="_blank" rel="noopener">Abrir site →</a>
+          <a class="proj-link" href="https://github.com/matheusmerlim1/trabalho-nilson" target="_blank" rel="noopener">Repositório →</a>
+        </span>
         <span class="commit-badge loading">...</span>
       </div>
     </div>
@@ -696,7 +904,10 @@
       <h3>DLM PDF API</h3>
       <p>Interface web para manipulação e geração de arquivos PDF via API no navegador.</p>
       <div class="proj-footer">
-        <a class="proj-link" href="https://github.com/matheusmerlim1/DLM-PDF-API" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="proj-links">
+          <a class="proj-link" href="https://matheusmerlim1.github.io/DLM-PDF-API/" target="_blank" rel="noopener">Abrir site →</a>
+          <a class="proj-link" href="https://github.com/matheusmerlim1/DLM-PDF-API" target="_blank" rel="noopener">Repositório →</a>
+        </span>
         <span class="commit-badge loading">...</span>
       </div>
     </div>
@@ -706,7 +917,10 @@
       <h3>DLM PDF Encriptador</h3>
       <p>Encriptação de arquivos PDF diretamente no navegador, sem dependências externas.</p>
       <div class="proj-footer">
-        <a class="proj-link" href="https://github.com/matheusmerlim1/DLM-PDF-encriptador" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="proj-links">
+          <a class="proj-link" href="https://matheusmerlim1.github.io/DLM-PDF-encriptador/" target="_blank" rel="noopener">Abrir site →</a>
+          <a class="proj-link" href="https://github.com/matheusmerlim1/DLM-PDF-encriptador" target="_blank" rel="noopener">Repositório →</a>
+        </span>
         <span class="commit-badge loading">...</span>
       </div>
     </div>
@@ -722,7 +936,10 @@
       <h3>API de Filmes</h3>
       <p>Busca e exibe informações de filmes consumindo API REST: sinopse, avaliações e mais.</p>
       <div class="proj-footer">
-        <a class="proj-link" href="https://github.com/matheusmerlim1/api-Filmes" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="proj-links">
+          <a class="proj-link" href="https://matheusmerlim1.github.io/api-Filmes/" target="_blank" rel="noopener">Abrir site →</a>
+          <a class="proj-link" href="https://github.com/matheusmerlim1/api-Filmes" target="_blank" rel="noopener">Repositório →</a>
+        </span>
         <span class="commit-badge loading">...</span>
       </div>
     </div>
@@ -732,7 +949,10 @@
       <h3>Catálogo de Filmes</h3>
       <p>Catálogo visual com listagem e filtros de filmes em JavaScript.</p>
       <div class="proj-footer">
-        <a class="proj-link" href="https://github.com/matheusmerlim1/Catalogo_filmes" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="proj-links">
+          <a class="proj-link" href="https://matheusmerlim1.github.io/Catalogo_filmes/" target="_blank" rel="noopener">Abrir site →</a>
+          <a class="proj-link" href="https://github.com/matheusmerlim1/Catalogo_filmes" target="_blank" rel="noopener">Repositório →</a>
+        </span>
         <span class="commit-badge loading">...</span>
       </div>
     </div>
@@ -742,17 +962,23 @@
       <h3>API de Piadas</h3>
       <p>Exibe piadas aleatórias consumindo API REST com chamadas JavaScript.</p>
       <div class="proj-footer">
-        <a class="proj-link" href="https://github.com/matheusmerlim1/Api-Piadas" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="proj-links">
+          <a class="proj-link" href="https://matheusmerlim1.github.io/Api-Piadas/" target="_blank" rel="noopener">Abrir site →</a>
+          <a class="proj-link" href="https://github.com/matheusmerlim1/Api-Piadas" target="_blank" rel="noopener">Repositório →</a>
+        </span>
         <span class="commit-badge loading">...</span>
       </div>
     </div>
 
     <div class="proj-card fade-in" data-repo="lab-api">
-      <div class="proj-top"><span class="proj-icon">🧪</span><span class="lang-chip"><span class="lang-dot lc-js"></span>JavaScript</span></div>
-      <h3>Laboratório de API</h3>
-      <p>Ambiente de estudo para consumo de APIs REST com JavaScript.</p>
+      <div class="proj-top"><span class="proj-icon">💱</span><span class="lang-chip"><span class="lang-dot lc-js"></span>JavaScript</span></div>
+      <h3>Câmbio Monetário</h3>
+      <p>Conversão de moedas em tempo real consumindo uma API de câmbio.</p>
       <div class="proj-footer">
-        <a class="proj-link" href="https://github.com/matheusmerlim1/lab-api" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="proj-links">
+          <a class="proj-link" href="https://matheusmerlim1.github.io/lab-api/" target="_blank" rel="noopener">Abrir site →</a>
+          <a class="proj-link" href="https://github.com/matheusmerlim1/lab-api" target="_blank" rel="noopener">Repositório →</a>
+        </span>
         <span class="commit-badge loading">...</span>
       </div>
     </div>
@@ -760,15 +986,56 @@
   </div>
 
   <!-- Simulados interativos -->
-  <h3 style="font-size:.82rem;font-weight:700;margin-bottom:.75rem;color:var(--prog)">🎓 Simulados Interativos · CEFET/RJ</h3>
+  <h3 style="font-size:.82rem;font-weight:700;margin-bottom:.75rem;color:var(--prog)">🎓 Simulados &amp; Bancos de Questões</h3>
   <div class="proj-grid" style="margin-bottom:2rem">
+
+    <div class="proj-card featured fade-in" data-repo="transpetro-enfase-25">
+      <div class="proj-top">
+        <span class="proj-icon">🛢️</span>
+        <span style="display:flex;align-items:center;gap:.5rem">
+          <span class="new-badge">Novo</span>
+          <span class="lang-chip"><span class="lang-dot lc-html"></span>HTML</span>
+        </span>
+      </div>
+      <h3>Transpetro Ênfase 25: Engenharia Mecânica</h3>
+      <p>Plataforma de estudo para o concurso Transpetro 2026: 640 questões inéditas no padrão Cesgranrio com gabarito comentado, 67 verbetes de teoria, modo estudo com filtros, simulado cronometrado de 4h30 com os cortes do edital, fila de erros e formulário com 268 fórmulas. Progresso salvo localmente e versão offline em arquivo único.</p>
+      <div class="proj-footer">
+        <span class="proj-links">
+          <a class="proj-link" href="https://matheusmerlim1.github.io/transpetro-enfase-25/" target="_blank" rel="noopener">Abrir site →</a>
+          <a class="proj-link" href="https://github.com/matheusmerlim1/transpetro-enfase-25" target="_blank" rel="noopener">Repositório →</a>
+        </span>
+        <span class="commit-badge loading">...</span>
+      </div>
+    </div>
+
+    <div class="proj-card fade-in" data-repo="simulado-ppc">
+      <div class="proj-top">
+        <span class="proj-icon">⚙️</span>
+        <span style="display:flex;align-items:center;gap:.5rem">
+          <span class="new-badge">Novo</span>
+          <span class="lang-chip"><span class="lang-dot lc-js"></span>JavaScript</span>
+        </span>
+      </div>
+      <h3>Simulado: Programação Paralela &amp; Concorrente</h3>
+      <p>167 questões com gabarito comentado sobre threads, exclusão mútua, deadlocks, redes de Petri, OpenMP e escalabilidade, em quatro formatos (múltipla escolha, V/F, discursiva e código). Inclui resumo da disciplina com 73 tópicos e casos numéricos resolvidos.</p>
+      <div class="proj-footer">
+        <span class="proj-links">
+          <a class="proj-link" href="https://matheusmerlim1.github.io/simulado-ppc/" target="_blank" rel="noopener">Abrir site →</a>
+          <a class="proj-link" href="https://github.com/matheusmerlim1/simulado-ppc" target="_blank" rel="noopener">Repositório →</a>
+        </span>
+        <span class="commit-badge loading">...</span>
+      </div>
+    </div>
 
     <div class="proj-card fade-in" data-repo="simulado-pcw">
       <div class="proj-top"><span class="proj-icon">📝</span><span class="lang-chip"><span class="lang-dot lc-js"></span>JavaScript</span></div>
       <h3>Simulado: Programação Cliente Web</h3>
       <p>Simulado interativo da disciplina de Programação de Clientes Web do CEFET/RJ, com questões e correção automática.</p>
       <div class="proj-footer">
-        <a class="proj-link" href="https://github.com/matheusmerlim1/simulado-pcw" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="proj-links">
+          <a class="proj-link" href="https://matheusmerlim1.github.io/simulado-pcw/" target="_blank" rel="noopener">Abrir site →</a>
+          <a class="proj-link" href="https://github.com/matheusmerlim1/simulado-pcw" target="_blank" rel="noopener">Repositório →</a>
+        </span>
         <span class="commit-badge loading">...</span>
       </div>
     </div>
@@ -778,7 +1045,10 @@
       <h3>Simulado: Teste &amp; Manutenção de Software</h3>
       <p>Simulado interativo sobre Teste e Manutenção de Software, abordando JUnit 5 e Katalon, com feedback de respostas.</p>
       <div class="proj-footer">
-        <a class="proj-link" href="https://github.com/matheusmerlim1/simulado-teste-manutencao-software" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="proj-links">
+          <a class="proj-link" href="https://matheusmerlim1.github.io/simulado-teste-manutencao-software/" target="_blank" rel="noopener">Abrir site →</a>
+          <a class="proj-link" href="https://github.com/matheusmerlim1/simulado-teste-manutencao-software" target="_blank" rel="noopener">Repositório →</a>
+        </span>
         <span class="commit-badge loading">...</span>
       </div>
     </div>
@@ -788,6 +1058,22 @@
   <!-- Flutter -->
   <h3 style="font-size:.82rem;font-weight:700;margin-bottom:.75rem;color:var(--prog)">📱 Aplicativos Mobile · Flutter</h3>
   <div class="proj-grid" style="margin-bottom:2rem">
+
+    <div class="proj-card featured fade-in" data-repo="ludoteca-boardgames">
+      <div class="proj-top">
+        <span class="proj-icon">🎲</span>
+        <span style="display:flex;align-items:center;gap:.5rem">
+          <span class="new-badge">Novo</span>
+          <span class="lang-chip"><span class="lang-dot lc-flutter"></span>Flutter</span>
+        </span>
+      </div>
+      <h3>Ludoteca: Coleção de Jogos de Tabuleiro</h3>
+      <p>App Android para gerenciar uma coleção de board games: registro de partidas com placar, busca tolerante a acentos, filtros por jogadores, tema e mecânica, e análise de custo por partida, por hora de mesa e por mês de posse. Flutter com SQLite local, sem servidor nem conta de usuário.</p>
+      <div class="proj-footer">
+        <a class="proj-link" href="https://github.com/matheusmerlim1/ludoteca-boardgames" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="commit-badge loading">...</span>
+      </div>
+    </div>
 
     <div class="proj-card fade-in" data-repo="Despesas-pessoais">
       <div class="proj-top"><span class="proj-icon">💰</span><span class="lang-chip"><span class="lang-dot lc-flutter"></span>Flutter</span></div>
@@ -840,7 +1126,10 @@
       <h3>Laboratório de Arrays</h3>
       <p>Exercícios com map, filter, reduce e outros métodos de arrays em JavaScript.</p>
       <div class="proj-footer">
-        <a class="proj-link" href="https://github.com/matheusmerlim1/LaboratorioArray" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="proj-links">
+          <a class="proj-link" href="https://matheusmerlim1.github.io/LaboratorioArray/" target="_blank" rel="noopener">Abrir site →</a>
+          <a class="proj-link" href="https://github.com/matheusmerlim1/LaboratorioArray" target="_blank" rel="noopener">Repositório →</a>
+        </span>
         <span class="commit-badge loading">...</span>
       </div>
     </div>
@@ -850,7 +1139,10 @@
       <h3>String &amp; Data</h3>
       <p>Manipulação de strings e datas em JavaScript: formatação e operações com texto.</p>
       <div class="proj-footer">
-        <a class="proj-link" href="https://github.com/matheusmerlim1/String-Data" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="proj-links">
+          <a class="proj-link" href="https://matheusmerlim1.github.io/String-Data/" target="_blank" rel="noopener">Abrir site →</a>
+          <a class="proj-link" href="https://github.com/matheusmerlim1/String-Data" target="_blank" rel="noopener">Repositório →</a>
+        </span>
         <span class="commit-badge loading">...</span>
       </div>
     </div>
@@ -860,7 +1152,10 @@
       <h3>Programação Cliente Web</h3>
       <p>Estudos de programação client-side: HTML, formulários, eventos e DOM.</p>
       <div class="proj-footer">
-        <a class="proj-link" href="https://github.com/matheusmerlim1/ProgramacaoClienteWeb" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="proj-links">
+          <a class="proj-link" href="https://matheusmerlim1.github.io/ProgramacaoClienteWeb/" target="_blank" rel="noopener">Abrir site →</a>
+          <a class="proj-link" href="https://github.com/matheusmerlim1/ProgramacaoClienteWeb" target="_blank" rel="noopener">Repositório →</a>
+        </span>
         <span class="commit-badge loading">...</span>
       </div>
     </div>
@@ -870,7 +1165,10 @@
       <h3>Diagramação · Fundamentos Web</h3>
       <p>Exercícios de layout e estilização para a disciplina de Fundamentos da Web.</p>
       <div class="proj-footer">
-        <a class="proj-link" href="https://github.com/matheusmerlim1/Diagramacao_MatheusRaposo" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="proj-links">
+          <a class="proj-link" href="https://matheusmerlim1.github.io/Diagramacao_MatheusRaposo/" target="_blank" rel="noopener">Abrir site →</a>
+          <a class="proj-link" href="https://github.com/matheusmerlim1/Diagramacao_MatheusRaposo" target="_blank" rel="noopener">Repositório →</a>
+        </span>
         <span class="commit-badge loading">...</span>
       </div>
     </div>
@@ -880,7 +1178,36 @@
       <h3>Momentos Perfeitos</h3>
       <p>Site de galeria fotográfica com layout elegante desenvolvido em HTML.</p>
       <div class="proj-footer">
-        <a class="proj-link" href="https://github.com/matheusmerlim1/Momentos-perfeitos" target="_blank" rel="noopener">Ver repositório →</a>
+        <span class="proj-links">
+          <a class="proj-link" href="https://matheusmerlim1.github.io/Momentos-perfeitos/" target="_blank" rel="noopener">Abrir site →</a>
+          <a class="proj-link" href="https://github.com/matheusmerlim1/Momentos-perfeitos" target="_blank" rel="noopener">Repositório →</a>
+        </span>
+        <span class="commit-badge loading">...</span>
+      </div>
+    </div>
+
+    <div class="proj-card fade-in" data-repo="diagrama-o-3">
+      <div class="proj-top"><span class="proj-icon">📐</span><span class="lang-chip"><span class="lang-dot lc-html"></span>HTML</span></div>
+      <h3>Diagramação 3</h3>
+      <p>Terceiro projeto de diagramação, com estrutura visual e organização de conteúdo.</p>
+      <div class="proj-footer">
+        <span class="proj-links">
+          <a class="proj-link" href="https://matheusmerlim1.github.io/diagrama-o-3/" target="_blank" rel="noopener">Abrir site →</a>
+          <a class="proj-link" href="https://github.com/matheusmerlim1/diagrama-o-3" target="_blank" rel="noopener">Repositório →</a>
+        </span>
+        <span class="commit-badge loading">...</span>
+      </div>
+    </div>
+
+    <div class="proj-card fade-in" data-repo="portifolio">
+      <div class="proj-top"><span class="proj-icon">🗂️</span><span class="lang-chip"><span class="lang-dot lc-html"></span>HTML</span></div>
+      <h3>Portfólio Original</h3>
+      <p>Primeira versão do portfólio pessoal, feita em HTML puro.</p>
+      <div class="proj-footer">
+        <span class="proj-links">
+          <a class="proj-link" href="https://matheusmerlim1.github.io/portifolio/" target="_blank" rel="noopener">Abrir site →</a>
+          <a class="proj-link" href="https://github.com/matheusmerlim1/portifolio" target="_blank" rel="noopener">Repositório →</a>
+        </span>
         <span class="commit-badge loading">...</span>
       </div>
     </div>

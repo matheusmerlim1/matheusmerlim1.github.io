@@ -1,5 +1,8 @@
 const GITHUB_USER = 'matheusmerlim1';
 
+// dados vivos dos repositorios, preenchidos por loadProjects()
+let REPO_DATA = {};
+
 // ── COMMIT DATES ──────────────────────────────────────────────
 function timeAgo(dateStr) {
   const diff   = Date.now() - new Date(dateStr).getTime();
@@ -64,7 +67,10 @@ async function loadProjects() {
     } catch (_) {}
   }
 
+  REPO_DATA = repoMap;
   applyCommitData(repoMap);
+  renderRecent(repoMap);
+  renderSidebar();
   showNewCommitsBanner(repoMap, previousMap);
 
   try { localStorage.setItem('portfolio_repos', JSON.stringify(repoMap)); } catch (_) {}
@@ -89,34 +95,279 @@ function showNewCommitsBanner(current, previous) {
   setTimeout(() => banner.remove(), 9000);
 }
 
+// ── PROJETOS RECENTES (faixa de destaque) ─────────────────────
+const RECENT_COUNT = 6;
+const LANG_CLASS = {
+  JavaScript: 'lc-js', HTML: 'lc-html', CSS: 'lc-css',
+  Dart: 'lc-dart', Flutter: 'lc-flutter', Python: 'lc-python',
+};
+
+function renderRecent(repoMap) {
+  const grid = document.getElementById('recent-grid');
+  if (!grid) return;
+
+  const dated = PROJECTS
+    .map(p => {
+      const r = repoMap[p.repo];
+      return r ? Object.assign({}, p, { date: r.pushed_at || r.updated_at }) : null;
+    })
+    .filter(Boolean)
+    .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  // sem dados suficientes: mantém a lista estática do HTML
+  if (dated.length < RECENT_COUNT) return;
+
+  grid.innerHTML = '';
+  dated.slice(0, RECENT_COUNT).forEach((p, i) => {
+    const fresh   = Date.now() - new Date(p.date).getTime() < 7 * 86400000;
+    const repoUrl = `https://github.com/${GITHUB_USER}/${p.repo}`;
+    const abrir   = p.site ? `<a class="proj-link" href="${p.site}" target="_blank" rel="noopener">Abrir site →</a>` : '';
+    const card    = document.createElement('article');
+    card.className = 'recent-card fade-in visible' + (i === 0 ? ' is-top' : '');
+    card.setAttribute('data-repo', p.repo);
+    card.innerHTML = `
+      <div class="recent-head">
+        <span class="recent-rank">${String(i + 1).padStart(2, '0')}</span>
+        <span class="recent-icon">${p.icon}</span>
+        <span class="commit-badge${fresh ? ' recent' : ''}">${timeAgo(p.date)}</span>
+      </div>
+      <h3>${p.name}</h3>
+      <p>${p.desc}</p>
+      <div class="recent-foot">
+        <span class="lang-chip"><span class="lang-dot ${LANG_CLASS[p.lang] || 'lc-html'}"></span>${p.lang}</span>
+        <span class="recent-links">
+          ${abrir}
+          <a class="proj-link" href="${repoUrl}" target="_blank" rel="noopener">Código →</a>
+        </span>
+      </div>`;
+    grid.appendChild(card);
+  });
+}
+
+// ── COLUNA LATERAL DE PROJETOS ─────────────────────────
+const sbState = { q: '', cat: 'Todas', sort: 'rel' };
+
+function sbMatches(p, q) {
+  if (!q) return true;
+  return (p.name + ' ' + p.desc + ' ' + p.lang + ' ' + p.repo + ' ' + p.cat)
+    .toLowerCase().includes(q);
+}
+
+function sbDate(p) {
+  const r = REPO_DATA[p.repo];
+  return r ? (r.pushed_at || r.updated_at) : null;
+}
+
+function sbSorted(list) {
+  const arr = list.slice();
+  if (sbState.sort === 'name') {
+    arr.sort((a, b) => a.name.localeCompare(b.name, 'pt-BR'));
+  } else if (sbState.sort === 'recent') {
+    arr.sort((a, b) => {
+      const da = sbDate(a), db = sbDate(b);
+      if (da && db) return new Date(db) - new Date(da);
+      if (da) return -1;
+      if (db) return 1;
+      return b.rel - a.rel;
+    });
+  } else {
+    arr.sort((a, b) => b.rel - a.rel);
+  }
+  return arr;
+}
+
+function renderSidebar() {
+  const list = document.getElementById('sb-list');
+  if (!list) return;
+
+  const q       = sbState.q.trim().toLowerCase();
+  const matches = sbSorted(PROJECTS.filter(p =>
+    (sbState.cat === 'Todas' || p.cat === sbState.cat) && sbMatches(p, q)
+  ));
+
+  const countEl = document.getElementById('sb-count');
+  if (countEl) {
+    countEl.textContent = matches.length === PROJECTS.length
+      ? `${PROJECTS.length} projetos`
+      : `${matches.length} de ${PROJECTS.length}`;
+  }
+
+  document.querySelectorAll('.sb-chip').forEach(c => {
+    c.classList.toggle('active', c.dataset.cat === sbState.cat);
+  });
+
+  list.innerHTML = '';
+
+  if (!matches.length) {
+    list.innerHTML = '<p class="sb-empty">Nenhum projeto encontrado.<br><button type="button" class="sb-clear" id="sb-clear">Limpar filtros</button></p>';
+    document.getElementById('sb-clear').addEventListener('click', sbReset);
+    return;
+  }
+
+  matches.forEach(p => {
+    const date = sbDate(p);
+    const a    = document.createElement('a');
+    a.className = 'sb-item';
+    a.href      = projectUrl(p);
+    a.target    = '_blank';
+    a.rel       = 'noopener';
+    a.title     = p.site ? 'Abrir ' + p.name : 'Ver ' + p.name + ' no GitHub';
+    a.innerHTML = `
+      <span class="sb-icon">${p.icon}</span>
+      <span class="sb-body">
+        <span class="sb-name">${highlight(p.name, sbState.q.trim())}</span>
+        <span class="sb-meta">
+          <span class="sb-tag">${p.cat}</span>
+          <span class="lang-dot ${LANG_CLASS[p.lang] || 'lc-html'}"></span>${p.lang}
+        </span>
+      </span>
+      <span class="sb-right">
+        ${date ? `<span class="sb-when${Date.now() - new Date(date).getTime() < 7 * 86400000 ? ' recent' : ''}">${timeAgo(date)}</span>` : ''}
+        <span class="sb-go">${p.site ? 'site \u2197' : 'GitHub \u2197'}</span>
+      </span>`;
+    list.appendChild(a);
+  });
+}
+
+function sbReset() {
+  sbState.q = '';
+  sbState.cat = 'Todas';
+  const input = document.getElementById('sb-input');
+  if (input) input.value = '';
+  renderSidebar();
+}
+
+function toggleSidebar(open) {
+  const sb   = document.getElementById('sidebar');
+  const back = document.getElementById('sb-backdrop');
+  const btn  = document.getElementById('sb-toggle');
+  if (!sb) return;
+  const show = open === undefined ? !sb.classList.contains('open') : open;
+  sb.classList.toggle('open', show);
+  if (back) back.classList.toggle('open', show);
+  if (btn)  btn.setAttribute('aria-expanded', String(show));
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const input = document.getElementById('sb-input');
+  const sort  = document.getElementById('sb-sort');
+  if (!input) return;
+
+  input.addEventListener('input', () => { sbState.q = input.value; renderSidebar(); });
+  sort.addEventListener('change', () => { sbState.sort = sort.value; renderSidebar(); });
+
+  document.querySelectorAll('.sb-chip').forEach(chip => {
+    chip.addEventListener('click', () => { sbState.cat = chip.dataset.cat; renderSidebar(); });
+  });
+
+  const toggle = document.getElementById('sb-toggle');
+  if (toggle) toggle.addEventListener('click', () => toggleSidebar());
+  const back = document.getElementById('sb-backdrop');
+  if (back) back.addEventListener('click', () => toggleSidebar(false));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') toggleSidebar(false); });
+
+  // fecha a gaveta ao escolher um projeto no celular
+  document.getElementById('sb-list').addEventListener('click', e => {
+    if (e.target.closest('.sb-item')) toggleSidebar(false);
+  });
+
+  renderSidebar();
+});
+
 // ── SEARCH ────────────────────────────────────────────────────
+const CATEGORIES = ['Todas', 'Web', 'Simulados', 'API', 'Mobile', 'Fundamentos'];
+
+// site: pagina publicada (quando existe) · cat: categoria · rel: peso de relevancia
 const PROJECTS = [
-  { repo: 'CNC_ROUTER',                 icon: '🛠️', name: 'CNC Router: Configurador & Orçamento', lang: 'JavaScript', desc: 'App web para solicitação de CNC routers sob medida: landing, configurador de custo 3D e formulário do cliente.' },
-  { repo: 'previsao-do-tempo',          icon: '🌤️', name: 'Previsão do Tempo',        lang: 'JavaScript', desc: 'Site de previsão do tempo com geolocalização automática por IP.' },
-  { repo: 'Verificador-de-texto-IA',    icon: '🤖', name: 'Verificador de Texto IA',   lang: 'JavaScript', desc: 'Verifica o percentual de conteúdo gerado por IA em artigos.' },
-  { repo: 'Construtora',                icon: '🏗️', name: 'Construtora',               lang: 'JavaScript', desc: 'Sistema de cadastro de clientes, construtoras e projetos de construção.' },
-  { repo: 'Cafeteria',                  icon: '☕', name: 'Cafeteria',                 lang: 'JavaScript', desc: 'Site para uma cafeteria com cardápio e interface visual.' },
-  { repo: 'DLM-PDF-API',               icon: '📄', name: 'DLM PDF API',               lang: 'HTML',       desc: 'Interface web para geração e manipulação de PDFs via API.' },
-  { repo: 'DLM-PDF-encriptador',        icon: '🔒', name: 'DLM PDF Encriptador',       lang: 'JavaScript', desc: 'Encriptação de arquivos PDF diretamente no navegador.' },
-  { repo: 'api-Filmes',                 icon: '🎬', name: 'API de Filmes',             lang: 'JavaScript', desc: 'Busca e exibe informações de filmes consumindo API REST.' },
-  { repo: 'Catalogo_filmes',            icon: '🎭', name: 'Catálogo de Filmes',        lang: 'JavaScript', desc: 'Catálogo visual de filmes com listagem e filtros.' },
-  { repo: 'Api-Piadas',                 icon: '😂', name: 'API de Piadas',             lang: 'JavaScript', desc: 'Exibe piadas aleatórias consumindo API REST.' },
-  { repo: 'lab-api',                    icon: '🧪', name: 'Laboratório de API',        lang: 'JavaScript', desc: 'Laboratório de aprendizado de APIs REST com JavaScript.' },
-  { repo: 'simulado-pcw',               icon: '📝', name: 'Simulado: Programação Cliente Web', lang: 'JavaScript', desc: 'Simulado interativo da disciplina de Programação de Clientes Web do CEFET/RJ.' },
-  { repo: 'simulado-teste-manutencao-software', icon: '🧪', name: 'Simulado: Teste & Manutenção de Software', lang: 'JavaScript', desc: 'Simulado interativo sobre Teste e Manutenção de Software com JUnit 5 e Katalon.' },
-  { repo: 'Despesas-pessoais',          icon: '💰', name: 'Despesas Pessoais',         lang: 'Flutter',    desc: 'App mobile para controle de despesas pessoais em Flutter.' },
-  { repo: 'comparador_de_preco',        icon: '🏷️', name: 'Comparador de Preço',      lang: 'Flutter',    desc: 'App Flutter para comparar preços de produtos em lojas.' },
-  { repo: 'flutter-programa-de-perguntas', icon: '❓', name: 'Programa de Perguntas', lang: 'Flutter',    desc: 'App quiz em Flutter com questionário interativo e feedback.' },
-  { repo: 'dart-fundamental',           icon: '🎯', name: 'Dart Fundamental',          lang: 'Dart',       desc: 'Programas básicos para aprendizado dos fundamentos do Dart.' },
-  { repo: 'LaboratorioArray',           icon: '📋', name: 'Laboratório de Arrays',     lang: 'JavaScript', desc: 'Exercícios de manipulação de arrays em JavaScript.' },
-  { repo: 'String-Data',                icon: '📅', name: 'String & Data',             lang: 'JavaScript', desc: 'Manipulação de strings e datas em JavaScript.' },
-  { repo: 'ProgramacaoClienteWeb',      icon: '💻', name: 'Programação Cliente Web',   lang: 'HTML',       desc: 'Estudos de programação client-side: HTML, formulários e eventos.' },
-  { repo: 'Diagramacao_MatheusRaposo',  icon: '🎨', name: 'Diagramação · Web',         lang: 'CSS',        desc: 'Exercícios de layout e estilização com HTML e CSS.' },
-  { repo: 'Momentos-perfeitos',         icon: '📷', name: 'Momentos Perfeitos',        lang: 'HTML',       desc: 'Site de galeria fotográfica com layout elegante.' },
-  { repo: 'diagrama-o-3',               icon: '📐', name: 'Diagramação 3',             lang: 'HTML',       desc: 'Terceiro projeto de diagramação com estrutura visual.' },
-  { repo: 'trabalho-nilson',            icon: '📝', name: 'Trabalho Nilson',           lang: 'HTML',       desc: 'Projeto acadêmico de desenvolvimento front-end em HTML.' },
-  { repo: 'portifolio',                 icon: '🗂️', name: 'Portfólio Original',        lang: 'HTML',       desc: 'Versão anterior do portfólio pessoal em HTML.' },
+  { repo: 'editor-pdf', icon: '📝', name: 'Editor de PDF', lang: 'Python', cat: 'Web', rel: 98,
+    site: 'https://matheusmerlim1.github.io/editor-pdf/',
+    desc: 'Abre um PDF, identifica o texto da página, permite reescrevê-lo no próprio lugar e salva de volta. Roda no navegador ou como programa de mesa no Windows.' },
+  { repo: 'transpetro-enfase-25', icon: '🛢️', name: 'Transpetro Ênfase 25: Engenharia Mecânica', lang: 'HTML', cat: 'Simulados', rel: 96,
+    site: 'https://matheusmerlim1.github.io/transpetro-enfase-25/',
+    desc: '640 questões inéditas no padrão Cesgranrio com modo estudo, simulado cronometrado, fila de erros e formulário de 268 fórmulas.' },
+  { repo: 'simulado-ppc', icon: '⚙️', name: 'Simulado: Programação Paralela & Concorrente', lang: 'JavaScript', cat: 'Simulados', rel: 90,
+    site: 'https://matheusmerlim1.github.io/simulado-ppc/',
+    desc: '167 questões sobre threads, deadlocks, redes de Petri e OpenMP, com resumo da disciplina em 73 tópicos.' },
+  { repo: 'ludoteca-boardgames', icon: '🎲', name: 'Ludoteca: Coleção de Jogos de Tabuleiro', lang: 'Flutter', cat: 'Mobile', rel: 88,
+    desc: 'App Android para registrar partidas de board games e analisar custo por partida, por hora e por mês. Flutter com SQLite local.' },
+  { repo: 'CNC_ROUTER', icon: '🛠️', name: 'CNC Router: Configurador & Orçamento', lang: 'JavaScript', cat: 'Web', rel: 85,
+    site: 'https://matheusmerlim1.github.io/CNC_ROUTER/',
+    desc: 'App web para solicitação de CNC routers sob medida: landing, configurador de custo 3D e formulário do cliente.' },
+  { repo: 'trabalho-nilson', icon: '📚', name: 'DLM Bookstore: Livraria Digital', lang: 'HTML', cat: 'Web', rel: 78,
+    site: 'https://matheusmerlim1.github.io/trabalho-nilson/',
+    desc: 'Livraria digital com catálogo, carrinho e registro de compras em blockchain simulada.' },
+  { repo: 'DLM-PDF-API', icon: '📄', name: 'DLM PDF API', lang: 'HTML', cat: 'Web', rel: 76,
+    site: 'https://matheusmerlim1.github.io/DLM-PDF-API/',
+    desc: 'Documentação e interface web para geração e manipulação de PDFs via API.' },
+  { repo: 'simulado-teste-manutencao-software', icon: '🧪', name: 'Simulado: Teste & Manutenção de Software', lang: 'JavaScript', cat: 'Simulados', rel: 72,
+    site: 'https://matheusmerlim1.github.io/simulado-teste-manutencao-software/',
+    desc: 'Simulado interativo sobre Teste e Manutenção de Software com JUnit 5 e Katalon.' },
+  { repo: 'simulado-pcw', icon: '📑', name: 'Simulado: Programação Cliente Web', lang: 'JavaScript', cat: 'Simulados', rel: 70,
+    site: 'https://matheusmerlim1.github.io/simulado-pcw/',
+    desc: 'Simulado interativo da disciplina de Programação de Clientes Web do CEFET/RJ.' },
+  { repo: 'DLM-PDF-encriptador', icon: '🔒', name: 'DLM PDF Encriptador', lang: 'JavaScript', cat: 'Web', rel: 66,
+    site: 'https://matheusmerlim1.github.io/DLM-PDF-encriptador/',
+    desc: 'Encriptação e leitura de arquivos PDF diretamente no navegador.' },
+  { repo: 'Verificador-de-texto-IA', icon: '🤖', name: 'Verificador de Texto IA', lang: 'JavaScript', cat: 'Web', rel: 62,
+    site: 'https://matheusmerlim1.github.io/Verificador-de-texto-IA/',
+    desc: 'Verifica o percentual de conteúdo gerado por IA em artigos.' },
+  { repo: 'previsao-do-tempo', icon: '🌤️', name: 'Previsão do Tempo', lang: 'JavaScript', cat: 'Web', rel: 60,
+    site: 'https://matheusmerlim1.github.io/previsao-do-tempo/',
+    desc: 'Site de previsão do tempo com geolocalização automática por IP.' },
+  { repo: 'Construtora', icon: '🏗️', name: 'Construtora', lang: 'JavaScript', cat: 'Web', rel: 55,
+    site: 'https://matheusmerlim1.github.io/Construtora/',
+    desc: 'Sistema de cadastro de clientes, construtoras e projetos de construção.' },
+  { repo: 'Despesas-pessoais', icon: '💰', name: 'Despesas Pessoais', lang: 'Flutter', cat: 'Mobile', rel: 52,
+    desc: 'App mobile para controle de despesas pessoais em Flutter.' },
+  { repo: 'comparador_de_preco', icon: '🏷️', name: 'Comparador de Preço', lang: 'Flutter', cat: 'Mobile', rel: 50,
+    desc: 'App Flutter para comparar preços do mesmo produto em lojas diferentes.' },
+  { repo: 'Cafeteria', icon: '☕', name: 'Cafeteria', lang: 'JavaScript', cat: 'Web', rel: 48,
+    site: 'https://matheusmerlim1.github.io/Cafeteria/',
+    desc: 'Site para uma cafeteria com cardápio e interface visual.' },
+  { repo: 'api-Filmes', icon: '🎬', name: 'API de Filmes', lang: 'JavaScript', cat: 'API', rel: 46,
+    site: 'https://matheusmerlim1.github.io/api-Filmes/',
+    desc: 'Busca e exibe informações de filmes consumindo API REST.' },
+  { repo: 'lab-api', icon: '💱', name: 'Câmbio Monetário', lang: 'JavaScript', cat: 'API', rel: 44,
+    site: 'https://matheusmerlim1.github.io/lab-api/',
+    desc: 'Conversão de moedas em tempo real consumindo API de câmbio.' },
+  { repo: 'Catalogo_filmes', icon: '🎭', name: 'Catálogo de Filmes', lang: 'JavaScript', cat: 'API', rel: 42,
+    site: 'https://matheusmerlim1.github.io/Catalogo_filmes/',
+    desc: 'Catálogo visual de filmes e séries com listagem e filtros.' },
+  { repo: 'Api-Piadas', icon: '😂', name: 'API de Piadas', lang: 'JavaScript', cat: 'API', rel: 40,
+    site: 'https://matheusmerlim1.github.io/Api-Piadas/',
+    desc: 'Exibe piadas aleatórias consumindo API REST.' },
+  { repo: 'flutter-programa-de-perguntas', icon: '❓', name: 'Programa de Perguntas', lang: 'Flutter', cat: 'Mobile', rel: 38,
+    desc: 'App quiz em Flutter com questionário interativo e feedback.' },
+  { repo: 'Momentos-perfeitos', icon: '📷', name: 'Momentos Perfeitos', lang: 'HTML', cat: 'Fundamentos', rel: 36,
+    site: 'https://matheusmerlim1.github.io/Momentos-perfeitos/',
+    desc: 'Site de galeria fotográfica com layout elegante.' },
+  { repo: 'ProgramacaoClienteWeb', icon: '💻', name: 'Programação Cliente Web', lang: 'HTML', cat: 'Fundamentos', rel: 32,
+    site: 'https://matheusmerlim1.github.io/ProgramacaoClienteWeb/',
+    desc: 'Estudos de programação client-side: HTML, formulários e eventos.' },
+  { repo: 'dart-fundamental', icon: '🎯', name: 'Dart Fundamental', lang: 'Dart', cat: 'Fundamentos', rel: 30,
+    desc: 'Programas básicos para aprendizado dos fundamentos do Dart.' },
+  { repo: 'LaboratorioArray', icon: '📋', name: 'Laboratório de Arrays', lang: 'JavaScript', cat: 'Fundamentos', rel: 28,
+    site: 'https://matheusmerlim1.github.io/LaboratorioArray/',
+    desc: 'Exercícios de manipulação de arrays em JavaScript.' },
+  { repo: 'diagrama-o-3', icon: '📐', name: 'Diagramação 3', lang: 'HTML', cat: 'Fundamentos', rel: 26,
+    site: 'https://matheusmerlim1.github.io/diagrama-o-3/',
+    desc: 'Terceiro projeto de diagramação com estrutura visual.' },
+  { repo: 'Diagramacao_MatheusRaposo', icon: '🎨', name: 'Diagramação · Web', lang: 'CSS', cat: 'Fundamentos', rel: 24,
+    site: 'https://matheusmerlim1.github.io/Diagramacao_MatheusRaposo/',
+    desc: 'Exercícios de layout e estilização com HTML e CSS.' },
+  { repo: 'String-Data', icon: '📅', name: 'String & Data', lang: 'JavaScript', cat: 'Fundamentos', rel: 22,
+    site: 'https://matheusmerlim1.github.io/String-Data/',
+    desc: 'Manipulação de strings e datas em JavaScript.' },
+  { repo: 'portifolio', icon: '🗂️', name: 'Portfólio Original', lang: 'HTML', cat: 'Fundamentos', rel: 20,
+    site: 'https://matheusmerlim1.github.io/portifolio/',
+    desc: 'Versão anterior do portfólio pessoal em HTML.' },
 ];
+
+// endereco principal de um projeto: o site publicado, quando existe
+function projectUrl(p) {
+  return p.site || ('https://github.com/' + GITHUB_USER + '/' + p.repo);
+}
+
 
 function highlight(text, query) {
   if (!query) return text;
@@ -147,7 +398,7 @@ function renderResults(query) {
   }
 
   matches.forEach(p => {
-    const url  = `https://github.com/${GITHUB_USER}/${p.repo}`;
+    const url  = projectUrl(p);
     const item = document.createElement('a');
     item.className = 'search-result-item';
     item.href      = url;
@@ -252,7 +503,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // glow que segue o cursor
   const glow = document.getElementById('cursor-glow');
   // spotlight nos cards (variáveis CSS --mx / --my)
-  const glowCards = '.exp-card, .proj-card';
+  const glowCards = '.exp-card, .proj-card, .recent-card';
 
   window.addEventListener('pointermove', e => {
     if (glow) {
