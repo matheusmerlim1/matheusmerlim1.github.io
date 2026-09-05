@@ -1,6 +1,18 @@
 {
-  "updated": "2026-09-05T11:32:53.515698+00:00",
+  "updated": "2026-09-05T13:48:50.815489+00:00",
   "projects": [
+    {
+      "name": "compilador-de-c",
+      "description": "Ambiente para escrever, compilar e testar exercicios em C, com os erros do compilador traduzidos para portugues",
+      "url": "https://github.com/matheusmerlim1/compilador-de-c",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "Python",
+      "topics": [],
+      "updated_at": "2026-09-05T11:35:15Z",
+      "pushed_at": "2026-09-05T11:35:12Z"
+    },
     {
       "name": "simulado-ppc",
       "description": "Simulado e resumo de Programacao Paralela e Concorrente - CEFET/RJ UNED Nova Friburgo",
@@ -12,18 +24,6 @@
       "topics": [],
       "updated_at": "2026-09-05T11:31:59Z",
       "pushed_at": "2026-09-05T11:31:55Z"
-    },
-    {
-      "name": "compilador-de-c",
-      "description": "Ambiente para escrever, compilar e testar exercicios em C, com os erros do compilador traduzidos para portugues",
-      "url": "https://github.com/matheusmerlim1/compilador-de-c",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "Python",
-      "topics": [],
-      "updated_at": "2026-09-05T11:21:41Z",
-      "pushed_at": "2026-09-05T11:21:38Z"
     },
     {
       "name": "editor-pdf",
