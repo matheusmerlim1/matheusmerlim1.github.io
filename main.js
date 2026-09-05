@@ -70,12 +70,12 @@ async function loadProjects() {
   REPO_DATA = repoMap;
   PROJECTS  = buildProjects(repoMap);
 
-  applyCommitData(repoMap);
   renderAutoCards();
-  applyCommitData(repoMap);   // cobre os cards recem-criados
+  renderAreaProjects();
   renderRecent(repoMap);
   renderSidebar();
   updateCounts();
+  applyCommitData(repoMap);   // por último: cobre também os cards recém-criados
   showNewCommitsBanner(repoMap, previousMap);
 
   try { localStorage.setItem('portfolio_repos', JSON.stringify(repoMap)); } catch (_) {}
@@ -207,6 +207,47 @@ function updateCounts() {
   }
   const sec = document.getElementById('prog-count');
   if (sec) sec.textContent = n + ' repositórios';
+}
+
+// ── PROJETOS POR ÁREA ─────────────────────────────────
+// Projeto marcado com areas: ['mec'] ou ['fisica'] em PROJECT_META
+// também aparece na seção daquela área, além da de Programação.
+function renderAreaProjects() {
+  ['mec', 'fisica'].forEach(area => {
+    const wrap = document.getElementById('area-' + area + '-wrap');
+    const grid = document.getElementById('area-' + area + '-grid');
+    if (!wrap || !grid) return;
+
+    const daArea = PROJECTS
+      .filter(p => (PROJECT_META[p.repo]?.areas || []).includes(area))
+      .sort((a, b) => b.rel - a.rel);
+
+    grid.innerHTML = '';
+    wrap.hidden = !daArea.length;
+    if (!daArea.length) return;
+
+    daArea.forEach(p => {
+      const repoUrl = `https://github.com/${GITHUB_USER}/${p.repo}`;
+      const card = document.createElement('div');
+      card.className = 'proj-card fade-in visible';
+      card.setAttribute('data-repo', p.repo);
+      card.innerHTML = `
+        <div class="proj-top">
+          <span class="proj-icon">${p.icon}</span>
+          <span class="lang-chip"><span class="lang-dot ${LANG_CLASS[p.lang] || 'lc-html'}"></span>${p.lang}</span>
+        </div>
+        <h3>${p.name}</h3>
+        <p>${p.desc}</p>
+        <div class="proj-footer">
+          <span class="proj-links">
+            ${p.site ? `<a class="proj-link" href="${p.site}" target="_blank" rel="noopener">Abrir site \u2192</a>` : ''}
+            <a class="proj-link" href="${repoUrl}" target="_blank" rel="noopener">Reposit\u00f3rio \u2192</a>
+          </span>
+          <span class="commit-badge loading">...</span>
+        </div>`;
+      grid.appendChild(card);
+    });
+  });
 }
 
 // ── COLUNA LATERAL DE PROJETOS ─────────────────────────
@@ -351,10 +392,10 @@ const IGNORE_REPOS = ['matheusmerlim1.github.io', 'repositorio_teste'];
 // Campos: icon, name, lang, cat, rel (0-100), site, desc.
 const PROJECT_META = {
   'editor-pdf': { icon: '📝', name: 'Editor de PDF', lang: 'Python', cat: 'Web', rel: 98, site: 'https://matheusmerlim1.github.io/editor-pdf/', desc: 'Abre um PDF, identifica o texto da página, permite reescrevê-lo no próprio lugar e salva de volta. Roda no navegador ou como programa de mesa no Windows.' },
-  'transpetro-enfase-25': { icon: '🛢️', name: 'Transpetro Ênfase 25: Engenharia Mecânica', lang: 'HTML', cat: 'Simulados', rel: 96, site: 'https://matheusmerlim1.github.io/transpetro-enfase-25/', desc: '640 questões inéditas no padrão Cesgranrio com modo estudo, simulado cronometrado, fila de erros e formulário de 268 fórmulas.' },
+  'transpetro-enfase-25': { areas: ['mec'], icon: '🛢️', name: 'Transpetro Ênfase 25: Engenharia Mecânica', lang: 'HTML', cat: 'Simulados', rel: 96, site: 'https://matheusmerlim1.github.io/transpetro-enfase-25/', desc: '640 questões inéditas no padrão Cesgranrio com modo estudo, simulado cronometrado, fila de erros e formulário de 268 fórmulas.' },
   'simulado-ppc': { icon: '⚙️', name: 'Simulado: Programação Paralela & Concorrente', lang: 'JavaScript', cat: 'Simulados', rel: 90, site: 'https://matheusmerlim1.github.io/simulado-ppc/', desc: '167 questões sobre threads, deadlocks, redes de Petri e OpenMP, com resumo da disciplina em 73 tópicos.' },
   'ludoteca-boardgames': { icon: '🎲', name: 'Ludoteca: Coleção de Jogos de Tabuleiro', lang: 'Flutter', cat: 'Mobile', rel: 88, desc: 'App Android para registrar partidas de board games e analisar custo por partida, por hora e por mês. Flutter com SQLite local.' },
-  'CNC_ROUTER': { icon: '🛠️', name: 'CNC Router: Configurador & Orçamento', lang: 'JavaScript', cat: 'Web', rel: 85, site: 'https://matheusmerlim1.github.io/CNC_ROUTER/', desc: 'App web para solicitação de CNC routers sob medida: landing, configurador de custo 3D e formulário do cliente.' },
+  'CNC_ROUTER': { areas: ['mec'], icon: '🛠️', name: 'CNC Router: Configurador & Orçamento', lang: 'JavaScript', cat: 'Web', rel: 85, site: 'https://matheusmerlim1.github.io/CNC_ROUTER/', desc: 'App web para solicitação de CNC routers sob medida: landing, configurador de custo 3D e formulário do cliente.' },
   'trabalho-nilson': { icon: '📚', name: 'DLM Bookstore: Livraria Digital', lang: 'HTML', cat: 'Web', rel: 78, site: 'https://matheusmerlim1.github.io/trabalho-nilson/', desc: 'Livraria digital com catálogo, carrinho e registro de compras em blockchain simulada.' },
   'DLM-PDF-API': { icon: '📄', name: 'DLM PDF API', lang: 'HTML', cat: 'Web', rel: 76, site: 'https://matheusmerlim1.github.io/DLM-PDF-API/', desc: 'Documentação e interface web para geração e manipulação de PDFs via API.' },
   'simulado-teste-manutencao-software': { icon: '🧪', name: 'Simulado: Teste & Manutenção de Software', lang: 'JavaScript', cat: 'Simulados', rel: 72, site: 'https://matheusmerlim1.github.io/simulado-teste-manutencao-software/', desc: 'Simulado interativo sobre Teste e Manutenção de Software com JUnit 5 e Katalon.' },
@@ -362,7 +403,7 @@ const PROJECT_META = {
   'DLM-PDF-encriptador': { icon: '🔒', name: 'DLM PDF Encriptador', lang: 'JavaScript', cat: 'Web', rel: 66, site: 'https://matheusmerlim1.github.io/DLM-PDF-encriptador/', desc: 'Encriptação e leitura de arquivos PDF diretamente no navegador.' },
   'Verificador-de-texto-IA': { icon: '🤖', name: 'Verificador de Texto IA', lang: 'JavaScript', cat: 'Web', rel: 62, site: 'https://matheusmerlim1.github.io/Verificador-de-texto-IA/', desc: 'Verifica o percentual de conteúdo gerado por IA em artigos.' },
   'previsao-do-tempo': { icon: '🌤️', name: 'Previsão do Tempo', lang: 'JavaScript', cat: 'Web', rel: 60, site: 'https://matheusmerlim1.github.io/previsao-do-tempo/', desc: 'Site de previsão do tempo com geolocalização automática por IP.' },
-  'Construtora': { icon: '🏗️', name: 'Construtora', lang: 'JavaScript', cat: 'Web', rel: 55, site: 'https://matheusmerlim1.github.io/Construtora/', desc: 'Sistema de cadastro de clientes, construtoras e projetos de construção.' },
+  'Construtora': { areas: ['mec'], icon: '🏗️', name: 'Construtora', lang: 'JavaScript', cat: 'Web', rel: 55, site: 'https://matheusmerlim1.github.io/Construtora/', desc: 'Sistema de cadastro de clientes, construtoras e projetos de construção.' },
   'Despesas-pessoais': { icon: '💰', name: 'Despesas Pessoais', lang: 'Flutter', cat: 'Mobile', rel: 52, desc: 'App mobile para controle de despesas pessoais em Flutter.' },
   'comparador_de_preco': { icon: '🏷️', name: 'Comparador de Preço', lang: 'Flutter', cat: 'Mobile', rel: 50, desc: 'App Flutter para comparar preços do mesmo produto em lojas diferentes.' },
   'Cafeteria': { icon: '☕', name: 'Cafeteria', lang: 'JavaScript', cat: 'Web', rel: 48, site: 'https://matheusmerlim1.github.io/Cafeteria/', desc: 'Site para uma cafeteria com cardápio e interface visual.' },
