@@ -1,6 +1,30 @@
 {
-  "updated": "2026-09-03T09:59:04.536911+00:00",
+  "updated": "2026-09-05T11:32:53.515698+00:00",
   "projects": [
+    {
+      "name": "simulado-ppc",
+      "description": "Simulado e resumo de Programacao Paralela e Concorrente - CEFET/RJ UNED Nova Friburgo",
+      "url": "https://github.com/matheusmerlim1/simulado-ppc",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-09-05T11:31:59Z",
+      "pushed_at": "2026-09-05T11:31:55Z"
+    },
+    {
+      "name": "compilador-de-c",
+      "description": "Ambiente para escrever, compilar e testar exercicios em C, com os erros do compilador traduzidos para portugues",
+      "url": "https://github.com/matheusmerlim1/compilador-de-c",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "Python",
+      "topics": [],
+      "updated_at": "2026-09-05T11:21:41Z",
+      "pushed_at": "2026-09-05T11:21:38Z"
+    },
     {
       "name": "editor-pdf",
       "description": "Editor de PDF: abre um PDF, identifica o texto, permite edita-lo e salva de volta. Roda no navegador ou como programa de mesa em Python.",
@@ -33,18 +57,6 @@
       "topics": [],
       "updated_at": "2026-08-30T15:46:14Z",
       "pushed_at": "2026-08-30T15:45:58Z"
-    },
-    {
-      "name": "simulado-ppc",
-      "description": "Simulado e resumo de Programacao Paralela e Concorrente - CEFET/RJ UNED Nova Friburgo",
-      "url": "https://github.com/matheusmerlim1/simulado-ppc",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "JavaScript",
-      "topics": [],
-      "updated_at": "2026-08-29T11:15:55Z",
-      "pushed_at": "2026-08-29T11:14:19Z"
     },
     {
       "name": "ludoteca-boardgames",
