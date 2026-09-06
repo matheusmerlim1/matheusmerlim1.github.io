@@ -1,18 +1,6 @@
 {
-  "updated": "2026-09-06T10:43:02.801746+00:00",
+  "updated": "2026-09-06T14:04:30.627403+00:00",
   "projects": [
-    {
-      "name": "compilador-de-c",
-      "description": "Ambiente para escrever, compilar e testar exercicios em C, com os erros do compilador traduzidos para portugues",
-      "url": "https://github.com/matheusmerlim1/compilador-de-c",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "Python",
-      "topics": [],
-      "updated_at": "2026-09-06T10:30:19Z",
-      "pushed_at": "2026-09-06T10:30:20Z"
-    },
     {
       "name": "transpetro-enfase-25",
       "description": "Banco de 374 questoes ineditas no padrao Cesgranrio para a Enfase 25 (Engenharia Mecanica) do concurso Transpetro 2026 - modo estudo, simulado e formulario",
@@ -22,8 +10,20 @@
       "archived": false,
       "language": "HTML",
       "topics": [],
-      "updated_at": "2026-09-05T16:39:00Z",
-      "pushed_at": "2026-09-05T16:38:56Z"
+      "updated_at": "2026-09-06T11:05:46Z",
+      "pushed_at": "2026-09-06T11:05:42Z"
+    },
+    {
+      "name": "compilador-de-c",
+      "description": "Ambiente para escrever, compilar e testar exercicios em C, com os erros do compilador traduzidos para portugues",
+      "url": "https://github.com/matheusmerlim1/compilador-de-c",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "Python",
+      "topics": [],
+      "updated_at": "2026-09-06T10:53:01Z",
+      "pushed_at": "2026-09-06T10:53:10Z"
     },
     {
       "name": "trabalho-nilson",
