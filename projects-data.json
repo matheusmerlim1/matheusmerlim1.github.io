@@ -1,6 +1,42 @@
 {
-  "updated": "2026-09-12T13:29:35.323166+00:00",
+  "updated": "2026-09-12T16:54:08.572391+00:00",
   "projects": [
+    {
+      "name": "buscador-de-pdfs",
+      "description": "Ferramenta desktop (Windows) que indexa uma pasta inteira de PDFs e busca qualquer palavra ou trecho, com OCR para paginas escaneadas.",
+      "url": "https://github.com/matheusmerlim1/buscador-de-pdfs",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "HTML",
+      "topics": [],
+      "updated_at": "2026-09-12T14:35:11Z",
+      "pushed_at": "2026-09-12T14:35:08Z"
+    },
+    {
+      "name": "calculadora-gusset-plate",
+      "description": "Calculadora de chapa de no (gusset plate) para ligacoes de contraventamento: secao de Whitmore, pseudo-colunas de Thornton, HSS circular e Metodo das Forcas Uniformes (UFM).",
+      "url": "https://github.com/matheusmerlim1/calculadora-gusset-plate",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "Python",
+      "topics": [],
+      "updated_at": "2026-09-12T14:31:13Z",
+      "pushed_at": "2026-09-12T14:31:09Z"
+    },
+    {
+      "name": "SMathFtoolBridge",
+      "description": "Plugin para o SMath Studio que incorpora o diagrama de um modelo do Ftool na planilha de calculo, com abertura por duplo clique e sincronizacao da imagem em um clique.",
+      "url": "https://github.com/matheusmerlim1/SMathFtoolBridge",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "HTML",
+      "topics": [],
+      "updated_at": "2026-09-12T14:11:52Z",
+      "pushed_at": "2026-09-12T14:11:48Z"
+    },
     {
       "name": "lista-corte-web",
       "description": "Consolidador de lista de material com otimizacao de corte de chapas e barras — roda inteiro no navegador, sem servidor",
@@ -12,30 +48,6 @@
       "topics": [],
       "updated_at": "2026-09-12T10:44:42Z",
       "pushed_at": "2026-09-12T10:44:38Z"
-    },
-    {
-      "name": "buscador-de-pdfs",
-      "description": "Ferramenta desktop (Windows) que indexa uma pasta inteira de PDFs e busca qualquer palavra ou trecho, com OCR para paginas escaneadas.",
-      "url": "https://github.com/matheusmerlim1/buscador-de-pdfs",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "Python",
-      "topics": [],
-      "updated_at": "2026-09-12T10:40:32Z",
-      "pushed_at": "2026-09-12T10:40:50Z"
-    },
-    {
-      "name": "calculadora-gusset-plate",
-      "description": "Calculadora de chapa de no (gusset plate) para ligacoes de contraventamento: secao de Whitmore, pseudo-colunas de Thornton, HSS circular e Metodo das Forcas Uniformes (UFM).",
-      "url": "https://github.com/matheusmerlim1/calculadora-gusset-plate",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "Python",
-      "topics": [],
-      "updated_at": "2026-09-12T10:38:18Z",
-      "pushed_at": "2026-09-12T10:39:23Z"
     },
     {
       "name": "vao-carga",
