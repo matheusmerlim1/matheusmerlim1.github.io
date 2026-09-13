@@ -1,6 +1,18 @@
 {
-  "updated": "2026-09-12T21:25:43.487295+00:00",
+  "updated": "2026-09-13T20:40:04.657353+00:00",
   "projects": [
+    {
+      "name": "simulado-ppc",
+      "description": "Simulado e resumo de Programacao Paralela e Concorrente - CEFET/RJ UNED Nova Friburgo",
+      "url": "https://github.com/matheusmerlim1/simulado-ppc",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-09-13T20:02:42Z",
+      "pushed_at": "2026-09-13T20:02:38Z"
+    },
     {
       "name": "vao-carga",
       "description": "Seleciona o perfil W/HP Gerdau mais leve para um vao e um carregamento informados - calculo por Estados Limites (NBR 8800:2008), memorial de calculo e diagramas.",
@@ -108,18 +120,6 @@
       "topics": [],
       "updated_at": "2026-09-05T16:38:55Z",
       "pushed_at": "2026-09-05T16:38:51Z"
-    },
-    {
-      "name": "simulado-ppc",
-      "description": "Simulado e resumo de Programacao Paralela e Concorrente - CEFET/RJ UNED Nova Friburgo",
-      "url": "https://github.com/matheusmerlim1/simulado-ppc",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "JavaScript",
-      "topics": [],
-      "updated_at": "2026-09-05T16:38:52Z",
-      "pushed_at": "2026-09-05T16:38:49Z"
     },
     {
       "name": "simulado-pcw",
