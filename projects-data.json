@@ -1,6 +1,30 @@
 {
-  "updated": "2026-09-13T20:40:04.657353+00:00",
+  "updated": "2026-09-14T12:27:48.965613+00:00",
   "projects": [
+    {
+      "name": "guia-projeto-integrador",
+      "description": "Guia passo a passo do Projeto Integrador: Git, modelagem, back-end, banco de dados e front-end com um único exemplo",
+      "url": "https://github.com/matheusmerlim1/guia-projeto-integrador",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-09-14T09:49:18Z",
+      "pushed_at": "2026-09-14T09:49:14Z"
+    },
+    {
+      "name": "engenharia-mecanica-uerj",
+      "description": "Site de estudo de Engenharia Mecânica (UERJ): conteúdo, simuladores animados e simulados",
+      "url": "https://github.com/matheusmerlim1/engenharia-mecanica-uerj",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-09-14T09:48:19Z",
+      "pushed_at": "2026-09-14T09:48:14Z"
+    },
     {
       "name": "simulado-ppc",
       "description": "Simulado e resumo de Programacao Paralela e Concorrente - CEFET/RJ UNED Nova Friburgo",
