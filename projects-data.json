@@ -1,6 +1,18 @@
 {
-  "updated": "2026-09-15T01:20:00.175716+00:00",
+  "updated": "2026-09-15T13:23:22.054809+00:00",
   "projects": [
+    {
+      "name": "engenharia-mecanica",
+      "description": "Site de estudo de Engenharia Mecânica: conteúdo, simuladores animados e simulados",
+      "url": "https://github.com/matheusmerlim1/engenharia-mecanica",
+      "homepage": "https://matheusmerlim1.github.io/engenharia-mecanica/",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-09-15T09:41:26Z",
+      "pushed_at": "2026-09-15T09:41:21Z"
+    },
     {
       "name": "guia-projeto-integrador",
       "description": "Guia passo a passo do Projeto Integrador: Git, modelagem, back-end, banco de dados e front-end com um único exemplo",
@@ -12,18 +24,6 @@
       "topics": [],
       "updated_at": "2026-09-15T00:22:05Z",
       "pushed_at": "2026-09-15T00:22:01Z"
-    },
-    {
-      "name": "engenharia-mecanica-uerj",
-      "description": "Site de estudo de Engenharia Mecânica (UERJ): conteúdo, simuladores animados e simulados",
-      "url": "https://github.com/matheusmerlim1/engenharia-mecanica-uerj",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "JavaScript",
-      "topics": [],
-      "updated_at": "2026-09-14T09:48:19Z",
-      "pushed_at": "2026-09-14T09:48:14Z"
     },
     {
       "name": "simulado-ppc",
