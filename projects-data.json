@@ -1,6 +1,18 @@
 {
-  "updated": "2026-09-19T17:07:20.775127+00:00",
+  "updated": "2026-09-19T20:25:47.555668+00:00",
   "projects": [
+    {
+      "name": "engenharia-mecanica",
+      "description": "Site de estudo de Engenharia Mecânica: conteúdo, simuladores animados e simulados",
+      "url": "https://github.com/matheusmerlim1/engenharia-mecanica",
+      "homepage": "https://matheusmerlim1.github.io/engenharia-mecanica/",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-09-19T20:25:43Z",
+      "pushed_at": "2026-09-19T20:25:38Z"
+    },
     {
       "name": "simulado-ppc",
       "description": "Simulado e resumo de Programacao Paralela e Concorrente - CEFET/RJ UNED Nova Friburgo",
@@ -36,18 +48,6 @@
       "topics": [],
       "updated_at": "2026-09-19T10:07:40Z",
       "pushed_at": "2026-09-19T10:07:36Z"
-    },
-    {
-      "name": "engenharia-mecanica",
-      "description": "Site de estudo de Engenharia Mecânica: conteúdo, simuladores animados e simulados",
-      "url": "https://github.com/matheusmerlim1/engenharia-mecanica",
-      "homepage": "https://matheusmerlim1.github.io/engenharia-mecanica/",
-      "has_pages": true,
-      "archived": false,
-      "language": "JavaScript",
-      "topics": [],
-      "updated_at": "2026-09-15T09:41:26Z",
-      "pushed_at": "2026-09-15T09:41:21Z"
     },
     {
       "name": "vao-carga",
