@@ -1,6 +1,18 @@
 {
-  "updated": "2026-09-16T04:41:08.199809+00:00",
+  "updated": "2026-09-19T13:49:37.819513+00:00",
   "projects": [
+    {
+      "name": "lista-corte-web",
+      "description": "Consolidador de lista de material com otimizacao de corte de chapas e barras — roda inteiro no navegador, sem servidor",
+      "url": "https://github.com/matheusmerlim1/lista-corte-web",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-09-19T10:14:18Z",
+      "pushed_at": "2026-09-19T10:14:15Z"
+    },
     {
       "name": "guia-projeto-integrador",
       "description": "Guia passo a passo do Projeto Integrador: Git, modelagem, back-end, banco de dados e front-end com um único exemplo",
@@ -10,8 +22,8 @@
       "archived": false,
       "language": "JavaScript",
       "topics": [],
-      "updated_at": "2026-09-16T02:37:46Z",
-      "pushed_at": "2026-09-16T02:37:42Z"
+      "updated_at": "2026-09-19T10:07:40Z",
+      "pushed_at": "2026-09-19T10:07:36Z"
     },
     {
       "name": "engenharia-mecanica",
@@ -84,18 +96,6 @@
       "topics": [],
       "updated_at": "2026-09-12T14:11:52Z",
       "pushed_at": "2026-09-12T14:11:48Z"
-    },
-    {
-      "name": "lista-corte-web",
-      "description": "Consolidador de lista de material com otimizacao de corte de chapas e barras — roda inteiro no navegador, sem servidor",
-      "url": "https://github.com/matheusmerlim1/lista-corte-web",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "JavaScript",
-      "topics": [],
-      "updated_at": "2026-09-12T10:44:42Z",
-      "pushed_at": "2026-09-12T10:44:38Z"
     },
     {
       "name": "transpetro-enfase-25",
