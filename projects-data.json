@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-20T14:40:48.559807+00:00",
+  "updated": "2026-09-20T18:09:23.922137+00:00",
   "projects": [
     {
       "name": "engenharia-mecanica",
@@ -10,8 +10,20 @@
       "archived": false,
       "language": "JavaScript",
       "topics": [],
-      "updated_at": "2026-09-20T12:31:01Z",
-      "pushed_at": "2026-09-20T12:30:57Z"
+      "updated_at": "2026-09-20T17:01:48Z",
+      "pushed_at": "2026-09-20T17:01:44Z"
+    },
+    {
+      "name": "Verificador-de-texto-IA",
+      "description": "Site para verificar o percentual de texto IA em um artigo",
+      "url": "https://github.com/matheusmerlim1/Verificador-de-texto-IA",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-09-20T16:23:13Z",
+      "pushed_at": "2026-09-20T16:23:10Z"
     },
     {
       "name": "simulado-ppc",
@@ -237,18 +249,6 @@
       "topics": [],
       "updated_at": "2026-09-05T16:38:35Z",
       "pushed_at": "2026-09-05T16:38:31Z"
-    },
-    {
-      "name": "Verificador-de-texto-IA",
-      "description": "Site para verificar o percentual de texto IA em um artigo",
-      "url": "https://github.com/matheusmerlim1/Verificador-de-texto-IA",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "JavaScript",
-      "topics": [],
-      "updated_at": "2026-09-05T16:38:32Z",
-      "pushed_at": "2026-09-05T16:38:29Z"
     },
     {
       "name": "String-Data",
