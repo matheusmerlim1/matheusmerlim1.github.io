@@ -1,6 +1,18 @@
 {
-  "updated": "2026-09-21T23:58:46.612227+00:00",
+  "updated": "2026-09-26T12:55:21.588558+00:00",
   "projects": [
+    {
+      "name": "simulado-ppc",
+      "description": "Simulado e resumo de Programacao Paralela e Concorrente - CEFET/RJ UNED Nova Friburgo",
+      "url": "https://github.com/matheusmerlim1/simulado-ppc",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-09-26T09:51:27Z",
+      "pushed_at": "2026-09-26T09:51:23Z"
+    },
     {
       "name": "engenharia-mecanica",
       "description": "Site de estudo de Engenharia Mecânica: conteúdo, simuladores animados e simulados",
@@ -24,18 +36,6 @@
       "topics": [],
       "updated_at": "2026-09-20T16:23:13Z",
       "pushed_at": "2026-09-20T16:23:10Z"
-    },
-    {
-      "name": "simulado-ppc",
-      "description": "Simulado e resumo de Programacao Paralela e Concorrente - CEFET/RJ UNED Nova Friburgo",
-      "url": "https://github.com/matheusmerlim1/simulado-ppc",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "JavaScript",
-      "topics": [],
-      "updated_at": "2026-09-19T14:58:02Z",
-      "pushed_at": "2026-09-19T14:57:58Z"
     },
     {
       "name": "lista-corte-web",
