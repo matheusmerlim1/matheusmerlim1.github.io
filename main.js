@@ -287,8 +287,13 @@ function renderSidebar() {
   if (!list) return;
 
   const q       = sbState.q.trim().toLowerCase();
+  // "Sistemas" e "Engenharia" no Ordenar mostram só aquele grupo, por relevância
+  const grupo   = (sbState.sort === 'sis' || sbState.sort === 'eng') ? sbState.sort : null;
   const matches = sbSorted(PROJECTS.filter(p =>
-    (sbState.cat === 'Todas' || p.cat === sbState.cat) && sbMatches(p, q)
+    (sbState.cat === 'Todas' || p.cat === sbState.cat ||
+      (sbState.cat === 'Engenharia' && p.grupo === 'eng')) &&
+    (!grupo || p.grupo === grupo) &&
+    sbMatches(p, q)
   ));
 
   const countEl = document.getElementById('sb-count');
@@ -338,8 +343,11 @@ function renderSidebar() {
 function sbReset() {
   sbState.q = '';
   sbState.cat = 'Todas';
+  sbState.sort = 'rel';
   const input = document.getElementById('sb-input');
   if (input) input.value = '';
+  const sort = document.getElementById('sb-sort');
+  if (sort) sort.value = 'rel';
   renderSidebar();
 }
 
@@ -514,6 +522,18 @@ function inferIcon(repo, r, lang, cat) {
   return ICON_BY_CAT[cat] || ICON_BY_LANG[lang] || '\u{1F4E6}';
 }
 
+// Engenharia x Sistemas, usado no "Ordenar" da coluna lateral.
+// Vale, nesta ordem: grupo: 'eng' | 'sis' no PROJECT_META, areas marcadas
+// ('mec', 'fisica') e, para repositório novo, palavras-chave de engenharia.
+const ENG_RE = /engenhar|mecanic|estrutural|estruturas? (metalicas?|de aco)|\bviga|perfil [wiuh]\b|contravent|gusset|icament|trelica|\bvao\b|\bnbr\b|\bcnc\b|usinag|vibra|engrenag|solda|tubulac|caldeira|petro|smath|ftool|lista de corte|corte de chapa|chapas? e barras|\bcad\b/;
+
+function inferGrupo(repo, r, m) {
+  if (m.grupo === 'eng' || m.grupo === 'sis') return m.grupo;
+  if ((m.areas || []).length) return 'eng';
+  const texto = semAcento([repo.replace(/[-_]+/g, ' '), m.desc || '', r.description || ''].join(' '));
+  return ENG_RE.test(texto) ? 'eng' : 'sis';
+}
+
 // projeto sem relevância definida a mão: quanto mais recente, mais acima
 function autoRel(r) {
   const d = r && (r.pushed_at || r.updated_at);
@@ -552,7 +572,8 @@ function buildProjects(repoMap) {
       name:  m.name || prettyName(repo),
       lang,
       cat,
-      rel:   m.rel  != null ? m.rel : autoRel(r),
+      grupo: inferGrupo(repo, r, m),
+      rel:  m.rel  != null ? m.rel : autoRel(r),
       site:  m.site || autoSite(repo, r),
       desc:  m.desc || r.description || 'Projeto publicado no GitHub.',
       curado: !!PROJECT_META[repo],
