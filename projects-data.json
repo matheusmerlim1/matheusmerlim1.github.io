@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-26T12:55:21.588558+00:00",
+  "updated": "2026-09-26T17:01:03.521224+00:00",
   "projects": [
     {
       "name": "simulado-ppc",
@@ -10,8 +10,32 @@
       "archived": false,
       "language": "JavaScript",
       "topics": [],
-      "updated_at": "2026-09-26T09:51:27Z",
-      "pushed_at": "2026-09-26T09:51:23Z"
+      "updated_at": "2026-09-26T14:53:33Z",
+      "pushed_at": "2026-09-26T14:53:29Z"
+    },
+    {
+      "name": "perfilario-metalico",
+      "description": "Catalogo interativo de perfis metalicos: desenho cotado, propriedades e perfis mais usuais",
+      "url": "https://github.com/matheusmerlim1/perfilario-metalico",
+      "homepage": "https://matheusmerlim1.github.io/perfilario-metalico/",
+      "has_pages": true,
+      "archived": false,
+      "language": "HTML",
+      "topics": [],
+      "updated_at": "2026-09-26T14:29:07Z",
+      "pushed_at": "2026-09-26T14:29:00Z"
+    },
+    {
+      "name": "guia-projeto-integrador",
+      "description": "Guia passo a passo do Projeto Integrador: Git, modelagem, back-end, banco de dados e front-end com um único exemplo",
+      "url": "https://github.com/matheusmerlim1/guia-projeto-integrador",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-09-26T14:15:43Z",
+      "pushed_at": "2026-09-26T14:15:39Z"
     },
     {
       "name": "engenharia-mecanica",
@@ -48,18 +72,6 @@
       "topics": [],
       "updated_at": "2026-09-19T10:14:18Z",
       "pushed_at": "2026-09-19T10:14:15Z"
-    },
-    {
-      "name": "guia-projeto-integrador",
-      "description": "Guia passo a passo do Projeto Integrador: Git, modelagem, back-end, banco de dados e front-end com um único exemplo",
-      "url": "https://github.com/matheusmerlim1/guia-projeto-integrador",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "JavaScript",
-      "topics": [],
-      "updated_at": "2026-09-19T10:07:40Z",
-      "pushed_at": "2026-09-19T10:07:36Z"
     },
     {
       "name": "vao-carga",
