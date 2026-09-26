@@ -453,6 +453,67 @@ function inferCat(repo, lang) {
   return 'Web';
 }
 
+// Ícone de projeto novo: procura palavras-chave no nome, na descrição e nos
+// topics do repositório. A primeira regra que casar vence, então as mais
+// específicas ficam no topo. Texto comparado sem acento e em minúsculas.
+const ICON_RULES = [
+  [/compilador|compiler|\bgcc\b|linguagem c\b|\bem c\b/, '🧰'],
+  [/pdf/,                                          '📄'],
+  [/criptograf|encript|encrypt|\bsenhas?\b|password|seguranca|security|\blogin\b/, '🔒'],
+  [/\bia\b|\bai\b|\bgpt\b|\bllm|claude|inteligencia artificial|machine learning|neural/, '🤖'],
+  [/simulado|\bquest|\bprovas?\b|concurso|\bquiz|enfase|\bexames?\b/, '📝'],
+  [/\bcnc\b|usinag|\btorno\b|fresa/,               '🛠️'],
+  [/\bviga|perfil [wiuh]\b|contravent|gusset|icament|estrutura metalica|\bvao\b|trelica|\baco\b/, '🏗️'],
+  [/vibra|mecanic|engrenag|\bmotor|maquina|\beixos?\b|\bmolas?\b/, '⚙️'],
+  [/solda|tubulac|caldeira|petro|\boleo\b|\bgas\b/, '🛢️'],
+  [/\b3d\b|render|\bstl\b|\bcad\b/,             '🧊'],
+  [/imagem|image|\bfotos?\b|photo|galeria|camera/,  '📷'],
+  [/previsao do tempo|\bclima|weather|meteorolog/,   '🌤️'],
+  [/\bfilmes?\b|movie|cinema/,                      '🎬'],
+  [/musica|music|\baudio\b|\bsom\b/,              '🎵'],
+  [/\bjogos?\b|\bgames?\b|board ?game|tabuleiro|puzzle|quebra.?cabeca|xadrez/, '🎲'],
+  [/\blivros?\b|livraria|\bbooks?|biblioteca/,     '📚'],
+  [/despesa|financ|\bgastos?\b|orcament|dinheiro|\bprecos?\b|cambio|\bmoedas?\b/, '💰'],
+  [/\blojas?\b|\bshop|\bstore\b|carrinho|ecommerce|\bvendas?\b/, '🛒'],
+  [/comida|receita|\bcafe|restaurante|cardapio|recipe/, '☕'],
+  [/\bmapas?\b|\bmaps?\b|\bgeo|localiz|\brotas?\b/, '🗺️'],
+  [/agenda|calend|\bdatas?\b|\bdates?\b|horario/,  '📅'],
+  [/\bchat|mensag|\bmessag|\bbot\b/,               '💬'],
+  [/\bbusca|search|pesquis|finder/,                 '🔎'],
+  [/planilha|excel|\bcsv\b|tabela|relatorio|dashboard|grafico|chart/, '📊'],
+  [/lista de corte|nesting|\bcortes?\b/,            '✂️'],
+  [/calcul|matemat|\bmath|smath|formula/,           '🧮'],
+  [/\bapis?\b/,                                    '🔌'],
+  [/portfolio|portifolio|curriculo/,                 '🗂️'],
+  [/diagram|layout|\bcss\b|design|estilo/,          '🎨'],
+  [/\bguias?\b|tutorial|passo a passo|\bmanual\b/, '🧭'],
+  [/estudo|\baulas?\b|disciplina|exercicio|laborat|fundament|trabalho/, '📖'],
+];
+
+// sem palavra-chave: decide pela categoria e, em último caso, pela linguagem
+const ICON_BY_CAT  = { Simulados: '📝', API: '🔌', Mobile: '📱', Fundamentos: '📖' };
+const ICON_BY_LANG = {
+  Python: '🐍', JavaScript: '🟨', TypeScript: '🔷', HTML: '🌐', CSS: '🎨',
+  C: '🧰', 'C++': '🧰', 'C#': '🟪', Java: '☕', Dart: '🎯', Flutter: '📱',
+  Kotlin: '📱', Swift: '📱', Go: '🐹', Rust: '🦀', PHP: '🐘', Shell: '💻',
+};
+
+function semAcento(s) {
+  return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+}
+
+// O nome e os topics dizem do que o projeto trata; a descrição costuma citar
+// detalhes ("simulados", "imagem") que enganariam. Por isso o nome vem antes.
+function inferIcon(repo, r, lang, cat) {
+  const textos = [
+    repo.replace(/[-_]+/g, ' ') + ' ' + (r.topics || []).join(' '),
+    r.description || '',
+  ].map(semAcento);
+  for (const texto of textos)
+    for (const [re, icon] of ICON_RULES) if (re.test(texto)) return icon;
+  return ICON_BY_CAT[cat] || ICON_BY_LANG[lang] || '\u{1F4E6}';
+}
+
 // projeto sem relevância definida a mão: quanto mais recente, mais acima
 function autoRel(r) {
   const d = r && (r.pushed_at || r.updated_at);
@@ -484,12 +545,13 @@ function buildProjects(repoMap) {
     const r = repoMap[repo] || {};
     const m = PROJECT_META[repo] || {};
     const lang = m.lang || r.language || 'HTML';
+    const cat  = m.cat  || inferCat(repo, lang);
     return {
       repo,
-      icon:  m.icon || '\u{1F4E6}',
+      icon:  m.icon || inferIcon(repo, r, lang, cat),
       name:  m.name || prettyName(repo),
       lang,
-      cat:   m.cat  || inferCat(repo, lang),
+      cat,
       rel:   m.rel  != null ? m.rel : autoRel(r),
       site:  m.site || autoSite(repo, r),
       desc:  m.desc || r.description || 'Projeto publicado no GitHub.',
