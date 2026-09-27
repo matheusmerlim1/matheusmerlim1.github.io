@@ -1,6 +1,18 @@
 {
-  "updated": "2026-09-27T13:47:11.837506+00:00",
+  "updated": "2026-09-27T18:13:39.874247+00:00",
   "projects": [
+    {
+      "name": "anotacoes",
+      "description": "Bloco de notas estilo dontpad no GitHub Pages",
+      "url": "https://github.com/matheusmerlim1/anotacoes",
+      "homepage": "https://matheusmerlim1.github.io/anotacoes/",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-09-27T14:50:03Z",
+      "pushed_at": "2026-09-27T14:49:59Z"
+    },
     {
       "name": "calculo-icamento",
       "description": "Memorial de calculo e lista de material de icamento: carga por perna, linga, sapatilho, manilha e olhal, com desenhos em escala e relatorio para impressao",
