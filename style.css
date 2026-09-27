@@ -342,7 +342,7 @@ nav {
 /* ── STATS ── */
 .stats {
   max-width: 700px; margin: 0 auto var(--sp-5); padding: 0 1.5rem;
-  display: grid; grid-template-columns: repeat(4,1fr); gap: .7rem;
+  display: grid; grid-template-columns: repeat(5,1fr); gap: .7rem;
 }
 .stat-card {
   background: var(--bg2); border: 1px solid var(--border);
@@ -658,6 +658,7 @@ mark { background: rgba(167,139,250,.28); color: var(--text); border-radius: 2px
 @media (max-width: 680px) {
   .about-grid  { grid-template-columns: 1fr; }
   .stats       { grid-template-columns: repeat(2,1fr); }
+  .stat-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
   .nav-links .hide-sm { display: none; }
   nav { padding: 0 1rem; }
   .patent-card { flex-direction: column; }

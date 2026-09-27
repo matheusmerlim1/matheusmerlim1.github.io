@@ -196,6 +196,16 @@ function renderAutoCards() {
   });
 }
 
+// anos completos desde data-desde ("AAAA-MM"), ex: 1 ano e 9 meses -> "1+"
+function updateYears() {
+  document.querySelectorAll('.stat-num[data-desde]').forEach(el => {
+    const [ano, mes] = el.dataset.desde.split('-').map(Number);
+    const hoje = new Date();
+    const meses = (hoje.getFullYear() - ano) * 12 + (hoje.getMonth() + 1 - mes);
+    el.textContent = Math.max(1, Math.floor(meses / 12)) + '+';
+  });
+}
+
 // contagens que dependem de quantos repositórios existem
 function updateCounts() {
   const n = PROJECTS.length;
@@ -691,6 +701,8 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.08 });
   document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
+  updateYears();
 
   // count-up dos números dos stats (só uma vez)
   const countIO = new IntersectionObserver(entries => {
