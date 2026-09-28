@@ -1,6 +1,30 @@
 {
-  "updated": "2026-09-27T18:13:39.874247+00:00",
+  "updated": "2026-09-28T00:28:31.384929+00:00",
   "projects": [
+    {
+      "name": "Verificador-de-texto-IA",
+      "description": "Site para verificar o percentual de texto IA em um artigo",
+      "url": "https://github.com/matheusmerlim1/Verificador-de-texto-IA",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-09-28T00:02:45Z",
+      "pushed_at": "2026-09-28T00:02:41Z"
+    },
+    {
+      "name": "anotacoes-publicas",
+      "description": "Páginas públicas do bloco de notas Anotações (https://matheusmerlim1.github.io/anotacoes/)",
+      "url": "https://github.com/matheusmerlim1/anotacoes-publicas",
+      "homepage": "",
+      "has_pages": false,
+      "archived": false,
+      "language": "",
+      "topics": [],
+      "updated_at": "2026-09-27T23:06:19Z",
+      "pushed_at": "2026-09-27T23:06:15Z"
+    },
     {
       "name": "anotacoes",
       "description": "Bloco de notas estilo dontpad no GitHub Pages",
@@ -10,8 +34,8 @@
       "archived": false,
       "language": "JavaScript",
       "topics": [],
-      "updated_at": "2026-09-27T14:50:03Z",
-      "pushed_at": "2026-09-27T14:49:59Z"
+      "updated_at": "2026-09-27T23:04:08Z",
+      "pushed_at": "2026-09-27T23:04:04Z"
     },
     {
       "name": "calculo-icamento",
@@ -84,18 +108,6 @@
       "topics": [],
       "updated_at": "2026-09-21T23:41:27Z",
       "pushed_at": "2026-09-21T23:41:23Z"
-    },
-    {
-      "name": "Verificador-de-texto-IA",
-      "description": "Site para verificar o percentual de texto IA em um artigo",
-      "url": "https://github.com/matheusmerlim1/Verificador-de-texto-IA",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "JavaScript",
-      "topics": [],
-      "updated_at": "2026-09-20T16:23:13Z",
-      "pushed_at": "2026-09-20T16:23:10Z"
     },
     {
       "name": "vao-carga",
