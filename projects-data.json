@@ -1,6 +1,18 @@
 {
-  "updated": "2026-09-28T21:46:58.507664+00:00",
+  "updated": "2026-09-29T01:43:21.210987+00:00",
   "projects": [
+    {
+      "name": "Verificador-de-texto-IA",
+      "description": "Site para verificar o percentual de texto IA em um artigo",
+      "url": "https://github.com/matheusmerlim1/Verificador-de-texto-IA",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-09-28T22:41:12Z",
+      "pushed_at": "2026-09-28T22:41:08Z"
+    },
     {
       "name": "perfilario-metalico",
       "description": "Catalogo interativo de perfis metalicos: desenho cotado, propriedades e perfis mais usuais",
@@ -24,18 +36,6 @@
       "topics": [],
       "updated_at": "2026-09-28T21:07:54Z",
       "pushed_at": "2026-09-28T21:07:49Z"
-    },
-    {
-      "name": "Verificador-de-texto-IA",
-      "description": "Site para verificar o percentual de texto IA em um artigo",
-      "url": "https://github.com/matheusmerlim1/Verificador-de-texto-IA",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "JavaScript",
-      "topics": [],
-      "updated_at": "2026-09-28T10:00:49Z",
-      "pushed_at": "2026-09-28T10:00:42Z"
     },
     {
       "name": "anotacoes-publicas",
