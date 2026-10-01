@@ -1,6 +1,18 @@
 {
-  "updated": "2026-10-01T09:42:06.365246+00:00",
+  "updated": "2026-10-01T16:14:39.615348+00:00",
   "projects": [
+    {
+      "name": "parafuso-carga",
+      "description": "Verificação e seleção de parafusos, barras roscadas e parafusos de pressão — memorial de cálculo, animações e relatório PDF/Word",
+      "url": "https://github.com/matheusmerlim1/parafuso-carga",
+      "homepage": "https://matheusmerlim1.github.io/parafuso-carga/",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-10-01T11:40:48Z",
+      "pushed_at": "2026-10-01T11:40:43Z"
+    },
     {
       "name": "parafuso-analise",
       "description": "Verificação e seleção de parafusos e barras roscadas com memorial de cálculo",
