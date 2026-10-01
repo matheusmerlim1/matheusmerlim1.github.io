@@ -1,17 +1,17 @@
 {
-  "updated": "2026-10-01T01:57:20.723614+00:00",
+  "updated": "2026-10-01T09:42:06.365246+00:00",
   "projects": [
     {
       "name": "parafuso-analise",
       "description": "Verificação e seleção de parafusos e barras roscadas com memorial de cálculo",
       "url": "https://github.com/matheusmerlim1/parafuso-analise",
-      "homepage": "",
-      "has_pages": false,
+      "homepage": "https://matheusmerlim1.github.io/parafuso-analise/",
+      "has_pages": true,
       "archived": false,
       "language": "JavaScript",
       "topics": [],
-      "updated_at": "2026-10-01T00:02:58Z",
-      "pushed_at": "2026-10-01T00:02:54Z"
+      "updated_at": "2026-10-01T09:40:31Z",
+      "pushed_at": "2026-10-01T09:40:27Z"
     },
     {
       "name": "lista-corte-web",
