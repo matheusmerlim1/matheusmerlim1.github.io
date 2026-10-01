@@ -1,6 +1,18 @@
 {
-  "updated": "2026-10-01T16:14:39.615348+00:00",
+  "updated": "2026-10-01T21:43:07.523679+00:00",
   "projects": [
+    {
+      "name": "Soldas-e-Carga",
+      "description": "",
+      "url": "https://github.com/matheusmerlim1/Soldas-e-Carga",
+      "homepage": "",
+      "has_pages": false,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-10-01T19:53:40Z",
+      "pushed_at": "2026-10-01T19:53:35Z"
+    },
     {
       "name": "parafuso-carga",
       "description": "Verificação e seleção de parafusos, barras roscadas e parafusos de pressão — memorial de cálculo, animações e relatório PDF/Word",
