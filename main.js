@@ -535,7 +535,7 @@ function inferIcon(repo, r, lang, cat) {
 // Engenharia x Sistemas, usado no "Ordenar" da coluna lateral.
 // Vale, nesta ordem: grupo: 'eng' | 'sis' no PROJECT_META, areas marcadas
 // ('mec', 'fisica') e, para repositório novo, palavras-chave de engenharia.
-const ENG_RE = /engenhar|mecanic|estrutural|estruturas? (metalicas?|de aco)|\bviga|perfil [wiuh]\b|contravent|gusset|icament|trelica|\bvao\b|\bnbr\b|\bcnc\b|usinag|vibra|engrenag|solda|tubulac|caldeira|petro|smath|ftool|lista de corte|corte de chapa|chapas? e barras|\bcad\b/;
+const ENG_RE = /engenhar|mecanic|estrutural|estruturas? (metalicas?|de aco)|\bviga|perfil [wiuh]\b|contravent|gusset|icament|trelica|\bvao\b|\bnbr\b|\bcnc\b|usinag|vibra|engrenag|solda|tubulac|caldeira|petro|smath|ftool|lista de corte|corte de chapa|chapas? e barras|\bcad\b|perfis? metalic|perfilario|parafus|barras? roscad/;
 
 function inferGrupo(repo, r, m) {
   if (m.grupo === 'eng' || m.grupo === 'sis') return m.grupo;
