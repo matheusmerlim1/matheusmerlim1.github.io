@@ -1,17 +1,17 @@
 {
-  "updated": "2026-10-02T01:30:08.177167+00:00",
+  "updated": "2026-10-02T15:38:52.127740+00:00",
   "projects": [
     {
-      "name": "Soldas-e-Carga",
-      "description": "",
-      "url": "https://github.com/matheusmerlim1/Soldas-e-Carga",
+      "name": "calculo-icamento",
+      "description": "Memorial de calculo e lista de material de icamento: carga por perna, linga, sapatilho, manilha e olhal, com desenhos em escala e relatorio para impressao",
+      "url": "https://github.com/matheusmerlim1/calculo-icamento",
       "homepage": "",
       "has_pages": true,
       "archived": false,
       "language": "JavaScript",
       "topics": [],
-      "updated_at": "2026-10-01T19:53:40Z",
-      "pushed_at": "2026-10-01T19:53:35Z"
+      "updated_at": "2026-10-02T12:33:05Z",
+      "pushed_at": "2026-10-02T12:33:01Z"
     },
     {
       "name": "parafuso-carga",
@@ -22,20 +22,20 @@
       "archived": false,
       "language": "JavaScript",
       "topics": [],
-      "updated_at": "2026-10-01T11:40:48Z",
-      "pushed_at": "2026-10-01T11:40:43Z"
+      "updated_at": "2026-10-02T12:33:03Z",
+      "pushed_at": "2026-10-02T12:32:59Z"
     },
     {
-      "name": "parafuso-analise",
-      "description": "Verificação e seleção de parafusos e barras roscadas com memorial de cálculo",
-      "url": "https://github.com/matheusmerlim1/parafuso-analise",
-      "homepage": "https://matheusmerlim1.github.io/parafuso-analise/",
+      "name": "Soldas-e-Carga",
+      "description": "",
+      "url": "https://github.com/matheusmerlim1/Soldas-e-Carga",
+      "homepage": "",
       "has_pages": true,
       "archived": false,
       "language": "JavaScript",
       "topics": [],
-      "updated_at": "2026-10-01T09:40:31Z",
-      "pushed_at": "2026-10-01T09:40:27Z"
+      "updated_at": "2026-10-02T12:33:01Z",
+      "pushed_at": "2026-10-02T12:32:57Z"
     },
     {
       "name": "lista-corte-web",
@@ -72,18 +72,6 @@
       "topics": [],
       "updated_at": "2026-09-28T21:08:01Z",
       "pushed_at": "2026-09-28T21:07:54Z"
-    },
-    {
-      "name": "calculo-icamento",
-      "description": "Memorial de calculo e lista de material de icamento: carga por perna, linga, sapatilho, manilha e olhal, com desenhos em escala e relatorio para impressao",
-      "url": "https://github.com/matheusmerlim1/calculo-icamento",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "JavaScript",
-      "topics": [],
-      "updated_at": "2026-09-28T21:07:54Z",
-      "pushed_at": "2026-09-28T21:07:49Z"
     },
     {
       "name": "anotacoes-publicas",
