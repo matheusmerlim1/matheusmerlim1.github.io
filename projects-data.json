@@ -1,12 +1,12 @@
 {
-  "updated": "2026-10-01T21:43:07.523679+00:00",
+  "updated": "2026-10-02T01:30:08.177167+00:00",
   "projects": [
     {
       "name": "Soldas-e-Carga",
       "description": "",
       "url": "https://github.com/matheusmerlim1/Soldas-e-Carga",
       "homepage": "",
-      "has_pages": false,
+      "has_pages": true,
       "archived": false,
       "language": "JavaScript",
       "topics": [],
