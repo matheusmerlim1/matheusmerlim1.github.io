@@ -1,6 +1,18 @@
 {
-  "updated": "2026-10-03T17:08:43.616552+00:00",
+  "updated": "2026-10-03T20:55:03.919041+00:00",
   "projects": [
+    {
+      "name": "engenharia-mecanica",
+      "description": "Site de estudo de Engenharia Mecânica: conteúdo, simuladores animados e simulados",
+      "url": "https://github.com/matheusmerlim1/engenharia-mecanica",
+      "homepage": "https://matheusmerlim1.github.io/engenharia-mecanica/",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-10-03T19:32:52Z",
+      "pushed_at": "2026-10-03T19:32:49Z"
+    },
     {
       "name": "placa-prototipada",
       "description": "Desenha placa de circuito impresso no navegador: escolha componentes (medidas de datasheet), ligue os pinos e calcule as trilhas sem cruzamento em 1 ou 2 camadas, com exportação 1:1 para serigrafia",
@@ -10,8 +22,8 @@
       "archived": false,
       "language": "JavaScript",
       "topics": [],
-      "updated_at": "2026-10-03T17:02:12Z",
-      "pushed_at": "2026-10-03T17:02:08Z"
+      "updated_at": "2026-10-03T17:44:46Z",
+      "pushed_at": "2026-10-03T17:44:42Z"
     },
     {
       "name": "Verificador-de-texto-IA",
@@ -132,18 +144,6 @@
       "topics": [],
       "updated_at": "2026-09-26T14:15:43Z",
       "pushed_at": "2026-09-26T14:15:39Z"
-    },
-    {
-      "name": "engenharia-mecanica",
-      "description": "Site de estudo de Engenharia Mecânica: conteúdo, simuladores animados e simulados",
-      "url": "https://github.com/matheusmerlim1/engenharia-mecanica",
-      "homepage": "https://matheusmerlim1.github.io/engenharia-mecanica/",
-      "has_pages": true,
-      "archived": false,
-      "language": "JavaScript",
-      "topics": [],
-      "updated_at": "2026-09-21T23:41:27Z",
-      "pushed_at": "2026-09-21T23:41:23Z"
     },
     {
       "name": "vao-carga",
