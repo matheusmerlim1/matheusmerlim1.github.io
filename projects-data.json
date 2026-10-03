@@ -1,6 +1,42 @@
 {
-  "updated": "2026-10-02T15:38:52.127740+00:00",
+  "updated": "2026-10-03T12:23:53.855242+00:00",
   "projects": [
+    {
+      "name": "placa-prototipada",
+      "description": "Desenha placa de circuito impresso no navegador: escolha componentes (medidas de datasheet), ligue os pinos e calcule as trilhas sem cruzamento em 1 ou 2 camadas, com exportação 1:1 para serigrafia",
+      "url": "https://github.com/matheusmerlim1/placa-prototipada",
+      "homepage": "https://matheusmerlim1.github.io/placa-prototipada/",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-10-03T11:07:50Z",
+      "pushed_at": "2026-10-03T11:07:43Z"
+    },
+    {
+      "name": "Verificador-de-texto-IA",
+      "description": "Site para verificar o percentual de texto IA em um artigo",
+      "url": "https://github.com/matheusmerlim1/Verificador-de-texto-IA",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-10-03T10:55:00Z",
+      "pushed_at": "2026-10-03T10:54:56Z"
+    },
+    {
+      "name": "simulado-ppc",
+      "description": "Simulado e resumo de Programacao Paralela e Concorrente - CEFET/RJ UNED Nova Friburgo",
+      "url": "https://github.com/matheusmerlim1/simulado-ppc",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-10-03T10:06:10Z",
+      "pushed_at": "2026-10-03T10:06:07Z"
+    },
     {
       "name": "calculo-icamento",
       "description": "Memorial de calculo e lista de material de icamento: carga por perna, linga, sapatilho, manilha e olhal, com desenhos em escala e relatorio para impressao",
@@ -50,18 +86,6 @@
       "pushed_at": "2026-09-30T09:57:17Z"
     },
     {
-      "name": "Verificador-de-texto-IA",
-      "description": "Site para verificar o percentual de texto IA em um artigo",
-      "url": "https://github.com/matheusmerlim1/Verificador-de-texto-IA",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "JavaScript",
-      "topics": [],
-      "updated_at": "2026-09-28T22:41:12Z",
-      "pushed_at": "2026-09-28T22:41:08Z"
-    },
-    {
       "name": "perfilario-metalico",
       "description": "Catalogo interativo de perfis metalicos: desenho cotado, propriedades e perfis mais usuais",
       "url": "https://github.com/matheusmerlim1/perfilario-metalico",
@@ -96,18 +120,6 @@
       "topics": [],
       "updated_at": "2026-09-27T23:04:08Z",
       "pushed_at": "2026-09-27T23:04:04Z"
-    },
-    {
-      "name": "simulado-ppc",
-      "description": "Simulado e resumo de Programacao Paralela e Concorrente - CEFET/RJ UNED Nova Friburgo",
-      "url": "https://github.com/matheusmerlim1/simulado-ppc",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "JavaScript",
-      "topics": [],
-      "updated_at": "2026-09-26T14:53:33Z",
-      "pushed_at": "2026-09-26T14:53:29Z"
     },
     {
       "name": "guia-projeto-integrador",
