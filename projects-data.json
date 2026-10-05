@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-04T17:24:33.689413+00:00",
+  "updated": "2026-10-05T00:39:41.585925+00:00",
   "projects": [
     {
       "name": "engenharia-mecanica",
@@ -10,8 +10,32 @@
       "archived": false,
       "language": "JavaScript",
       "topics": [],
-      "updated_at": "2026-10-04T14:58:22Z",
-      "pushed_at": "2026-10-04T14:58:18Z"
+      "updated_at": "2026-10-04T22:26:08Z",
+      "pushed_at": "2026-10-04T22:26:04Z"
+    },
+    {
+      "name": "Verificador-de-texto-IA",
+      "description": "Site para verificar o percentual de texto IA em um artigo",
+      "url": "https://github.com/matheusmerlim1/Verificador-de-texto-IA",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-10-04T22:19:46Z",
+      "pushed_at": "2026-10-04T22:19:42Z"
+    },
+    {
+      "name": "ludoteca-boardgames",
+      "description": "App Android para mapear a coleção de jogos de tabuleiro: partidas, horas de mesa e custo por partida, por hora e por mês. Flutter + SQLite local.",
+      "url": "https://github.com/matheusmerlim1/ludoteca-boardgames",
+      "homepage": "",
+      "has_pages": false,
+      "archived": false,
+      "language": "Dart",
+      "topics": [],
+      "updated_at": "2026-10-04T22:00:45Z",
+      "pushed_at": "2026-10-04T22:00:40Z"
     },
     {
       "name": "placa-prototipada",
@@ -24,18 +48,6 @@
       "topics": [],
       "updated_at": "2026-10-04T02:15:07Z",
       "pushed_at": "2026-10-04T02:15:03Z"
-    },
-    {
-      "name": "Verificador-de-texto-IA",
-      "description": "Site para verificar o percentual de texto IA em um artigo",
-      "url": "https://github.com/matheusmerlim1/Verificador-de-texto-IA",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "JavaScript",
-      "topics": [],
-      "updated_at": "2026-10-03T10:55:00Z",
-      "pushed_at": "2026-10-03T10:54:56Z"
     },
     {
       "name": "simulado-ppc",
@@ -477,18 +489,6 @@
       "topics": [],
       "updated_at": "2026-09-05T16:38:05Z",
       "pushed_at": "2026-09-05T16:38:01Z"
-    },
-    {
-      "name": "ludoteca-boardgames",
-      "description": "App Android para mapear a coleção de jogos de tabuleiro: partidas, horas de mesa e custo por partida, por hora e por mês. Flutter + SQLite local.",
-      "url": "https://github.com/matheusmerlim1/ludoteca-boardgames",
-      "homepage": "",
-      "has_pages": false,
-      "archived": false,
-      "language": "Dart",
-      "topics": [],
-      "updated_at": "2026-08-09T00:13:16Z",
-      "pushed_at": "2026-08-09T00:13:13Z"
     },
     {
       "name": "Despesas-pessoais",
