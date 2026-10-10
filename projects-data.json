@@ -1,6 +1,18 @@
 {
-  "updated": "2026-10-08T21:57:13.369531+00:00",
+  "updated": "2026-10-10T13:30:02.001106+00:00",
   "projects": [
+    {
+      "name": "simulado-ppc",
+      "description": "Simulado e resumo de Programacao Paralela e Concorrente - CEFET/RJ UNED Nova Friburgo",
+      "url": "https://github.com/matheusmerlim1/simulado-ppc",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-10-10T10:38:26Z",
+      "pushed_at": "2026-10-10T10:38:23Z"
+    },
     {
       "name": "lista-corte-web",
       "description": "Consolidador de lista de material com otimizacao de corte de chapas e barras — roda inteiro no navegador, sem servidor",
@@ -60,18 +72,6 @@
       "topics": [],
       "updated_at": "2026-10-04T02:15:07Z",
       "pushed_at": "2026-10-04T02:15:03Z"
-    },
-    {
-      "name": "simulado-ppc",
-      "description": "Simulado e resumo de Programacao Paralela e Concorrente - CEFET/RJ UNED Nova Friburgo",
-      "url": "https://github.com/matheusmerlim1/simulado-ppc",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "JavaScript",
-      "topics": [],
-      "updated_at": "2026-10-03T10:06:10Z",
-      "pushed_at": "2026-10-03T10:06:07Z"
     },
     {
       "name": "calculo-icamento",
