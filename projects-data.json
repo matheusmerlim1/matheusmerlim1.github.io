@@ -1,6 +1,18 @@
 {
-  "updated": "2026-10-17T11:31:10.389734+00:00",
+  "updated": "2026-10-23T18:12:49.282835+00:00",
   "projects": [
+    {
+      "name": "calculo-icamento",
+      "description": "Memorial de calculo e lista de material de icamento: carga por perna, linga, sapatilho, manilha e olhal, com desenhos em escala e relatorio para impressao",
+      "url": "https://github.com/matheusmerlim1/calculo-icamento",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-10-23T15:40:02Z",
+      "pushed_at": "2026-10-23T15:39:57Z"
+    },
     {
       "name": "engenharia-mecanica",
       "description": "Site de estudo de Engenharia Mecânica: conteúdo, simuladores animados e simulados",
@@ -105,18 +117,6 @@
       "topics": [],
       "updated_at": "2026-10-04T02:15:07Z",
       "pushed_at": "2026-10-04T02:15:03Z"
-    },
-    {
-      "name": "calculo-icamento",
-      "description": "Memorial de calculo e lista de material de icamento: carga por perna, linga, sapatilho, manilha e olhal, com desenhos em escala e relatorio para impressao",
-      "url": "https://github.com/matheusmerlim1/calculo-icamento",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "JavaScript",
-      "topics": [],
-      "updated_at": "2026-10-02T12:33:05Z",
-      "pushed_at": "2026-10-02T12:33:01Z"
     },
     {
       "name": "parafuso-carga",
