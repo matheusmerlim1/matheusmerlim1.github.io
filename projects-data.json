@@ -1,6 +1,18 @@
 {
-  "updated": "2026-10-24T10:42:38.179035+00:00",
+  "updated": "2026-10-24T23:02:45.334976+00:00",
   "projects": [
+    {
+      "name": "backup",
+      "description": "Backup para Windows: copia arquivos da origem para o destino e so substitui quando a versao ou a data do arquivo da origem for mais recente",
+      "url": "https://github.com/matheusmerlim1/backup",
+      "homepage": "",
+      "has_pages": false,
+      "archived": false,
+      "language": "Python",
+      "topics": [],
+      "updated_at": "2026-10-24T22:44:46Z",
+      "pushed_at": "2026-10-24T22:44:42Z"
+    },
     {
       "name": "calculo-icamento",
       "description": "Memorial de calculo e lista de material de icamento: carga por perna, linga, sapatilho, manilha e olhal, com desenhos em escala e relatorio para impressao",
