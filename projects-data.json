@@ -1,17 +1,17 @@
 {
-  "updated": "2026-10-24T23:02:45.334976+00:00",
+  "updated": "2026-10-25T00:59:33.197002+00:00",
   "projects": [
     {
       "name": "backup",
       "description": "Backup para Windows: copia arquivos da origem para o destino e so substitui quando a versao ou a data do arquivo da origem for mais recente",
       "url": "https://github.com/matheusmerlim1/backup",
       "homepage": "",
-      "has_pages": false,
+      "has_pages": true,
       "archived": false,
       "language": "Python",
       "topics": [],
-      "updated_at": "2026-10-24T22:44:46Z",
-      "pushed_at": "2026-10-24T22:44:42Z"
+      "updated_at": "2026-10-24T23:15:47Z",
+      "pushed_at": "2026-10-24T23:15:48Z"
     },
     {
       "name": "calculo-icamento",
