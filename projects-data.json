@@ -1,6 +1,24 @@
 {
-  "updated": "2026-10-25T00:59:33.197002+00:00",
+  "updated": "2026-10-25T12:47:23.510854+00:00",
   "projects": [
+    {
+      "name": "analise-financeira",
+      "description": "Tendência do mercado, buscador de renda fixa e montagem de carteira — atualiza sozinho (GitHub Actions + Pages)",
+      "url": "https://github.com/matheusmerlim1/analise-financeira",
+      "homepage": "https://matheusmerlim1.github.io/analise-financeira/",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [
+        "acoes",
+        "financas",
+        "github-pages",
+        "investimentos",
+        "renda-fixa"
+      ],
+      "updated_at": "2026-10-25T12:46:52Z",
+      "pushed_at": "2026-10-25T12:46:48Z"
+    },
     {
       "name": "backup",
       "description": "Backup para Windows: copia arquivos da origem para o destino e so substitui quando a versao ou a data do arquivo da origem for mais recente",
