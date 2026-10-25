@@ -1,59 +1,65 @@
 {
-  "updated": "2026-10-25T15:55:59.248531+00:00",
+  "updated": "2026-10-25T18:51:09.441834+00:00",
   "projects": [
     {
-      "name": "analise-financeira",
-      "description": "Tendência do mercado, buscador de renda fixa e montagem de carteira — atualiza sozinho (GitHub Actions + Pages)",
-      "url": "https://github.com/matheusmerlim1/analise-financeira",
-      "homepage": "https://matheusmerlim1.github.io/analise-financeira/",
+      "name": "placa-prototipada",
+      "description": "Desenha placa de circuito impresso no navegador: componentes com medidas de datasheet, ligações e trilhas sem cruzamento em 1 ou 2 camadas, com PDF 1:1 e arquivos Gerber para fabricação",
+      "url": "https://github.com/matheusmerlim1/placa-prototipada",
+      "homepage": "https://matheusmerlim1.github.io/placa-prototipada/",
       "has_pages": true,
       "archived": false,
       "language": "JavaScript",
-      "topics": [
-        "acoes",
-        "financas",
-        "github-pages",
-        "investimentos",
-        "renda-fixa"
-      ],
-      "updated_at": "2026-10-25T15:38:16Z",
-      "pushed_at": "2026-10-25T15:38:12Z"
-    },
-    {
-      "name": "backup",
-      "description": "Backup para Windows: copia arquivos da origem para o destino e so substitui quando a versao ou a data do arquivo da origem for mais recente",
-      "url": "https://github.com/matheusmerlim1/backup",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "Python",
       "topics": [],
-      "updated_at": "2026-10-24T23:15:47Z",
-      "pushed_at": "2026-10-24T23:15:48Z"
+      "updated_at": "2026-10-25T18:40:31Z",
+      "pushed_at": "2026-10-25T18:40:27Z"
     },
     {
-      "name": "calculo-icamento",
-      "description": "Memorial de calculo e lista de material de icamento: carga por perna, linga, sapatilho, manilha e olhal, com desenhos em escala e relatorio para impressao",
-      "url": "https://github.com/matheusmerlim1/calculo-icamento",
+      "name": "lista-corte-web",
+      "description": "Consolidador de lista de material com otimizacao de corte de chapas e barras — roda inteiro no navegador, sem servidor",
+      "url": "https://github.com/matheusmerlim1/lista-corte-web",
       "homepage": "",
       "has_pages": true,
       "archived": false,
       "language": "JavaScript",
       "topics": [],
-      "updated_at": "2026-10-24T10:23:08Z",
-      "pushed_at": "2026-10-24T10:23:04Z"
+      "updated_at": "2026-10-25T18:40:04Z",
+      "pushed_at": "2026-10-25T18:40:00Z"
     },
     {
-      "name": "engenharia-mecanica",
-      "description": "Site de estudo de Engenharia Mecânica: conteúdo, simuladores animados e simulados",
-      "url": "https://github.com/matheusmerlim1/engenharia-mecanica",
-      "homepage": "https://matheusmerlim1.github.io/engenharia-mecanica/",
+      "name": "CNC_ROUTER",
+      "description": "Site de solicitação de CNC Router para alumínio: landing, configurador de custo com 3D e formulário de requisitos (01-FORM-001)",
+      "url": "https://github.com/matheusmerlim1/CNC_ROUTER",
+      "homepage": "",
       "has_pages": true,
       "archived": false,
       "language": "JavaScript",
       "topics": [],
-      "updated_at": "2026-10-17T09:34:46Z",
-      "pushed_at": "2026-10-17T09:34:43Z"
+      "updated_at": "2026-10-25T18:40:02Z",
+      "pushed_at": "2026-10-25T18:39:58Z"
+    },
+    {
+      "name": "vao-carga",
+      "description": "Seleciona o perfil W/HP Gerdau mais leve para um vao e um carregamento informados - calculo por Estados Limites (NBR 8800:2008), memorial de calculo e diagramas.",
+      "url": "https://github.com/matheusmerlim1/vao-carga",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-10-25T18:37:53Z",
+      "pushed_at": "2026-10-25T18:37:50Z"
+    },
+    {
+      "name": "SMathFtoolBridge",
+      "description": "Plugin para o SMath Studio que incorpora o diagrama de um modelo do Ftool na planilha de calculo, com abertura por duplo clique e sincronizacao da imagem em um clique.",
+      "url": "https://github.com/matheusmerlim1/SMathFtoolBridge",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "HTML",
+      "topics": [],
+      "updated_at": "2026-10-25T18:37:49Z",
+      "pushed_at": "2026-10-25T18:37:45Z"
     },
     {
       "name": "editor-pdf",
@@ -73,8 +79,110 @@
         "python",
         "tkinter"
       ],
-      "updated_at": "2026-10-13T09:29:54Z",
-      "pushed_at": "2026-10-13T09:29:51Z"
+      "updated_at": "2026-10-25T18:37:46Z",
+      "pushed_at": "2026-10-25T18:37:42Z"
+    },
+    {
+      "name": "compilador-de-c",
+      "description": "Ambiente para escrever, compilar e testar exercicios em C, com os erros do compilador traduzidos para portugues",
+      "url": "https://github.com/matheusmerlim1/compilador-de-c",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "Python",
+      "topics": [],
+      "updated_at": "2026-10-25T18:37:43Z",
+      "pushed_at": "2026-10-25T18:37:40Z"
+    },
+    {
+      "name": "backup",
+      "description": "Backup para Windows: copia arquivos da origem para o destino e so substitui quando a versao ou a data do arquivo da origem for mais recente",
+      "url": "https://github.com/matheusmerlim1/backup",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "Python",
+      "topics": [],
+      "updated_at": "2026-10-25T18:37:40Z",
+      "pushed_at": "2026-10-25T18:37:37Z"
+    },
+    {
+      "name": "perfilario-metalico",
+      "description": "Catalogo interativo de perfis metalicos: desenho cotado, propriedades e perfis mais usuais",
+      "url": "https://github.com/matheusmerlim1/perfilario-metalico",
+      "homepage": "https://matheusmerlim1.github.io/perfilario-metalico/",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-10-25T18:37:36Z",
+      "pushed_at": "2026-10-25T18:37:32Z"
+    },
+    {
+      "name": "calculadora-gusset-plate",
+      "description": "Calculadora de chapa de no (gusset plate) para ligacoes de contraventamento: secao de Whitmore, pseudo-colunas de Thornton, HSS circular e Metodo das Forcas Uniformes (UFM).",
+      "url": "https://github.com/matheusmerlim1/calculadora-gusset-plate",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "Python",
+      "topics": [],
+      "updated_at": "2026-10-25T18:37:33Z",
+      "pushed_at": "2026-10-25T18:37:29Z"
+    },
+    {
+      "name": "Verificador-de-texto-IA",
+      "description": "Site para verificar o percentual de texto IA em um artigo",
+      "url": "https://github.com/matheusmerlim1/Verificador-de-texto-IA",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-10-25T18:37:30Z",
+      "pushed_at": "2026-10-25T18:37:26Z"
+    },
+    {
+      "name": "calculo-icamento",
+      "description": "Memorial de calculo e lista de material de icamento: carga por perna, linga, sapatilho, manilha e olhal, com desenhos em escala e relatorio para impressao",
+      "url": "https://github.com/matheusmerlim1/calculo-icamento",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-10-25T18:12:13Z",
+      "pushed_at": "2026-10-25T18:12:09Z"
+    },
+    {
+      "name": "analise-financeira",
+      "description": "Tendência do mercado, buscador de renda fixa e montagem de carteira — atualiza sozinho (GitHub Actions + Pages)",
+      "url": "https://github.com/matheusmerlim1/analise-financeira",
+      "homepage": "https://matheusmerlim1.github.io/analise-financeira/",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [
+        "acoes",
+        "financas",
+        "github-pages",
+        "investimentos",
+        "renda-fixa"
+      ],
+      "updated_at": "2026-10-25T15:38:16Z",
+      "pushed_at": "2026-10-25T15:38:12Z"
+    },
+    {
+      "name": "engenharia-mecanica",
+      "description": "Site de estudo de Engenharia Mecânica: conteúdo, simuladores animados e simulados",
+      "url": "https://github.com/matheusmerlim1/engenharia-mecanica",
+      "homepage": "https://matheusmerlim1.github.io/engenharia-mecanica/",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-10-17T09:34:46Z",
+      "pushed_at": "2026-10-17T09:34:43Z"
     },
     {
       "name": "simulado-ppc",
@@ -101,30 +209,6 @@
       "pushed_at": "2026-10-10T16:49:11Z"
     },
     {
-      "name": "lista-corte-web",
-      "description": "Consolidador de lista de material com otimizacao de corte de chapas e barras — roda inteiro no navegador, sem servidor",
-      "url": "https://github.com/matheusmerlim1/lista-corte-web",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "JavaScript",
-      "topics": [],
-      "updated_at": "2026-10-08T18:54:24Z",
-      "pushed_at": "2026-10-08T18:54:18Z"
-    },
-    {
-      "name": "Verificador-de-texto-IA",
-      "description": "Site para verificar o percentual de texto IA em um artigo",
-      "url": "https://github.com/matheusmerlim1/Verificador-de-texto-IA",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "JavaScript",
-      "topics": [],
-      "updated_at": "2026-10-04T22:19:46Z",
-      "pushed_at": "2026-10-04T22:19:42Z"
-    },
-    {
       "name": "ludoteca-boardgames",
       "description": "App Android para mapear a coleção de jogos de tabuleiro: partidas, horas de mesa e custo por partida, por hora e por mês. Flutter + SQLite local.",
       "url": "https://github.com/matheusmerlim1/ludoteca-boardgames",
@@ -135,18 +219,6 @@
       "topics": [],
       "updated_at": "2026-10-04T22:00:45Z",
       "pushed_at": "2026-10-04T22:00:40Z"
-    },
-    {
-      "name": "placa-prototipada",
-      "description": "Desenha placa de circuito impresso no navegador: componentes com medidas de datasheet, ligações e trilhas sem cruzamento em 1 ou 2 camadas, com PDF 1:1 e arquivos Gerber para fabricação",
-      "url": "https://github.com/matheusmerlim1/placa-prototipada",
-      "homepage": "https://matheusmerlim1.github.io/placa-prototipada/",
-      "has_pages": true,
-      "archived": false,
-      "language": "JavaScript",
-      "topics": [],
-      "updated_at": "2026-10-04T02:15:07Z",
-      "pushed_at": "2026-10-04T02:15:03Z"
     },
     {
       "name": "parafuso-carga",
@@ -173,18 +245,6 @@
       "pushed_at": "2026-10-02T12:32:57Z"
     },
     {
-      "name": "perfilario-metalico",
-      "description": "Catalogo interativo de perfis metalicos: desenho cotado, propriedades e perfis mais usuais",
-      "url": "https://github.com/matheusmerlim1/perfilario-metalico",
-      "homepage": "https://matheusmerlim1.github.io/perfilario-metalico/",
-      "has_pages": true,
-      "archived": false,
-      "language": "JavaScript",
-      "topics": [],
-      "updated_at": "2026-09-28T21:08:01Z",
-      "pushed_at": "2026-09-28T21:07:54Z"
-    },
-    {
       "name": "anotacoes-publicas",
       "description": "Páginas públicas do bloco de notas Anotações (https://matheusmerlim1.github.io/anotacoes/)",
       "url": "https://github.com/matheusmerlim1/anotacoes-publicas",
@@ -209,18 +269,6 @@
       "pushed_at": "2026-09-27T23:04:04Z"
     },
     {
-      "name": "vao-carga",
-      "description": "Seleciona o perfil W/HP Gerdau mais leve para um vao e um carregamento informados - calculo por Estados Limites (NBR 8800:2008), memorial de calculo e diagramas.",
-      "url": "https://github.com/matheusmerlim1/vao-carga",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "JavaScript",
-      "topics": [],
-      "updated_at": "2026-09-12T19:31:10Z",
-      "pushed_at": "2026-09-12T19:31:06Z"
-    },
-    {
       "name": "buscador-de-pdfs",
       "description": "Ferramenta desktop (Windows) que indexa uma pasta inteira de PDFs e busca qualquer palavra ou trecho, com OCR para paginas escaneadas.",
       "url": "https://github.com/matheusmerlim1/buscador-de-pdfs",
@@ -233,30 +281,6 @@
       "pushed_at": "2026-09-12T14:35:08Z"
     },
     {
-      "name": "calculadora-gusset-plate",
-      "description": "Calculadora de chapa de no (gusset plate) para ligacoes de contraventamento: secao de Whitmore, pseudo-colunas de Thornton, HSS circular e Metodo das Forcas Uniformes (UFM).",
-      "url": "https://github.com/matheusmerlim1/calculadora-gusset-plate",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "Python",
-      "topics": [],
-      "updated_at": "2026-09-12T14:31:13Z",
-      "pushed_at": "2026-09-12T14:31:09Z"
-    },
-    {
-      "name": "SMathFtoolBridge",
-      "description": "Plugin para o SMath Studio que incorpora o diagrama de um modelo do Ftool na planilha de calculo, com abertura por duplo clique e sincronizacao da imagem em um clique.",
-      "url": "https://github.com/matheusmerlim1/SMathFtoolBridge",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "HTML",
-      "topics": [],
-      "updated_at": "2026-09-12T14:11:52Z",
-      "pushed_at": "2026-09-12T14:11:48Z"
-    },
-    {
       "name": "transpetro-enfase-25",
       "description": "Banco de 374 questoes ineditas no padrao Cesgranrio para a Enfase 25 (Engenharia Mecanica) do concurso Transpetro 2026 - modo estudo, simulado e formulario",
       "url": "https://github.com/matheusmerlim1/transpetro-enfase-25",
@@ -267,18 +291,6 @@
       "topics": [],
       "updated_at": "2026-09-06T11:05:46Z",
       "pushed_at": "2026-09-06T11:05:42Z"
-    },
-    {
-      "name": "compilador-de-c",
-      "description": "Ambiente para escrever, compilar e testar exercicios em C, com os erros do compilador traduzidos para portugues",
-      "url": "https://github.com/matheusmerlim1/compilador-de-c",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "Python",
-      "topics": [],
-      "updated_at": "2026-09-06T10:53:01Z",
-      "pushed_at": "2026-09-06T10:53:10Z"
     },
     {
       "name": "trabalho-nilson",
@@ -495,18 +507,6 @@
       "topics": [],
       "updated_at": "2026-09-05T16:38:09Z",
       "pushed_at": "2026-09-05T16:38:06Z"
-    },
-    {
-      "name": "CNC_ROUTER",
-      "description": "Site de solicitação de CNC Router para alumínio: landing, configurador de custo com 3D e formulário de requisitos (01-FORM-001)",
-      "url": "https://github.com/matheusmerlim1/CNC_ROUTER",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "JavaScript",
-      "topics": [],
-      "updated_at": "2026-09-05T16:38:07Z",
-      "pushed_at": "2026-09-05T16:38:04Z"
     },
     {
       "name": "Api-Piadas",
