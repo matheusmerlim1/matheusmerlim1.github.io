@@ -622,7 +622,9 @@ section { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem 3.25rem; }
 .pub-venue { font-size: .76rem; color: var(--text2); }
 
 /* ── CONTACT ── */
-.contact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: .7rem; }
+/* no máximo 3 colunas: os 6 contatos fecham em 3 + 3 (em 4 colunas sobravam dois buracos)
+   e o cartão fica largo o bastante para o e-mail não quebrar no meio */
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(max(210px, calc(33.333% - .5rem)), 1fr)); gap: .7rem; }
 .contact-card {
   background: var(--bg2); border: 1px solid var(--border);
   border-radius: var(--r); padding: 1rem;
@@ -661,6 +663,11 @@ mark { background: rgba(167,139,250,.28); color: var(--text); border-radius: 2px
   .stat-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
   .nav-links .hide-sm { display: none; }
   nav { padding: 0 1rem; }
+  /* barra apertada: o nome quebrava em duas linhas e o atalho de teclado não serve no celular */
+  .nav-logo { white-space: nowrap; }
+  .nav-links { gap: .6rem; }
+  .nav-search-btn { white-space: nowrap; }
+  .nav-search-btn kbd { display: none; }
   .patent-card { flex-direction: column; }
   .recent-all  { margin-left: 0; flex-basis: 100%; }
 }
