@@ -29,15 +29,14 @@ Titular da patente **BR20202001520398** — Protetor Facial (Face Shield) reutil
 
 ## Navegação
 
-O portfólio tem uma **coluna lateral fixa** com os 29 projetos, sempre visível à esquerda
-(vira gaveta em telas estreitas). Nela dá para buscar por nome, filtrar por categoria
-(Web, Simulados, API, Mobile, Fundamentos) e ordenar por relevância, mais recentes ou nome.
-Cada item abre o **site publicado** do projeto quando ele existe, e o repositório quando não existe.
+A página é curta e direta: apresentação, **Projetos**, Experiência, Formação, Competências e Contato.
+Em Projetos ficam três destaques e, logo abaixo, **uma lista compacta com todos os repositórios**,
+que se monta sozinha a partir do GitHub. Ela abre nos 8 mais recentes (pela data do último commit) e tem
+busca por nome, filtro por categoria (Engenharia, Web, Simulados, Mobile, API, Fundamentos) e ordenação
+por recentes, relevância ou nome. `Ctrl K` leva direto à busca. Cada linha abre o **site publicado**
+do projeto quando ele existe, e o repositório quando não existe.
 
-## Projetos recentes
-
-O portfólio abre com a faixa **Projetos mais recentes**, que ordena os seis últimos repositórios
-pela data do último commit publicado no GitHub e se reordena sozinha a cada visita.
+## Projetos em destaque
 
 | Projeto | Stack | O que é |
 |---------|-------|---------|

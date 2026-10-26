@@ -20,6 +20,11 @@ function timeAgo(dateStr) {
   return `há ${years} ano${years > 1 ? 's' : ''}`;
 }
 
+// commit nos últimos 7 dias
+function isFresh(dateStr) {
+  return Date.now() - new Date(dateStr).getTime() < 7 * 86400000;
+}
+
 function applyCommitData(repoMap) {
   document.querySelectorAll('[data-repo]').forEach(card => {
     const repo  = repoMap[card.getAttribute('data-repo')];
@@ -29,8 +34,7 @@ function applyCommitData(repoMap) {
     const date   = repo.pushed_at || repo.updated_at;
     badge.textContent = timeAgo(date);
     badge.classList.remove('loading');
-    const recent = Date.now() - new Date(date).getTime() < 7 * 86400000;
-    if (recent) badge.classList.add('recent');
+    if (isFresh(date)) badge.classList.add('recent');
   });
 }
 
@@ -70,12 +74,9 @@ async function loadProjects() {
   REPO_DATA = repoMap;
   PROJECTS  = buildProjects(repoMap);
 
-  renderAutoCards();
-  renderAreaProjects();
-  renderRecent(repoMap);
-  renderSidebar();
+  renderProjects();
   updateCounts();
-  applyCommitData(repoMap);   // por último: cobre também os cards recém-criados
+  applyCommitData(repoMap);
   showNewCommitsBanner(repoMap, previousMap);
 
   try { localStorage.setItem('portfolio_repos', JSON.stringify(repoMap)); } catch (_) {}
@@ -89,198 +90,75 @@ function showNewCommitsBanner(current, previous) {
   if (!updated.length) return;
 
   const banner = document.createElement('div');
-  banner.style.cssText = `
-    position:fixed;bottom:1.5rem;right:1.5rem;z-index:300;
-    background:#161b22;border:1px solid #3fb950;border-radius:10px;
-    padding:.8rem 1.1rem;font-size:.83rem;color:#e6edf3;
-    box-shadow:0 4px 20px rgba(0,0,0,.5);max-width:280px;cursor:pointer`;
-  banner.innerHTML = `<strong style="color:#3fb950">Commits novos!</strong><br>${updated.join(', ')}`;
+  banner.className = 'toast';
+  banner.innerHTML = `<strong>Commits novos!</strong><br>${updated.map(esc).join(', ')}`;
   banner.addEventListener('click', () => banner.remove());
   document.body.appendChild(banner);
   setTimeout(() => banner.remove(), 9000);
 }
 
-// ── PROJETOS RECENTES (faixa de destaque) ─────────────────────
-const RECENT_COUNT = 6;
-const LANG_CLASS = {
-  JavaScript: 'lc-js', HTML: 'lc-html', CSS: 'lc-css',
-  Dart: 'lc-dart', Flutter: 'lc-flutter', Python: 'lc-python',
-};
-
-function renderRecent(repoMap) {
-  const grid = document.getElementById('recent-grid');
-  if (!grid) return;
-
-  const dated = PROJECTS
-    .map(p => {
-      const r = repoMap[p.repo];
-      return r ? Object.assign({}, p, { date: r.pushed_at || r.updated_at }) : null;
-    })
-    .filter(Boolean)
-    .sort((a, b) => new Date(b.date) - new Date(a.date));
-
-  // sem dados suficientes: mantém a lista estática do HTML
-  if (dated.length < RECENT_COUNT) return;
-
-  grid.innerHTML = '';
-  dated.slice(0, RECENT_COUNT).forEach((p, i) => {
-    const fresh   = Date.now() - new Date(p.date).getTime() < 7 * 86400000;
-    const repoUrl = `https://github.com/${GITHUB_USER}/${p.repo}`;
-    const abrir   = p.site ? `<a class="proj-link" href="${p.site}" target="_blank" rel="noopener">Abrir site →</a>` : '';
-    const card    = document.createElement('article');
-    card.className = 'recent-card fade-in visible' + (i === 0 ? ' is-top' : '');
-    card.setAttribute('data-repo', p.repo);
-    card.innerHTML = `
-      <div class="recent-head">
-        <span class="recent-rank">${String(i + 1).padStart(2, '0')}</span>
-        <span class="recent-icon">${p.icon}</span>
-        <span class="commit-badge${fresh ? ' recent' : ''}">${timeAgo(p.date)}</span>
-      </div>
-      <h3>${p.name}</h3>
-      <p>${p.desc}</p>
-      <div class="recent-foot">
-        <span class="lang-chip"><span class="lang-dot ${LANG_CLASS[p.lang] || 'lc-html'}"></span>${p.lang}</span>
-        <span class="recent-links">
-          ${abrir}
-          <a class="proj-link" href="${repoUrl}" target="_blank" rel="noopener">Código →</a>
-        </span>
-      </div>`;
-    grid.appendChild(card);
-  });
-}
-
-// ── CARDS AUTOMÁTICOS ─────────────────────────────────
-// Repositório que ainda não tem card escrito à mão ganha um card gerado.
-// Quando alguém escrever o card dele na seção, ele sai daqui sozinho.
-function renderAutoCards() {
-  const wrap = document.getElementById('novos-wrap');
-  const grid = document.getElementById('novos-grid');
-  if (!wrap || !grid) return;
-
-  grid.innerHTML = '';   // antes de olhar quem já tem card
-
-  const jaTem = new Set(
-    Array.from(document.querySelectorAll('#programacao [data-repo]'))
-         .map(el => el.getAttribute('data-repo'))
-  );
-  const faltando = PROJECTS
-    .filter(p => !jaTem.has(p.repo))
-    .sort((a, b) => b.rel - a.rel);
-
-  wrap.hidden = !faltando.length;
-  if (!faltando.length) return;
-
-  faltando.forEach(p => {
-    const repoUrl = `https://github.com/${GITHUB_USER}/${p.repo}`;
-    const card = document.createElement('div');
-    card.className = 'proj-card fade-in visible';
-    card.setAttribute('data-repo', p.repo);
-    card.innerHTML = `
-      <div class="proj-top">
-        <span class="proj-icon">${p.icon}</span>
-        <span style="display:flex;align-items:center;gap:.5rem">
-          <span class="new-badge">Novo</span>
-          <span class="lang-chip"><span class="lang-dot ${LANG_CLASS[p.lang] || 'lc-html'}"></span>${p.lang}</span>
-        </span>
-      </div>
-      <h3>${p.name}</h3>
-      <p>${p.desc}</p>
-      <div class="proj-footer">
-        <span class="proj-links">
-          ${p.site ? `<a class="proj-link" href="${p.site}" target="_blank" rel="noopener">Abrir site \u2192</a>` : ''}
-          <a class="proj-link" href="${repoUrl}" target="_blank" rel="noopener">Reposit\u00f3rio \u2192</a>
-        </span>
-        <span class="commit-badge loading">...</span>
-      </div>`;
-    grid.appendChild(card);
+// contagens que dependem de quantos repositórios existem
+function updateCounts() {
+  const n = String(PROJECTS.length);
+  ['fact-repos', 'pl-total'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = n;
   });
 }
 
 // anos completos desde data-desde ("AAAA-MM"), ex: 1 ano e 9 meses -> "1+"
 function updateYears() {
-  document.querySelectorAll('.stat-num[data-desde]').forEach(el => {
+  document.querySelectorAll('[data-desde]').forEach(el => {
     const [ano, mes] = el.dataset.desde.split('-').map(Number);
     const hoje = new Date();
     const meses = (hoje.getFullYear() - ano) * 12 + (hoje.getMonth() + 1 - mes);
-    el.textContent = Math.max(1, Math.floor(meses / 12)) + '+';
+    const anos = Math.max(1, Math.floor(meses / 12));
+    el.textContent = anos + '+';
+    el.nextSibling.textContent = anos > 1 ? 'anos em engenharia' : 'ano em engenharia';
   });
 }
 
-// contagens que dependem de quantos repositórios existem
-function updateCounts() {
-  const n = PROJECTS.length;
-  const stat = document.getElementById('stat-repos');
-  if (stat) {
-    const suffix = stat.textContent.replace(/[0-9]/g, '');
-    stat.dataset.target = String(n);
-    if (!stat.dataset.animating) stat.textContent = n + suffix;
-  }
-  const sec = document.getElementById('prog-count');
-  if (sec) sec.textContent = n + ' repositórios';
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, c =>
+    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 }
 
-// ── PROJETOS POR ÁREA ─────────────────────────────────
-// Projeto marcado com areas: ['mec'] ou ['fisica'] em PROJECT_META
-// também aparece na seção daquela área, além da de Programação.
-function renderAreaProjects() {
-  ['mec', 'fisica'].forEach(area => {
-    const wrap = document.getElementById('area-' + area + '-wrap');
-    const grid = document.getElementById('area-' + area + '-grid');
-    if (!wrap || !grid) return;
+// ── LISTA DE PROJETOS ─────────────────────────────────────────
+// Uma lista só, compacta: começa nos mais recentes e mostra LIST_LIMIT
+// linhas; busca e categoria mostram tudo o que casar.
+const LIST_LIMIT = 8;
+const LIST_CATS  = ['Todas', 'Engenharia', 'Web', 'Simulados', 'Mobile', 'API', 'Fundamentos'];
+const LANG_CLASS = {
+  JavaScript: 'lc-js', HTML: 'lc-html', CSS: 'lc-css',
+  Dart: 'lc-dart', Flutter: 'lc-flutter', Python: 'lc-python',
+};
+const plState = { q: '', cat: 'Todas', sort: 'recent', all: false };
 
-    const daArea = PROJECTS
-      .filter(p => (PROJECT_META[p.repo]?.areas || []).includes(area))
-      .sort((a, b) => b.rel - a.rel);
-
-    grid.innerHTML = '';
-    wrap.hidden = !daArea.length;
-    if (!daArea.length) return;
-
-    daArea.forEach(p => {
-      const repoUrl = `https://github.com/${GITHUB_USER}/${p.repo}`;
-      const card = document.createElement('div');
-      card.className = 'proj-card fade-in visible';
-      card.setAttribute('data-repo', p.repo);
-      card.innerHTML = `
-        <div class="proj-top">
-          <span class="proj-icon">${p.icon}</span>
-          <span class="lang-chip"><span class="lang-dot ${LANG_CLASS[p.lang] || 'lc-html'}"></span>${p.lang}</span>
-        </div>
-        <h3>${p.name}</h3>
-        <p>${p.desc}</p>
-        <div class="proj-footer">
-          <span class="proj-links">
-            ${p.site ? `<a class="proj-link" href="${p.site}" target="_blank" rel="noopener">Abrir site \u2192</a>` : ''}
-            <a class="proj-link" href="${repoUrl}" target="_blank" rel="noopener">Reposit\u00f3rio \u2192</a>
-          </span>
-          <span class="commit-badge loading">...</span>
-        </div>`;
-      grid.appendChild(card);
-    });
-  });
+// "Engenharia" junta tudo do grupo eng, de qualquer categoria
+function inCat(p, cat) {
+  if (cat === 'Todas') return true;
+  if (cat === 'Engenharia') return p.grupo === 'eng';
+  return p.cat === cat;
 }
 
-// ── COLUNA LATERAL DE PROJETOS ─────────────────────────
-const sbState = { q: '', cat: 'Todas', sort: 'rel' };
-
-function sbMatches(p, q) {
+function plMatches(p, q) {
   if (!q) return true;
   return (p.name + ' ' + p.desc + ' ' + p.lang + ' ' + p.repo + ' ' + p.cat)
     .toLowerCase().includes(q);
 }
 
-function sbDate(p) {
+function repoDate(p) {
   const r = REPO_DATA[p.repo];
   return r ? (r.pushed_at || r.updated_at) : null;
 }
 
-function sbSorted(list) {
+function plSorted(list) {
   const arr = list.slice();
-  if (sbState.sort === 'name') {
+  if (plState.sort === 'name') {
     arr.sort((a, b) => a.name.localeCompare(b.name, 'pt-BR'));
-  } else if (sbState.sort === 'recent') {
+  } else if (plState.sort === 'recent') {
     arr.sort((a, b) => {
-      const da = sbDate(a), db = sbDate(b);
+      const da = repoDate(a), db = repoDate(b);
       if (da && db) return new Date(db) - new Date(da);
       if (da) return -1;
       if (db) return 1;
@@ -292,114 +170,104 @@ function sbSorted(list) {
   return arr;
 }
 
-function renderSidebar() {
-  const list = document.getElementById('sb-list');
+function renderChips() {
+  const box = document.getElementById('pl-cats');
+  box.innerHTML = LIST_CATS.map(cat => {
+    const n = PROJECTS.filter(p => inCat(p, cat)).length;
+    if (!n) return '';
+    return `<button type="button" class="pl-chip" data-cat="${cat}" aria-pressed="${cat === plState.cat}">${cat}<span class="pl-n">${n}</span></button>`;
+  }).join('');
+}
+
+function projectRow(p, query) {
+  const date    = repoDate(p);
+  const repoUrl = `https://github.com/${GITHUB_USER}/${p.repo}`;
+  return `
+    <li class="pl-row">
+      <span class="pl-icon" aria-hidden="true">${p.icon}</span>
+      <div class="pl-main">
+        <a class="pl-name" href="${projectUrl(p)}" target="_blank" rel="noopener">${highlight(esc(p.name), query)}</a>
+        <p class="pl-desc">${esc(p.desc)}</p>
+      </div>
+      <span class="pl-meta"><span class="lang-dot ${LANG_CLASS[p.lang] || 'lc-html'}"></span>${esc(p.lang)}</span>
+      <span class="pl-when${date && isFresh(date) ? ' recent' : ''}">${date ? timeAgo(date) : ''}</span>
+      ${p.site
+        ? `<a class="pl-code" href="${repoUrl}" target="_blank" rel="noopener" aria-label="Código de ${esc(p.name)}">código</a>`
+        : '<span class="pl-code pl-code-gh">GitHub</span>'}
+    </li>`;
+}
+
+function renderProjects() {
+  const list = document.getElementById('pl-list');
   if (!list) return;
+  renderChips();
 
-  const q       = sbState.q.trim().toLowerCase();
-  // "Sistemas" e "Engenharia" no Ordenar mostram só aquele grupo, por relevância
-  const grupo   = (sbState.sort === 'sis' || sbState.sort === 'eng') ? sbState.sort : null;
-  const matches = sbSorted(PROJECTS.filter(p =>
-    (sbState.cat === 'Todas' || p.cat === sbState.cat ||
-      (sbState.cat === 'Engenharia' && p.grupo === 'eng')) &&
-    (!grupo || p.grupo === grupo) &&
-    sbMatches(p, q)
-  ));
+  const query    = plState.q.trim();
+  const matches  = plSorted(PROJECTS.filter(p => inCat(p, plState.cat) && plMatches(p, query.toLowerCase())));
+  const filtered = !!query || plState.cat !== 'Todas';
+  const shown    = (filtered || plState.all) ? matches : matches.slice(0, LIST_LIMIT);
 
-  const countEl = document.getElementById('sb-count');
-  if (countEl) {
-    countEl.textContent = matches.length === PROJECTS.length
-      ? `${PROJECTS.length} projetos`
-      : `${matches.length} de ${PROJECTS.length}`;
-  }
+  list.innerHTML = shown.map(p => projectRow(p, query)).join('');
+  document.getElementById('pl-empty').hidden = matches.length > 0;
 
-  document.querySelectorAll('.sb-chip').forEach(c => {
-    c.classList.toggle('active', c.dataset.cat === sbState.cat);
-  });
+  const more = document.getElementById('pl-more');
+  more.hidden = filtered || matches.length <= LIST_LIMIT;
+  more.textContent = plState.all ? 'Mostrar menos' : `Mostrar todos os ${matches.length} projetos`;
+  more.setAttribute('aria-expanded', String(plState.all));
 
-  list.innerHTML = '';
-
-  if (!matches.length) {
-    list.innerHTML = '<p class="sb-empty">Nenhum projeto encontrado.<br><button type="button" class="sb-clear" id="sb-clear">Limpar filtros</button></p>';
-    document.getElementById('sb-clear').addEventListener('click', sbReset);
-    return;
-  }
-
-  matches.forEach(p => {
-    const date = sbDate(p);
-    const a    = document.createElement('a');
-    a.className = 'sb-item';
-    a.href      = projectUrl(p);
-    a.target    = '_blank';
-    a.rel       = 'noopener';
-    a.title     = p.site ? 'Abrir ' + p.name : 'Ver ' + p.name + ' no GitHub';
-    a.innerHTML = `
-      <span class="sb-icon">${p.icon}</span>
-      <span class="sb-body">
-        <span class="sb-name">${highlight(p.name, sbState.q.trim())}</span>
-        <span class="sb-meta">
-          <span class="sb-tag">${p.cat}</span>
-          <span class="lang-dot ${LANG_CLASS[p.lang] || 'lc-html'}"></span>${p.lang}
-        </span>
-      </span>
-      <span class="sb-right">
-        ${date ? `<span class="sb-when${Date.now() - new Date(date).getTime() < 7 * 86400000 ? ' recent' : ''}">${timeAgo(date)}</span>` : ''}
-        <span class="sb-go">${p.site ? 'site \u2197' : 'GitHub \u2197'}</span>
-      </span>`;
-    list.appendChild(a);
-  });
+  document.getElementById('pl-status').textContent =
+    `${matches.length} projeto${matches.length !== 1 ? 's' : ''}`;
 }
 
-function sbReset() {
-  sbState.q = '';
-  sbState.cat = 'Todas';
-  sbState.sort = 'rel';
-  const input = document.getElementById('sb-input');
-  if (input) input.value = '';
-  const sort = document.getElementById('sb-sort');
-  if (sort) sort.value = 'rel';
-  renderSidebar();
+function setCat(cat) {
+  plState.cat = cat;
+  renderProjects();
 }
 
-function toggleSidebar(open) {
-  const sb   = document.getElementById('sidebar');
-  const back = document.getElementById('sb-backdrop');
-  const btn  = document.getElementById('sb-toggle');
-  if (!sb) return;
-  const show = open === undefined ? !sb.classList.contains('open') : open;
-  sb.classList.toggle('open', show);
-  if (back) back.classList.toggle('open', show);
-  if (btn)  btn.setAttribute('aria-expanded', String(show));
+function plReset() {
+  plState.q = '';
+  plState.cat = 'Todas';
+  document.getElementById('pl-input').value = '';
+  renderProjects();
+}
+
+function focusSearch() {
+  document.getElementById('projetos').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  document.getElementById('pl-input').focus({ preventScroll: true });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const input = document.getElementById('sb-input');
-  const sort  = document.getElementById('sb-sort');
+  const input = document.getElementById('pl-input');
+  const sort  = document.getElementById('pl-sort');
   if (!input) return;
 
-  input.addEventListener('input', () => { sbState.q = input.value; renderSidebar(); });
-  sort.addEventListener('change', () => { sbState.sort = sort.value; renderSidebar(); });
+  input.addEventListener('input', () => { plState.q = input.value; renderProjects(); });
+  input.addEventListener('keydown', e => { if (e.key === 'Escape' && input.value) { e.stopPropagation(); plReset(); } });
+  sort.addEventListener('change', () => { plState.sort = sort.value; renderProjects(); });
 
-  document.querySelectorAll('.sb-chip').forEach(chip => {
-    chip.addEventListener('click', () => { sbState.cat = chip.dataset.cat; renderSidebar(); });
+  document.getElementById('pl-cats').addEventListener('click', e => {
+    const chip = e.target.closest('.pl-chip');
+    if (chip) setCat(chip.dataset.cat);
+  });
+  document.getElementById('pl-more').addEventListener('click', () => {
+    plState.all = !plState.all;
+    renderProjects();
+    if (!plState.all) document.getElementById('pl').scrollIntoView({ block: 'nearest' });
+  });
+  document.getElementById('pl-clear').addEventListener('click', plReset);
+
+  // atalhos do topo: "Engenharia Mecânica" já abre a lista filtrada
+  document.querySelectorAll('[data-filter]').forEach(a => {
+    a.addEventListener('click', () => setCat(a.dataset.filter));
   });
 
-  const toggle = document.getElementById('sb-toggle');
-  if (toggle) toggle.addEventListener('click', () => toggleSidebar());
-  const back = document.getElementById('sb-backdrop');
-  if (back) back.addEventListener('click', () => toggleSidebar(false));
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') toggleSidebar(false); });
-
-  // fecha a gaveta ao escolher um projeto no celular
-  document.getElementById('sb-list').addEventListener('click', e => {
-    if (e.target.closest('.sb-item')) toggleSidebar(false);
+  document.getElementById('nav-search-btn').addEventListener('click', focusSearch);
+  document.addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); focusSearch(); }
   });
 
-  renderSidebar();
+  renderProjects();
 });
-
-// ── SEARCH ────────────────────────────────────────────────────
-const CATEGORIES = ['Todas', 'Web', 'Simulados', 'API', 'Mobile', 'Fundamentos'];
 
 // site: pagina publicada (quando existe) · cat: categoria · rel: peso de relevancia
 // Repositórios que nunca entram na página.
@@ -607,154 +475,13 @@ function highlight(text, query) {
   return text.replace(re, '<mark>$1</mark>');
 }
 
-function renderResults(query) {
-  const q = query.trim().toLowerCase();
-  const container = document.getElementById('search-results');
-  const countEl   = document.getElementById('search-count');
-  container.innerHTML = '';
-
-  const matches = q
-    ? PROJECTS.filter(p =>
-        p.name.toLowerCase().includes(q) ||
-        p.desc.toLowerCase().includes(q) ||
-        p.lang.toLowerCase().includes(q) ||
-        p.repo.toLowerCase().includes(q)
-      )
-    : PROJECTS;
-
-  countEl.textContent = `${matches.length} resultado${matches.length !== 1 ? 's' : ''}`;
-
-  if (!matches.length) {
-    container.innerHTML = '<p style="text-align:center;padding:2rem;color:var(--text2);font-size:.9rem">Nenhum resultado encontrado.</p>';
-    return;
-  }
-
-  matches.forEach(p => {
-    const url  = projectUrl(p);
-    const item = document.createElement('a');
-    item.className = 'search-result-item';
-    item.href      = url;
-    item.target    = '_blank';
-    item.rel       = 'noopener';
-    item.innerHTML = `
-      <span class="sr-icon">${p.icon}</span>
-      <div style="min-width:0">
-        <div class="sr-name">${highlight(p.name, query.trim())}</div>
-        <div class="sr-desc">${highlight(p.desc, query.trim())}</div>
-        <div class="sr-lang">${p.lang}</div>
-      </div>`;
-    item.addEventListener('click', closeSearch);
-    container.appendChild(item);
-  });
-}
-
-function openSearch() {
-  document.getElementById('search-overlay').classList.add('open');
-  document.getElementById('search-input').focus();
-  renderResults('');
-}
-function closeSearch() {
-  document.getElementById('search-overlay').classList.remove('open');
-  document.getElementById('search-input').value = '';
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  const overlay = document.getElementById('search-overlay');
-  const input   = document.getElementById('search-input');
-
-  document.getElementById('nav-search-btn').addEventListener('click', openSearch);
-
-  overlay.addEventListener('click', e => { if (e.target === overlay) closeSearch(); });
-
-  input.addEventListener('input', () => renderResults(input.value));
-
-  document.addEventListener('keydown', e => {
-    if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); openSearch(); }
-    if (e.key === 'Escape') closeSearch();
-  });
-});
-
-// ── COUNT-UP DE NÚMEROS ───────────────────────────────────────
-function animateCount(el) {
-  const raw = el.textContent.trim();
-  if (!el.dataset.target) el.dataset.target = raw.replace(/\D/g, '');
-  if (!parseInt(el.dataset.target, 10)) return;
-  const suffix = raw.replace(/[0-9]/g, '');
-  const dur    = 1100;
-  const start  = performance.now();
-  el.dataset.animating = '1';
-  function step(now) {
-    // relê o alvo a cada quadro: se a contagem real chegar no meio do
-    // caminho, a animação segue para o número novo em vez do antigo
-    const target = parseInt(el.dataset.target, 10) || 0;
-    const p = Math.min((now - start) / dur, 1);
-    const eased = 1 - Math.pow(1 - p, 3);
-    el.textContent = Math.round(target * eased) + suffix;
-    if (p < 1) requestAnimationFrame(step);
-    else delete el.dataset.animating;
-  }
-  requestAnimationFrame(step);
-}
-
 // ── ANIMATIONS ────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   const io = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
   }, { threshold: 0.08 });
   document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
 
   updateYears();
-
-  // count-up dos números dos stats (só uma vez)
-  const countIO = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { animateCount(e.target); countIO.unobserve(e.target); }
-    });
-  }, { threshold: 0.5 });
-  document.querySelectorAll('.stat-num').forEach(el => countIO.observe(el));
-
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const t = document.querySelector(a.getAttribute('href'));
-      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-    });
-  });
-
   loadProjects();
 });
-
-// ── EFEITOS INTERATIVOS ───────────────────────────────────────
-(() => {
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // barra de progresso de scroll
-  const bar = document.getElementById('scroll-progress');
-  function onScroll() {
-    const h = document.documentElement;
-    const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight);
-    if (bar) bar.style.width = (scrolled * 100) + '%';
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
-  if (reduce) return;
-
-  // glow que segue o cursor
-  const glow = document.getElementById('cursor-glow');
-  // spotlight nos cards (variáveis CSS --mx / --my)
-  const glowCards = '.exp-card, .proj-card, .recent-card';
-
-  window.addEventListener('pointermove', e => {
-    if (glow) {
-      glow.style.opacity = '1';
-      glow.style.left = e.clientX + 'px';
-      glow.style.top  = e.clientY + 'px';
-    }
-    const card = e.target.closest && e.target.closest(glowCards);
-    if (card) {
-      const r = card.getBoundingClientRect();
-      card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-      card.style.setProperty('--my', (e.clientY - r.top)  + 'px');
-    }
-  }, { passive: true });
-})();
