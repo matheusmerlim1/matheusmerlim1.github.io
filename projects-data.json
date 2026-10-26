@@ -1,6 +1,24 @@
 {
-  "updated": "2026-10-25T18:51:09.441834+00:00",
+  "updated": "2026-10-26T22:32:45.445969+00:00",
   "projects": [
+    {
+      "name": "analise-financeira",
+      "description": "Tendência do mercado, buscador de renda fixa e montagem de carteira — atualiza sozinho (GitHub Actions + Pages)",
+      "url": "https://github.com/matheusmerlim1/analise-financeira",
+      "homepage": "https://matheusmerlim1.github.io/analise-financeira/",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [
+        "acoes",
+        "financas",
+        "github-pages",
+        "investimentos",
+        "renda-fixa"
+      ],
+      "updated_at": "2026-10-26T22:15:25Z",
+      "pushed_at": "2026-10-26T22:15:20Z"
+    },
     {
       "name": "placa-prototipada",
       "description": "Desenha placa de circuito impresso no navegador: componentes com medidas de datasheet, ligações e trilhas sem cruzamento em 1 ou 2 camadas, com PDF 1:1 e arquivos Gerber para fabricação",
@@ -153,24 +171,6 @@
       "topics": [],
       "updated_at": "2026-10-25T18:12:13Z",
       "pushed_at": "2026-10-25T18:12:09Z"
-    },
-    {
-      "name": "analise-financeira",
-      "description": "Tendência do mercado, buscador de renda fixa e montagem de carteira — atualiza sozinho (GitHub Actions + Pages)",
-      "url": "https://github.com/matheusmerlim1/analise-financeira",
-      "homepage": "https://matheusmerlim1.github.io/analise-financeira/",
-      "has_pages": true,
-      "archived": false,
-      "language": "JavaScript",
-      "topics": [
-        "acoes",
-        "financas",
-        "github-pages",
-        "investimentos",
-        "renda-fixa"
-      ],
-      "updated_at": "2026-10-25T15:38:16Z",
-      "pushed_at": "2026-10-25T15:38:12Z"
     },
     {
       "name": "engenharia-mecanica",
