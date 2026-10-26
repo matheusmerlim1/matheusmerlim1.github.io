@@ -74,7 +74,7 @@ async function loadProjects() {
   REPO_DATA = repoMap;
   PROJECTS  = buildProjects(repoMap);
 
-  renderProjects();
+  renderSidebar();
   updateCounts();
   applyCommitData(repoMap);
   showNewCommitsBanner(repoMap, previousMap);
@@ -100,7 +100,7 @@ function showNewCommitsBanner(current, previous) {
 // contagens que dependem de quantos repositórios existem
 function updateCounts() {
   const n = String(PROJECTS.length);
-  ['fact-repos', 'pl-total'].forEach(id => {
+  ['fact-repos'].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.textContent = n;
   });
@@ -123,42 +123,32 @@ function esc(s) {
     ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 }
 
-// ── LISTA DE PROJETOS ─────────────────────────────────────────
-// Uma lista só, compacta: começa nos mais recentes e mostra LIST_LIMIT
-// linhas; busca e categoria mostram tudo o que casar.
-const LIST_LIMIT = 8;
-const LIST_CATS  = ['Todas', 'Engenharia', 'Web', 'Simulados', 'Mobile', 'API', 'Fundamentos'];
 const LANG_CLASS = {
   JavaScript: 'lc-js', HTML: 'lc-html', CSS: 'lc-css',
   Dart: 'lc-dart', Flutter: 'lc-flutter', Python: 'lc-python',
 };
-const plState = { q: '', cat: 'Todas', sort: 'recent', all: false };
 
-// "Engenharia" junta tudo do grupo eng, de qualquer categoria
-function inCat(p, cat) {
-  if (cat === 'Todas') return true;
-  if (cat === 'Engenharia') return p.grupo === 'eng';
-  return p.cat === cat;
-}
+// ── COLUNA LATERAL DE PROJETOS ─────────────────────────
+const sbState = { q: '', cat: 'Todas', sort: 'rel' };
 
-function plMatches(p, q) {
+function sbMatches(p, q) {
   if (!q) return true;
   return (p.name + ' ' + p.desc + ' ' + p.lang + ' ' + p.repo + ' ' + p.cat)
     .toLowerCase().includes(q);
 }
 
-function repoDate(p) {
+function sbDate(p) {
   const r = REPO_DATA[p.repo];
   return r ? (r.pushed_at || r.updated_at) : null;
 }
 
-function plSorted(list) {
+function sbSorted(list) {
   const arr = list.slice();
-  if (plState.sort === 'name') {
+  if (sbState.sort === 'name') {
     arr.sort((a, b) => a.name.localeCompare(b.name, 'pt-BR'));
-  } else if (plState.sort === 'recent') {
+  } else if (sbState.sort === 'recent') {
     arr.sort((a, b) => {
-      const da = repoDate(a), db = repoDate(b);
+      const da = sbDate(a), db = sbDate(b);
       if (da && db) return new Date(db) - new Date(da);
       if (da) return -1;
       if (db) return 1;
@@ -170,103 +160,133 @@ function plSorted(list) {
   return arr;
 }
 
-function renderChips() {
-  const box = document.getElementById('pl-cats');
-  box.innerHTML = LIST_CATS.map(cat => {
-    const n = PROJECTS.filter(p => inCat(p, cat)).length;
-    if (!n) return '';
-    return `<button type="button" class="pl-chip" data-cat="${cat}" aria-pressed="${cat === plState.cat}">${cat}<span class="pl-n">${n}</span></button>`;
-  }).join('');
-}
-
-function projectRow(p, query) {
-  const date    = repoDate(p);
-  const repoUrl = `https://github.com/${GITHUB_USER}/${p.repo}`;
-  return `
-    <li class="pl-row">
-      <span class="pl-icon" aria-hidden="true">${p.icon}</span>
-      <div class="pl-main">
-        <a class="pl-name" href="${projectUrl(p)}" target="_blank" rel="noopener">${highlight(esc(p.name), query)}</a>
-        <p class="pl-desc">${esc(p.desc)}</p>
-      </div>
-      <span class="pl-meta"><span class="lang-dot ${LANG_CLASS[p.lang] || 'lc-html'}"></span>${esc(p.lang)}</span>
-      <span class="pl-when${date && isFresh(date) ? ' recent' : ''}">${date ? timeAgo(date) : ''}</span>
-      ${p.site
-        ? `<a class="pl-code" href="${repoUrl}" target="_blank" rel="noopener" aria-label="Código de ${esc(p.name)}">código</a>`
-        : '<span class="pl-code pl-code-gh">GitHub</span>'}
-    </li>`;
-}
-
-function renderProjects() {
-  const list = document.getElementById('pl-list');
+function renderSidebar() {
+  const list = document.getElementById('sb-list');
   if (!list) return;
-  renderChips();
 
-  const query    = plState.q.trim();
-  const matches  = plSorted(PROJECTS.filter(p => inCat(p, plState.cat) && plMatches(p, query.toLowerCase())));
-  const filtered = !!query || plState.cat !== 'Todas';
-  const shown    = (filtered || plState.all) ? matches : matches.slice(0, LIST_LIMIT);
+  const q       = sbState.q.trim().toLowerCase();
+  // "Sistemas" e "Engenharia" no Ordenar mostram só aquele grupo, por relevância
+  const grupo   = (sbState.sort === 'sis' || sbState.sort === 'eng') ? sbState.sort : null;
+  const matches = sbSorted(PROJECTS.filter(p =>
+    (sbState.cat === 'Todas' || p.cat === sbState.cat ||
+      (sbState.cat === 'Engenharia' && p.grupo === 'eng')) &&
+    (!grupo || p.grupo === grupo) &&
+    sbMatches(p, q)
+  ));
 
-  list.innerHTML = shown.map(p => projectRow(p, query)).join('');
-  document.getElementById('pl-empty').hidden = matches.length > 0;
+  const countEl = document.getElementById('sb-count');
+  if (countEl) {
+    countEl.textContent = matches.length === PROJECTS.length
+      ? `${PROJECTS.length} projetos`
+      : `${matches.length} de ${PROJECTS.length}`;
+  }
 
-  const more = document.getElementById('pl-more');
-  more.hidden = filtered || matches.length <= LIST_LIMIT;
-  more.textContent = plState.all ? 'Mostrar menos' : `Mostrar todos os ${matches.length} projetos`;
-  more.setAttribute('aria-expanded', String(plState.all));
+  document.querySelectorAll('.sb-chip').forEach(c => {
+    c.classList.toggle('active', c.dataset.cat === sbState.cat);
+  });
 
-  document.getElementById('pl-status').textContent =
-    `${matches.length} projeto${matches.length !== 1 ? 's' : ''}`;
+  list.innerHTML = '';
+
+  if (!matches.length) {
+    list.innerHTML = '<p class="sb-empty">Nenhum projeto encontrado.<br><button type="button" class="sb-clear" id="sb-clear">Limpar filtros</button></p>';
+    document.getElementById('sb-clear').addEventListener('click', sbReset);
+    return;
+  }
+
+  matches.forEach(p => {
+    const date = sbDate(p);
+    const a    = document.createElement('a');
+    a.className = 'sb-item';
+    a.href      = projectUrl(p);
+    a.target    = '_blank';
+    a.rel       = 'noopener';
+    a.title     = p.site ? 'Abrir ' + p.name : 'Ver ' + p.name + ' no GitHub';
+    a.innerHTML = `
+      <span class="sb-icon">${p.icon}</span>
+      <span class="sb-body">
+        <span class="sb-name">${highlight(esc(p.name), sbState.q.trim())}</span>
+        <span class="sb-meta">
+          <span class="sb-tag">${p.cat}</span>
+          <span class="lang-dot ${LANG_CLASS[p.lang] || 'lc-html'}"></span>${esc(p.lang)}
+        </span>
+      </span>
+      <span class="sb-right">
+        ${date ? `<span class="sb-when${Date.now() - new Date(date).getTime() < 7 * 86400000 ? ' recent' : ''}">${timeAgo(date)}</span>` : ''}
+        <span class="sb-go">${p.site ? 'site \u2197' : 'GitHub \u2197'}</span>
+      </span>`;
+    list.appendChild(a);
+  });
 }
 
-function setCat(cat) {
-  plState.cat = cat;
-  renderProjects();
+function sbReset() {
+  sbState.q = '';
+  sbState.cat = 'Todas';
+  sbState.sort = 'rel';
+  const input = document.getElementById('sb-input');
+  if (input) input.value = '';
+  const sort = document.getElementById('sb-sort');
+  if (sort) sort.value = 'rel';
+  renderSidebar();
 }
 
-function plReset() {
-  plState.q = '';
-  plState.cat = 'Todas';
-  document.getElementById('pl-input').value = '';
-  renderProjects();
-}
-
-function focusSearch() {
-  document.getElementById('projetos').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  document.getElementById('pl-input').focus({ preventScroll: true });
+function toggleSidebar(open) {
+  const sb   = document.getElementById('sidebar');
+  const back = document.getElementById('sb-backdrop');
+  const btn  = document.getElementById('sb-toggle');
+  if (!sb) return;
+  const show = open === undefined ? !sb.classList.contains('open') : open;
+  sb.classList.toggle('open', show);
+  if (back) back.classList.toggle('open', show);
+  if (btn)  btn.setAttribute('aria-expanded', String(show));
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const input = document.getElementById('pl-input');
-  const sort  = document.getElementById('pl-sort');
+  const input = document.getElementById('sb-input');
+  const sort  = document.getElementById('sb-sort');
   if (!input) return;
 
-  input.addEventListener('input', () => { plState.q = input.value; renderProjects(); });
-  input.addEventListener('keydown', e => { if (e.key === 'Escape' && input.value) { e.stopPropagation(); plReset(); } });
-  sort.addEventListener('change', () => { plState.sort = sort.value; renderProjects(); });
+  input.addEventListener('input', () => { sbState.q = input.value; renderSidebar(); });
+  sort.addEventListener('change', () => { sbState.sort = sort.value; renderSidebar(); });
 
-  document.getElementById('pl-cats').addEventListener('click', e => {
-    const chip = e.target.closest('.pl-chip');
-    if (chip) setCat(chip.dataset.cat);
+  document.querySelectorAll('.sb-chip').forEach(chip => {
+    chip.addEventListener('click', () => { sbState.cat = chip.dataset.cat; renderSidebar(); });
   });
-  document.getElementById('pl-more').addEventListener('click', () => {
-    plState.all = !plState.all;
-    renderProjects();
-    if (!plState.all) document.getElementById('pl').scrollIntoView({ block: 'nearest' });
-  });
-  document.getElementById('pl-clear').addEventListener('click', plReset);
 
-  // atalhos do topo: "Engenharia Mecânica" já abre a lista filtrada
+  const toggle = document.getElementById('sb-toggle');
+  if (toggle) toggle.addEventListener('click', () => toggleSidebar());
+  const back = document.getElementById('sb-backdrop');
+  if (back) back.addEventListener('click', () => toggleSidebar(false));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') toggleSidebar(false); });
+
+  // fecha a gaveta ao escolher um projeto no celular
+  document.getElementById('sb-list').addEventListener('click', e => {
+    if (e.target.closest('.sb-item')) toggleSidebar(false);
+  });
+
+  renderSidebar();
+});
+
+// abre a coluna (gaveta no celular) e põe o foco na busca
+function focusSearch() {
+  toggleSidebar(true);
+  document.getElementById('sb-input').focus();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  // atalhos do topo: "Engenharia Mecânica" já abre a coluna filtrada
   document.querySelectorAll('[data-filter]').forEach(a => {
-    a.addEventListener('click', () => setCat(a.dataset.filter));
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      sbState.cat = a.dataset.filter;
+      renderSidebar();
+      focusSearch();
+    });
   });
 
   document.getElementById('nav-search-btn').addEventListener('click', focusSearch);
   document.addEventListener('keydown', e => {
     if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); focusSearch(); }
   });
-
-  renderProjects();
 });
 
 // site: pagina publicada (quando existe) · cat: categoria · rel: peso de relevancia

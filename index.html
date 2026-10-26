@@ -10,11 +10,60 @@
 </head>
 <body>
 
+<!-- ══ COLUNA DE PROJETOS ══ -->
+<div id="sb-backdrop" class="sb-backdrop"></div>
+<aside id="sidebar" class="sidebar" aria-label="Lista de projetos">
+  <div class="sb-head">
+    <div class="sb-title">
+      <span>🗂️ Projetos</span>
+      <span class="sb-count" id="sb-count">29 projetos</span>
+    </div>
+
+    <div class="sb-search">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <label class="sr-only" for="sb-input">Buscar projeto por nome</label>
+      <input id="sb-input" type="text" placeholder="Buscar por nome..." autocomplete="off" spellcheck="false" />
+    </div>
+
+    <div class="sb-sort">
+      <label for="sb-sort">Ordenar</label>
+      <select id="sb-sort">
+        <option value="rel">Relevância</option>
+        <option value="recent">Mais recentes</option>
+        <option value="name">Nome (A–Z)</option>
+        <optgroup label="Mostrar só">
+          <option value="sis">Sistemas (programação)</option>
+          <option value="eng">Engenharia</option>
+        </optgroup>
+      </select>
+    </div>
+
+    <div class="sb-cats">
+      <button type="button" class="sb-chip active" data-cat="Todas">Todas</button>
+      <button type="button" class="sb-chip" data-cat="Web">Web</button>
+      <button type="button" class="sb-chip" data-cat="Simulados">Simulados</button>
+      <button type="button" class="sb-chip" data-cat="API">API</button>
+      <button type="button" class="sb-chip" data-cat="Mobile">Mobile</button>
+      <button type="button" class="sb-chip" data-cat="Fundamentos">Fundamentos</button>
+      <button type="button" class="sb-chip" data-cat="Engenharia">Engenharia</button>
+    </div>
+  </div>
+
+  <div class="sb-list" id="sb-list"></div>
+
+  <div class="sb-foot">
+    Os links abrem o site publicado quando existe.
+  </div>
+</aside>
+
 <!-- ══ NAV ══ -->
 <nav>
   <a class="nav-logo" href="#topo">Matheus <span>Raposo</span></a>
   <div class="nav-links">
-    <a href="#projetos"    class="hide-sm">Projetos</a>
+    <button id="sb-toggle" class="sb-toggle" aria-label="Abrir lista de projetos" aria-expanded="false">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      <span class="sb-toggle-txt">Projetos</span>
+    </button>
     <a href="#experiencia" class="hide-sm">Experiência</a>
     <a href="#formacao"    class="hide-sm">Formação</a>
     <a href="https://matheusmerlim1.github.io/anotacoes/" class="hide-sm" target="_blank" rel="noopener">Anotações ↗</a>
@@ -43,8 +92,8 @@
 
   <div class="pill-row">
     <a href="#experiencia" class="pill-tag tag-fisica">⚛️ Física &amp; Docência</a>
-    <a href="#projetos" data-filter="Engenharia" class="pill-tag tag-mec">⚙️ Engenharia Mecânica</a>
-    <a href="#projetos" data-filter="Todas" class="pill-tag tag-prog">💻 Desenvolvimento de Software</a>
+    <a href="#sidebar" data-filter="Engenharia" class="pill-tag tag-mec">⚙️ Engenharia Mecânica</a>
+    <a href="#sidebar" data-filter="Todas" class="pill-tag tag-prog">💻 Desenvolvimento de Software</a>
   </div>
 
   <ul class="facts">
@@ -70,87 +119,6 @@
 </header>
 
 <main>
-
-<!-- ══ PROJETOS ══ -->
-<section id="projetos">
-  <div class="sec-head">
-    <h2>Projetos</h2>
-    <p class="sec-note"><span id="pl-total">46</span> repositórios, atualizados sozinhos a partir do GitHub</p>
-  </div>
-
-  <!-- Destaques escritos à mão; a lista abaixo se monta sozinha com todos os repositórios -->
-  <div class="featured">
-    <article class="feat fade-in" data-repo="editor-pdf">
-      <div class="feat-top"><span class="feat-icon" aria-hidden="true">📝</span><span class="commit-badge loading">...</span></div>
-      <h3>Editor de PDF</h3>
-      <p>Abre um PDF, extrai cada trecho de texto com posição, fonte e cor, permite reescrevê-lo no próprio lugar e salva de volta. No navegador com pdf.js e pdf-lib, ou como programa de mesa em Python com PyMuPDF.</p>
-      <div class="feat-foot">
-        <span class="lang-chip"><span class="lang-dot lc-python"></span>Python</span>
-        <span class="feat-links">
-          <a class="proj-link" href="https://matheusmerlim1.github.io/editor-pdf/" target="_blank" rel="noopener">Abrir →</a>
-          <a class="proj-link" href="https://github.com/matheusmerlim1/editor-pdf" target="_blank" rel="noopener">Código →</a>
-        </span>
-      </div>
-    </article>
-
-    <article class="feat fade-in" data-repo="analise-financeira">
-      <div class="feat-top"><span class="feat-icon" aria-hidden="true">💹</span><span class="commit-badge loading">...</span></div>
-      <h3>Análise Financeira</h3>
-      <p>Lê extratos da XP, da B3 e do IR, mostra o patrimônio e avalia cada investimento. Previsão do Ibovespa e buscador de renda fixa, atualizados pelo GitHub Actions.</p>
-      <div class="feat-foot">
-        <span class="lang-chip"><span class="lang-dot lc-js"></span>JavaScript</span>
-        <span class="feat-links">
-          <a class="proj-link" href="https://matheusmerlim1.github.io/analise-financeira/" target="_blank" rel="noopener">Abrir →</a>
-          <a class="proj-link" href="https://github.com/matheusmerlim1/analise-financeira" target="_blank" rel="noopener">Código →</a>
-        </span>
-      </div>
-    </article>
-
-    <article class="feat fade-in" data-repo="transpetro-enfase-25">
-      <div class="feat-top"><span class="feat-icon" aria-hidden="true">🛢️</span><span class="commit-badge loading">...</span></div>
-      <h3>Transpetro Ênfase 25</h3>
-      <p>640 questões inéditas no padrão Cesgranrio, simulado cronometrado com os cortes do edital, fila de erros e formulário de 268 fórmulas.</p>
-      <div class="feat-foot">
-        <span class="lang-chip"><span class="lang-dot lc-html"></span>HTML</span>
-        <span class="feat-links">
-          <a class="proj-link" href="https://matheusmerlim1.github.io/transpetro-enfase-25/" target="_blank" rel="noopener">Abrir →</a>
-          <a class="proj-link" href="https://github.com/matheusmerlim1/transpetro-enfase-25" target="_blank" rel="noopener">Código →</a>
-        </span>
-      </div>
-    </article>
-  </div>
-
-  <!-- Lista completa: preenchida por main.js -->
-  <div class="pl" id="pl">
-    <div class="pl-tools">
-      <div class="pl-search">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        <label class="sr-only" for="pl-input">Buscar projeto</label>
-        <input id="pl-input" type="search" placeholder="Buscar por nome, linguagem ou descrição" autocomplete="off" spellcheck="false" />
-      </div>
-      <label class="pl-sort">
-        <span>Ordenar</span>
-        <select id="pl-sort">
-          <option value="recent">Mais recentes</option>
-          <option value="rel">Relevância</option>
-          <option value="name">Nome (A–Z)</option>
-        </select>
-      </label>
-    </div>
-    <div class="pl-cats" id="pl-cats" role="group" aria-label="Filtrar por categoria"></div>
-
-    <ul class="pl-list" id="pl-list"></ul>
-    <p class="pl-empty" id="pl-empty" hidden>
-      Nenhum projeto encontrado.
-      <button type="button" class="pl-clear" id="pl-clear">Limpar filtros</button>
-    </p>
-    <button type="button" class="pl-more" id="pl-more" hidden></button>
-    <p class="sr-only" id="pl-status" aria-live="polite"></p>
-  </div>
-  <noscript>
-    <p class="sec-note">A lista completa está em <a href="https://github.com/matheusmerlim1?tab=repositories">github.com/matheusmerlim1</a>.</p>
-  </noscript>
-</section>
 
 <!-- ══ EXPERIÊNCIA ══ -->
 <section id="experiencia">
@@ -312,12 +280,12 @@
     <h2>Contato</h2>
   </div>
   <ul class="contact">
-    <li><span class="c-label">E-mail</span><a href="mailto:matheusmerlim@hotmail.com">matheusmerlim@hotmail.com</a></li>
-    <li><span class="c-label">Telefone / WhatsApp</span><a href="tel:+5522992074505">(22) 99207-4505</a></li>
-    <li><span class="c-label">LinkedIn</span><a href="https://www.linkedin.com/in/matheus-pinheiro-raposo-847a42311/" target="_blank" rel="noopener">matheus-pinheiro-raposo</a></li>
-    <li><span class="c-label">GitHub</span><a href="https://github.com/matheusmerlim1" target="_blank" rel="noopener">matheusmerlim1</a></li>
-    <li><span class="c-label">Currículo Lattes</span><a href="http://lattes.cnpq.br/7035288661680105" target="_blank" rel="noopener">lattes.cnpq.br</a></li>
-    <li><span class="c-label">Localização</span><span>Nova Friburgo – RJ</span></li>
+    <li><span class="c-label"><span class="c-ico ci-mail" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>E-mail</span><a href="mailto:matheusmerlim@hotmail.com">matheusmerlim@hotmail.com</a></li>
+    <li><span class="c-label"><span class="c-ico ci-phone" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>Telefone / WhatsApp</span><a href="tel:+5522992074505">(22) 99207-4505</a></li>
+    <li><span class="c-label"><span class="c-ico ci-in" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></span>LinkedIn</span><a href="https://www.linkedin.com/in/matheus-pinheiro-raposo-847a42311/" target="_blank" rel="noopener">matheus-pinheiro-raposo</a></li>
+    <li><span class="c-label"><span class="c-ico ci-gh" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></span>GitHub</span><a href="https://github.com/matheusmerlim1" target="_blank" rel="noopener">matheusmerlim1</a></li>
+    <li><span class="c-label"><span class="c-ico ci-lattes" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></span>Currículo Lattes</span><a href="http://lattes.cnpq.br/7035288661680105" target="_blank" rel="noopener">lattes.cnpq.br</a></li>
+    <li><span class="c-label"><span class="c-ico ci-pin" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span>Localização</span><span>Nova Friburgo – RJ</span></li>
   </ul>
 </section>
 
