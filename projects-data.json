@@ -1,6 +1,30 @@
 {
-  "updated": "2026-10-26T22:32:45.445969+00:00",
+  "updated": "2026-10-27T14:17:58.767917+00:00",
   "projects": [
+    {
+      "name": "calculo-icamento",
+      "description": "Memorial de calculo e lista de material de icamento: carga por perna, linga, sapatilho, manilha e olhal, com desenhos em escala e relatorio para impressao",
+      "url": "https://github.com/matheusmerlim1/calculo-icamento",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-10-27T11:01:23Z",
+      "pushed_at": "2026-10-27T11:01:18Z"
+    },
+    {
+      "name": "ludoteca-boardgames",
+      "description": "App Android para mapear a coleção de jogos de tabuleiro: partidas, horas de mesa e custo por partida, por hora e por mês. Flutter + SQLite local.",
+      "url": "https://github.com/matheusmerlim1/ludoteca-boardgames",
+      "homepage": "",
+      "has_pages": false,
+      "archived": false,
+      "language": "Dart",
+      "topics": [],
+      "updated_at": "2026-10-27T09:49:17Z",
+      "pushed_at": "2026-10-27T09:49:13Z"
+    },
     {
       "name": "analise-financeira",
       "description": "Tendência do mercado, buscador de renda fixa e montagem de carteira — atualiza sozinho (GitHub Actions + Pages)",
@@ -161,18 +185,6 @@
       "pushed_at": "2026-10-25T18:37:26Z"
     },
     {
-      "name": "calculo-icamento",
-      "description": "Memorial de calculo e lista de material de icamento: carga por perna, linga, sapatilho, manilha e olhal, com desenhos em escala e relatorio para impressao",
-      "url": "https://github.com/matheusmerlim1/calculo-icamento",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "JavaScript",
-      "topics": [],
-      "updated_at": "2026-10-25T18:12:13Z",
-      "pushed_at": "2026-10-25T18:12:09Z"
-    },
-    {
       "name": "engenharia-mecanica",
       "description": "Site de estudo de Engenharia Mecânica: conteúdo, simuladores animados e simulados",
       "url": "https://github.com/matheusmerlim1/engenharia-mecanica",
@@ -207,18 +219,6 @@
       "topics": [],
       "updated_at": "2026-10-10T16:55:35Z",
       "pushed_at": "2026-10-10T16:49:11Z"
-    },
-    {
-      "name": "ludoteca-boardgames",
-      "description": "App Android para mapear a coleção de jogos de tabuleiro: partidas, horas de mesa e custo por partida, por hora e por mês. Flutter + SQLite local.",
-      "url": "https://github.com/matheusmerlim1/ludoteca-boardgames",
-      "homepage": "",
-      "has_pages": false,
-      "archived": false,
-      "language": "Dart",
-      "topics": [],
-      "updated_at": "2026-10-04T22:00:45Z",
-      "pushed_at": "2026-10-04T22:00:40Z"
     },
     {
       "name": "parafuso-carga",
