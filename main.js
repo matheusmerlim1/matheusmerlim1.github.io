@@ -91,9 +91,12 @@ function showNewCommitsBanner(current, previous) {
 
   const banner = document.createElement('div');
   banner.className = 'toast';
+  // role=status: o leitor de tela anuncia o aviso sem roubar o foco. Vai dentro do
+  // <main> para não ficar fora das regiões da página (é fixo, a posição no código não muda nada)
+  banner.setAttribute('role', 'status');
   banner.innerHTML = `<strong>Commits novos!</strong><br>${updated.map(esc).join(', ')}`;
   banner.addEventListener('click', () => banner.remove());
-  document.body.appendChild(banner);
+  (document.querySelector('main') || document.body).appendChild(banner);
   setTimeout(() => banner.remove(), 9000);
 }
 
@@ -183,6 +186,7 @@ function renderSidebar() {
 
   document.querySelectorAll('.sb-chip').forEach(c => {
     c.classList.toggle('active', c.dataset.cat === sbState.cat);
+    c.setAttribute('aria-pressed', String(c.dataset.cat === sbState.cat));
   });
 
   list.innerHTML = '';
@@ -202,7 +206,7 @@ function renderSidebar() {
     a.rel       = 'noopener';
     a.title     = p.site ? 'Abrir ' + p.name : 'Ver ' + p.name + ' no GitHub';
     a.innerHTML = `
-      <span class="sb-icon">${p.icon}</span>
+      <span class="sb-icon" aria-hidden="true">${p.icon}</span>
       <span class="sb-body">
         <span class="sb-name">${highlight(esc(p.name), sbState.q.trim())}</span>
         <span class="sb-meta">
@@ -212,8 +216,9 @@ function renderSidebar() {
       </span>
       <span class="sb-right">
         ${date ? `<span class="sb-when${Date.now() - new Date(date).getTime() < 7 * 86400000 ? ' recent' : ''}">${timeAgo(date)}</span>` : ''}
-        <span class="sb-go">${p.site ? 'site \u2197' : 'GitHub \u2197'}</span>
-      </span>`;
+        <span class="sb-go">${p.site ? 'site' : 'GitHub'} <span aria-hidden="true">\u2197</span></span>
+      </span>
+      <span class="sr-only"> (abre em nova aba)</span>`;
     list.appendChild(a);
   });
 }
@@ -229,16 +234,28 @@ function sbReset() {
   renderSidebar();
 }
 
+// abaixo de 1080px a coluna é gaveta (ver style.css)
+const sbGaveta = () => matchMedia('(max-width: 1080px)').matches;
+
 function toggleSidebar(open) {
   const sb   = document.getElementById('sidebar');
   const back = document.getElementById('sb-backdrop');
   const btn  = document.getElementById('sb-toggle');
   if (!sb) return;
   const show = open === undefined ? !sb.classList.contains('open') : open;
+  const ativo = document.activeElement;
+  const tinhaFoco = sb.contains(ativo);
+  if (show && !tinhaFoco && ativo && ativo !== document.body) sbAbridor = ativo;
   sb.classList.toggle('open', show);
   if (back) back.classList.toggle('open', show);
   if (btn)  btn.setAttribute('aria-expanded', String(show));
+  if (!sbGaveta()) return;
+  // gaveta aberta: o foco entra nela, senão o Tab andaria pela página escondida atrás.
+  // Fechada com o foco dentro: o foco volta a quem a abriu (Projetos, Buscar ou um atalho do topo)
+  if (show) document.getElementById('sb-input').focus();
+  else if (tinhaFoco) (sbAbridor && sbAbridor.isConnected && sbAbridor.getClientRects().length ? sbAbridor : btn).focus();
 }
+let sbAbridor = null;
 
 document.addEventListener('DOMContentLoaded', () => {
   const input = document.getElementById('sb-input');
@@ -261,6 +278,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // fecha a gaveta ao escolher um projeto no celular
   document.getElementById('sb-list').addEventListener('click', e => {
     if (e.target.closest('.sb-item')) toggleSidebar(false);
+  });
+
+  // Tab saindo da gaveta: fecha, para o foco não cair num elemento coberto por ela (WCAG 2.4.11)
+  document.getElementById('sidebar').addEventListener('focusout', e => {
+    const sb = e.currentTarget;
+    if (sbGaveta() && sb.classList.contains('open') && e.relatedTarget && !sb.contains(e.relatedTarget)) {
+      sb.classList.remove('open');
+      document.getElementById('sb-backdrop').classList.remove('open');
+      document.getElementById('sb-toggle').setAttribute('aria-expanded', 'false');
+    }
   });
 
   renderSidebar();
