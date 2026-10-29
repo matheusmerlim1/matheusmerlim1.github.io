@@ -1,6 +1,42 @@
 {
-  "updated": "2026-10-29T09:43:41.329353+00:00",
+  "updated": "2026-10-29T16:49:09.284316+00:00",
   "projects": [
+    {
+      "name": "calculo-icamento",
+      "description": "Memorial de calculo e lista de material de icamento: carga por perna, linga, sapatilho, manilha e olhal, com desenhos em escala e relatorio para impressao",
+      "url": "https://github.com/matheusmerlim1/calculo-icamento",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-10-29T12:30:20Z",
+      "pushed_at": "2026-10-29T12:30:16Z"
+    },
+    {
+      "name": "buscador-de-pdfs",
+      "description": "Ferramenta desktop (Windows) que indexa uma pasta inteira de PDFs e busca qualquer palavra ou trecho, com OCR para paginas escaneadas.",
+      "url": "https://github.com/matheusmerlim1/buscador-de-pdfs",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "HTML",
+      "topics": [],
+      "updated_at": "2026-10-29T09:54:06Z",
+      "pushed_at": "2026-10-29T09:54:02Z"
+    },
+    {
+      "name": "vao-carga",
+      "description": "Seleciona o perfil W/HP Gerdau mais leve para um vao e um carregamento informados - calculo por Estados Limites (NBR 8800:2008), memorial de calculo e diagramas.",
+      "url": "https://github.com/matheusmerlim1/vao-carga",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-10-29T09:51:34Z",
+      "pushed_at": "2026-10-29T09:51:30Z"
+    },
     {
       "name": "compilador-de-c",
       "description": "Ambiente para escrever, compilar e testar exercicios em C, com os erros do compilador traduzidos para portugues",
@@ -71,18 +107,6 @@
       "pushed_at": "2026-10-29T01:22:58Z"
     },
     {
-      "name": "calculo-icamento",
-      "description": "Memorial de calculo e lista de material de icamento: carga por perna, linga, sapatilho, manilha e olhal, com desenhos em escala e relatorio para impressao",
-      "url": "https://github.com/matheusmerlim1/calculo-icamento",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "JavaScript",
-      "topics": [],
-      "updated_at": "2026-10-28T18:10:26Z",
-      "pushed_at": "2026-10-28T18:10:22Z"
-    },
-    {
       "name": "ludoteca-boardgames",
       "description": "App Android para mapear a coleção de jogos de tabuleiro: partidas, horas de mesa e custo por partida, por hora e por mês. Flutter + SQLite local.",
       "url": "https://github.com/matheusmerlim1/ludoteca-boardgames",
@@ -147,18 +171,6 @@
       "topics": [],
       "updated_at": "2026-10-25T18:40:02Z",
       "pushed_at": "2026-10-25T18:39:58Z"
-    },
-    {
-      "name": "vao-carga",
-      "description": "Seleciona o perfil W/HP Gerdau mais leve para um vao e um carregamento informados - calculo por Estados Limites (NBR 8800:2008), memorial de calculo e diagramas.",
-      "url": "https://github.com/matheusmerlim1/vao-carga",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "JavaScript",
-      "topics": [],
-      "updated_at": "2026-10-25T18:37:53Z",
-      "pushed_at": "2026-10-25T18:37:50Z"
     },
     {
       "name": "perfilario-metalico",
@@ -267,18 +279,6 @@
       "topics": [],
       "updated_at": "2026-09-27T23:04:08Z",
       "pushed_at": "2026-09-27T23:04:04Z"
-    },
-    {
-      "name": "buscador-de-pdfs",
-      "description": "Ferramenta desktop (Windows) que indexa uma pasta inteira de PDFs e busca qualquer palavra ou trecho, com OCR para paginas escaneadas.",
-      "url": "https://github.com/matheusmerlim1/buscador-de-pdfs",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "HTML",
-      "topics": [],
-      "updated_at": "2026-09-12T14:35:11Z",
-      "pushed_at": "2026-09-12T14:35:08Z"
     },
     {
       "name": "transpetro-enfase-25",
