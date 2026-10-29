@@ -1,6 +1,63 @@
 {
-  "updated": "2026-10-28T18:44:28.629142+00:00",
+  "updated": "2026-10-29T02:19:01.493410+00:00",
   "projects": [
+    {
+      "name": "compilador-de-c",
+      "description": "Ambiente para escrever, compilar e testar exercicios em C, com os erros do compilador traduzidos para portugues",
+      "url": "https://github.com/matheusmerlim1/compilador-de-c",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "Python",
+      "topics": [],
+      "updated_at": "2026-10-29T01:31:43Z",
+      "pushed_at": "2026-10-29T01:31:39Z"
+    },
+    {
+      "name": "editor-pdf",
+      "description": "Editor de PDF: abre um PDF, identifica o texto, permite edita-lo e salva de volta. Roda no navegador ou como programa de mesa em Python.",
+      "url": "https://github.com/matheusmerlim1/editor-pdf",
+      "homepage": "https://matheusmerlim1.github.io/editor-pdf/",
+      "has_pages": true,
+      "archived": false,
+      "language": "Python",
+      "topics": [
+        "javascript",
+        "pdf",
+        "pdf-editor",
+        "pdf-lib",
+        "pdfjs",
+        "pymupdf",
+        "python",
+        "tkinter"
+      ],
+      "updated_at": "2026-10-29T01:31:43Z",
+      "pushed_at": "2026-10-29T01:31:39Z"
+    },
+    {
+      "name": "backup",
+      "description": "Backup para Windows: copia arquivos da origem para o destino e so substitui quando a versao ou a data do arquivo da origem for mais recente",
+      "url": "https://github.com/matheusmerlim1/backup",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "Python",
+      "topics": [],
+      "updated_at": "2026-10-29T01:28:10Z",
+      "pushed_at": "2026-10-29T01:28:06Z"
+    },
+    {
+      "name": "SMathFtoolBridge",
+      "description": "Plugin para o SMath Studio que incorpora o diagrama de um modelo do Ftool na planilha de calculo, com abertura por duplo clique e sincronizacao da imagem em um clique.",
+      "url": "https://github.com/matheusmerlim1/SMathFtoolBridge",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "HTML",
+      "topics": [],
+      "updated_at": "2026-10-29T01:23:02Z",
+      "pushed_at": "2026-10-29T01:22:58Z"
+    },
     {
       "name": "calculo-icamento",
       "description": "Memorial de calculo e lista de material de icamento: carga por perna, linga, sapatilho, manilha e olhal, com desenhos em escala e relatorio para impressao",
@@ -90,63 +147,6 @@
       "topics": [],
       "updated_at": "2026-10-25T18:37:53Z",
       "pushed_at": "2026-10-25T18:37:50Z"
-    },
-    {
-      "name": "SMathFtoolBridge",
-      "description": "Plugin para o SMath Studio que incorpora o diagrama de um modelo do Ftool na planilha de calculo, com abertura por duplo clique e sincronizacao da imagem em um clique.",
-      "url": "https://github.com/matheusmerlim1/SMathFtoolBridge",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "HTML",
-      "topics": [],
-      "updated_at": "2026-10-25T18:37:49Z",
-      "pushed_at": "2026-10-25T18:37:45Z"
-    },
-    {
-      "name": "editor-pdf",
-      "description": "Editor de PDF: abre um PDF, identifica o texto, permite edita-lo e salva de volta. Roda no navegador ou como programa de mesa em Python.",
-      "url": "https://github.com/matheusmerlim1/editor-pdf",
-      "homepage": "https://matheusmerlim1.github.io/editor-pdf/",
-      "has_pages": true,
-      "archived": false,
-      "language": "Python",
-      "topics": [
-        "javascript",
-        "pdf",
-        "pdf-editor",
-        "pdf-lib",
-        "pdfjs",
-        "pymupdf",
-        "python",
-        "tkinter"
-      ],
-      "updated_at": "2026-10-25T18:37:46Z",
-      "pushed_at": "2026-10-25T18:37:42Z"
-    },
-    {
-      "name": "compilador-de-c",
-      "description": "Ambiente para escrever, compilar e testar exercicios em C, com os erros do compilador traduzidos para portugues",
-      "url": "https://github.com/matheusmerlim1/compilador-de-c",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "Python",
-      "topics": [],
-      "updated_at": "2026-10-25T18:37:43Z",
-      "pushed_at": "2026-10-25T18:37:40Z"
-    },
-    {
-      "name": "backup",
-      "description": "Backup para Windows: copia arquivos da origem para o destino e so substitui quando a versao ou a data do arquivo da origem for mais recente",
-      "url": "https://github.com/matheusmerlim1/backup",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "Python",
-      "topics": [],
-      "updated_at": "2026-10-25T18:37:40Z",
-      "pushed_at": "2026-10-25T18:37:37Z"
     },
     {
       "name": "perfilario-metalico",
