@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-29T02:19:01.493410+00:00",
+  "updated": "2026-10-29T09:43:41.329353+00:00",
   "projects": [
     {
       "name": "compilador-de-c",
@@ -10,8 +10,20 @@
       "archived": false,
       "language": "Python",
       "topics": [],
-      "updated_at": "2026-10-29T01:31:43Z",
-      "pushed_at": "2026-10-29T01:31:39Z"
+      "updated_at": "2026-10-29T09:43:24Z",
+      "pushed_at": "2026-10-29T09:43:21Z"
+    },
+    {
+      "name": "calculadora-gusset-plate",
+      "description": "Calculadora de chapa de no (gusset plate) para ligacoes de contraventamento: secao de Whitmore, pseudo-colunas de Thornton, HSS circular e Metodo das Forcas Uniformes (UFM).",
+      "url": "https://github.com/matheusmerlim1/calculadora-gusset-plate",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "Python",
+      "topics": [],
+      "updated_at": "2026-10-29T09:36:10Z",
+      "pushed_at": "2026-10-29T09:36:06Z"
     },
     {
       "name": "editor-pdf",
@@ -159,18 +171,6 @@
       "topics": [],
       "updated_at": "2026-10-25T18:37:36Z",
       "pushed_at": "2026-10-25T18:37:32Z"
-    },
-    {
-      "name": "calculadora-gusset-plate",
-      "description": "Calculadora de chapa de no (gusset plate) para ligacoes de contraventamento: secao de Whitmore, pseudo-colunas de Thornton, HSS circular e Metodo das Forcas Uniformes (UFM).",
-      "url": "https://github.com/matheusmerlim1/calculadora-gusset-plate",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "Python",
-      "topics": [],
-      "updated_at": "2026-10-25T18:37:33Z",
-      "pushed_at": "2026-10-25T18:37:29Z"
     },
     {
       "name": "Verificador-de-texto-IA",
