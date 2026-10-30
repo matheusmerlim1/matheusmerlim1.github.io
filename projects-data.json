@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-30T15:45:47.437083+00:00",
+  "updated": "2026-10-30T20:37:37.690468+00:00",
   "projects": [
     {
       "name": "Referencias-normativas",
@@ -10,8 +10,20 @@
       "archived": false,
       "language": "Python",
       "topics": [],
-      "updated_at": "2026-10-30T13:13:32Z",
-      "pushed_at": "2026-10-30T13:13:27Z"
+      "updated_at": "2026-10-30T19:47:14Z",
+      "pushed_at": "2026-10-30T19:47:09Z"
+    },
+    {
+      "name": "perfilario-metalico",
+      "description": "Catalogo interativo de perfis metalicos: desenho cotado, propriedades e perfis mais usuais",
+      "url": "https://github.com/matheusmerlim1/perfilario-metalico",
+      "homepage": "https://matheusmerlim1.github.io/perfilario-metalico/",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-10-30T19:18:16Z",
+      "pushed_at": "2026-10-30T19:18:12Z"
     },
     {
       "name": "calculo-icamento",
@@ -183,18 +195,6 @@
       "topics": [],
       "updated_at": "2026-10-25T18:40:02Z",
       "pushed_at": "2026-10-25T18:39:58Z"
-    },
-    {
-      "name": "perfilario-metalico",
-      "description": "Catalogo interativo de perfis metalicos: desenho cotado, propriedades e perfis mais usuais",
-      "url": "https://github.com/matheusmerlim1/perfilario-metalico",
-      "homepage": "https://matheusmerlim1.github.io/perfilario-metalico/",
-      "has_pages": true,
-      "archived": false,
-      "language": "JavaScript",
-      "topics": [],
-      "updated_at": "2026-10-25T18:37:36Z",
-      "pushed_at": "2026-10-25T18:37:32Z"
     },
     {
       "name": "Verificador-de-texto-IA",
