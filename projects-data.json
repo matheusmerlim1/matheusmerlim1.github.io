@@ -1,6 +1,18 @@
 {
-  "updated": "2026-10-29T16:49:09.284316+00:00",
+  "updated": "2026-10-30T15:45:47.437083+00:00",
   "projects": [
+    {
+      "name": "Referencias-normativas",
+      "description": "Projeto destinado a tirar dúvidas sobre normas de engenharia",
+      "url": "https://github.com/matheusmerlim1/Referencias-normativas",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "Python",
+      "topics": [],
+      "updated_at": "2026-10-30T13:13:32Z",
+      "pushed_at": "2026-10-30T13:13:27Z"
+    },
     {
       "name": "calculo-icamento",
       "description": "Memorial de calculo e lista de material de icamento: carga por perna, linga, sapatilho, manilha e olhal, com desenhos em escala e relatorio para impressao",
