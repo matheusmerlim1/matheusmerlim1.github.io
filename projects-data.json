@@ -1,6 +1,18 @@
 {
-  "updated": "2026-10-31T18:24:37.129029+00:00",
+  "updated": "2026-11-01T02:02:04.924100+00:00",
   "projects": [
+    {
+      "name": "ludoteca-boardgames",
+      "description": "App Android para mapear a coleção de jogos de tabuleiro: partidas, horas de mesa e custo por partida, por hora e por mês. Flutter + SQLite local.",
+      "url": "https://github.com/matheusmerlim1/ludoteca-boardgames",
+      "homepage": "",
+      "has_pages": false,
+      "archived": false,
+      "language": "Dart",
+      "topics": [],
+      "updated_at": "2026-10-31T15:26:46Z",
+      "pushed_at": "2026-11-01T01:15:15Z"
+    },
     {
       "name": "placa-prototipada",
       "description": "Desenha placa de circuito impresso no navegador: componentes com medidas de datasheet, ligações e trilhas sem cruzamento em 1 ou 2 camadas, com PDF 1:1 e arquivos Gerber para fabricação",
@@ -195,18 +207,6 @@
       "topics": [],
       "updated_at": "2026-10-31T15:38:08Z",
       "pushed_at": "2026-10-31T15:38:04Z"
-    },
-    {
-      "name": "ludoteca-boardgames",
-      "description": "App Android para mapear a coleção de jogos de tabuleiro: partidas, horas de mesa e custo por partida, por hora e por mês. Flutter + SQLite local.",
-      "url": "https://github.com/matheusmerlim1/ludoteca-boardgames",
-      "homepage": "",
-      "has_pages": false,
-      "archived": false,
-      "language": "Dart",
-      "topics": [],
-      "updated_at": "2026-10-31T15:26:46Z",
-      "pushed_at": "2026-10-31T15:26:43Z"
     },
     {
       "name": "Referencias-normativas",
