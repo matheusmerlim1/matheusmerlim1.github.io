@@ -1,6 +1,18 @@
 {
-  "updated": "2026-11-05T18:38:26.529876+00:00",
+  "updated": "2026-11-07T00:48:32.300039+00:00",
   "projects": [
+    {
+      "name": "simulado-ppc",
+      "description": "Simulado e resumo de Programacao Paralela e Concorrente - CEFET/RJ UNED Nova Friburgo",
+      "url": "https://github.com/matheusmerlim1/simulado-ppc",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-11-06T23:15:03Z",
+      "pushed_at": "2026-11-06T23:14:58Z"
+    },
     {
       "name": "simulado-ihc",
       "description": "Caderno de estudos e simulado interativo de Interação Humano-Computador (CEFET/RJ)",
@@ -10,8 +22,8 @@
       "archived": false,
       "language": "HTML",
       "topics": [],
-      "updated_at": "2026-11-05T13:04:53Z",
-      "pushed_at": "2026-11-05T13:04:49Z"
+      "updated_at": "2026-11-06T22:42:35Z",
+      "pushed_at": "2026-11-06T22:42:31Z"
     },
     {
       "name": "ludoteca-boardgames",
@@ -243,18 +255,6 @@
       "topics": [],
       "updated_at": "2026-10-17T09:34:46Z",
       "pushed_at": "2026-10-17T09:34:43Z"
-    },
-    {
-      "name": "simulado-ppc",
-      "description": "Simulado e resumo de Programacao Paralela e Concorrente - CEFET/RJ UNED Nova Friburgo",
-      "url": "https://github.com/matheusmerlim1/simulado-ppc",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "JavaScript",
-      "topics": [],
-      "updated_at": "2026-10-12T20:02:19Z",
-      "pushed_at": "2026-10-12T20:02:15Z"
     },
     {
       "name": "guia-projeto-integrador",
