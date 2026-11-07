@@ -1,6 +1,18 @@
 {
-  "updated": "2026-11-07T18:36:55.806808+00:00",
+  "updated": "2026-11-07T22:37:26.068302+00:00",
   "projects": [
+    {
+      "name": "ludoteca-boardgames",
+      "description": "App Android para mapear a coleção de jogos de tabuleiro: partidas, horas de mesa e custo por partida, por hora e por mês. Flutter + SQLite local.",
+      "url": "https://github.com/matheusmerlim1/ludoteca-boardgames",
+      "homepage": "",
+      "has_pages": false,
+      "archived": false,
+      "language": "Dart",
+      "topics": [],
+      "updated_at": "2026-11-07T22:34:40Z",
+      "pushed_at": "2026-11-07T22:34:36Z"
+    },
     {
       "name": "olhar-mouse",
       "description": "Controle o mouse do Windows com os olhos: webcam ou celular (QR code ou cabo USB), cliques por piscada lenta, funciona com óculos.",
@@ -36,18 +48,6 @@
       "topics": [],
       "updated_at": "2026-11-06T23:15:03Z",
       "pushed_at": "2026-11-06T23:14:58Z"
-    },
-    {
-      "name": "ludoteca-boardgames",
-      "description": "App Android para mapear a coleção de jogos de tabuleiro: partidas, horas de mesa e custo por partida, por hora e por mês. Flutter + SQLite local.",
-      "url": "https://github.com/matheusmerlim1/ludoteca-boardgames",
-      "homepage": "",
-      "has_pages": false,
-      "archived": false,
-      "language": "Dart",
-      "topics": [],
-      "updated_at": "2026-11-01T16:50:21Z",
-      "pushed_at": "2026-11-01T16:55:09Z"
     },
     {
       "name": "placa-prototipada",
