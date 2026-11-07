@@ -1,6 +1,30 @@
 {
-  "updated": "2026-11-07T00:48:32.300039+00:00",
+  "updated": "2026-11-07T13:51:00.965755+00:00",
   "projects": [
+    {
+      "name": "olhar-mouse",
+      "description": "Controle o mouse do Windows com os olhos: webcam ou celular (QR code ou cabo USB), cliques por piscada lenta, funciona com óculos.",
+      "url": "https://github.com/matheusmerlim1/olhar-mouse",
+      "homepage": "https://matheusmerlim1.github.io/olhar-mouse/",
+      "has_pages": true,
+      "archived": false,
+      "language": "Python",
+      "topics": [],
+      "updated_at": "2026-11-07T13:12:52Z",
+      "pushed_at": "2026-11-07T13:12:52Z"
+    },
+    {
+      "name": "simulado-ihc",
+      "description": "Caderno de estudos e simulado interativo de Interação Humano-Computador (CEFET/RJ)",
+      "url": "https://github.com/matheusmerlim1/simulado-ihc",
+      "homepage": "https://matheusmerlim1.github.io/simulado-ihc/",
+      "has_pages": true,
+      "archived": false,
+      "language": "HTML",
+      "topics": [],
+      "updated_at": "2026-11-07T11:22:50Z",
+      "pushed_at": "2026-11-07T11:22:46Z"
+    },
     {
       "name": "simulado-ppc",
       "description": "Simulado e resumo de Programacao Paralela e Concorrente - CEFET/RJ UNED Nova Friburgo",
@@ -12,18 +36,6 @@
       "topics": [],
       "updated_at": "2026-11-06T23:15:03Z",
       "pushed_at": "2026-11-06T23:14:58Z"
-    },
-    {
-      "name": "simulado-ihc",
-      "description": "Caderno de estudos e simulado interativo de Interação Humano-Computador (CEFET/RJ)",
-      "url": "https://github.com/matheusmerlim1/simulado-ihc",
-      "homepage": "https://matheusmerlim1.github.io/simulado-ihc/",
-      "has_pages": true,
-      "archived": false,
-      "language": "HTML",
-      "topics": [],
-      "updated_at": "2026-11-06T22:42:35Z",
-      "pushed_at": "2026-11-06T22:42:31Z"
     },
     {
       "name": "ludoteca-boardgames",
