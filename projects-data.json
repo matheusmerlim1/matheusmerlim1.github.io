@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-09T00:41:12.196296+00:00",
+  "updated": "2026-11-09T18:37:26.243036+00:00",
   "projects": [
     {
       "name": "engenharia-mecanica",
@@ -10,8 +10,20 @@
       "archived": false,
       "language": "JavaScript",
       "topics": [],
-      "updated_at": "2026-11-09T00:14:59Z",
-      "pushed_at": "2026-11-09T00:14:56Z"
+      "updated_at": "2026-11-09T16:41:42Z",
+      "pushed_at": "2026-11-09T16:41:37Z"
+    },
+    {
+      "name": "olhar-mouse",
+      "description": "Controle o mouse do Windows com os olhos: webcam ou celular (QR code ou cabo USB), cliques por piscada lenta, funciona com óculos.",
+      "url": "https://github.com/matheusmerlim1/olhar-mouse",
+      "homepage": "https://matheusmerlim1.github.io/olhar-mouse/",
+      "has_pages": true,
+      "archived": false,
+      "language": "Python",
+      "topics": [],
+      "updated_at": "2026-11-09T16:16:54Z",
+      "pushed_at": "2026-11-09T16:16:54Z"
     },
     {
       "name": "analise-financeira",
@@ -42,18 +54,6 @@
       "topics": [],
       "updated_at": "2026-11-07T22:50:46Z",
       "pushed_at": "2026-11-07T22:52:21Z"
-    },
-    {
-      "name": "olhar-mouse",
-      "description": "Controle o mouse do Windows com os olhos: webcam ou celular (QR code ou cabo USB), cliques por piscada lenta, funciona com óculos.",
-      "url": "https://github.com/matheusmerlim1/olhar-mouse",
-      "homepage": "https://matheusmerlim1.github.io/olhar-mouse/",
-      "has_pages": true,
-      "archived": false,
-      "language": "Python",
-      "topics": [],
-      "updated_at": "2026-11-07T14:19:14Z",
-      "pushed_at": "2026-11-07T14:19:14Z"
     },
     {
       "name": "simulado-ihc",
