@@ -1,6 +1,18 @@
 {
-  "updated": "2026-11-10T17:37:33.718742+00:00",
+  "updated": "2026-11-10T23:05:42.136302+00:00",
   "projects": [
+    {
+      "name": "Referencias-normativas",
+      "description": "Projeto destinado a tirar dúvidas sobre normas de engenharia",
+      "url": "https://github.com/matheusmerlim1/Referencias-normativas",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "Python",
+      "topics": [],
+      "updated_at": "2026-11-10T21:49:36Z",
+      "pushed_at": "2026-11-10T19:20:12Z"
+    },
     {
       "name": "engenharia-mecanica",
       "description": "Site de estudo de Engenharia Mecânica: conteúdo, simuladores animados e simulados",
@@ -255,18 +267,6 @@
       "topics": [],
       "updated_at": "2026-10-31T15:38:08Z",
       "pushed_at": "2026-10-31T15:38:04Z"
-    },
-    {
-      "name": "Referencias-normativas",
-      "description": "Projeto destinado a tirar dúvidas sobre normas de engenharia",
-      "url": "https://github.com/matheusmerlim1/Referencias-normativas",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "Python",
-      "topics": [],
-      "updated_at": "2026-11-04T02:55:50Z",
-      "pushed_at": "2026-10-30T19:47:09Z"
     },
     {
       "name": "guia-projeto-integrador",
