@@ -1,6 +1,42 @@
 {
-  "updated": "2026-11-11T18:31:29.531423+00:00",
+  "updated": "2026-11-14T21:15:45.607264+00:00",
   "projects": [
+    {
+      "name": "compilador-de-c",
+      "description": "Ambiente para escrever, compilar e testar exercicios em C, com os erros do compilador traduzidos para portugues",
+      "url": "https://github.com/matheusmerlim1/compilador-de-c",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "Python",
+      "topics": [],
+      "updated_at": "2026-10-31T15:38:38Z",
+      "pushed_at": "2026-11-14T20:37:36Z"
+    },
+    {
+      "name": "historico-de-precos",
+      "description": "Histórico de preço de produtos da Amazon e do Mercado Livre: cole o link e veja o gráfico",
+      "url": "https://github.com/matheusmerlim1/historico-de-precos",
+      "homepage": "https://matheusmerlim1.github.io/historico-de-precos/",
+      "has_pages": true,
+      "archived": false,
+      "language": "TypeScript",
+      "topics": [],
+      "updated_at": "2026-11-14T16:47:09Z",
+      "pushed_at": "2026-11-14T20:12:51Z"
+    },
+    {
+      "name": "simulado-ppc",
+      "description": "Simulado e resumo de Programacao Paralela e Concorrente - CEFET/RJ UNED Nova Friburgo",
+      "url": "https://github.com/matheusmerlim1/simulado-ppc",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-11-06T23:15:03Z",
+      "pushed_at": "2026-11-14T16:40:09Z"
+    },
     {
       "name": "olhar-mouse",
       "description": "Controle o mouse do Windows com os olhos: webcam ou celular (QR code ou cabo USB), cliques por piscada lenta, funciona com óculos.",
@@ -80,18 +116,6 @@
       "pushed_at": "2026-11-07T11:22:46Z"
     },
     {
-      "name": "simulado-ppc",
-      "description": "Simulado e resumo de Programacao Paralela e Concorrente - CEFET/RJ UNED Nova Friburgo",
-      "url": "https://github.com/matheusmerlim1/simulado-ppc",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "JavaScript",
-      "topics": [],
-      "updated_at": "2026-11-06T23:15:03Z",
-      "pushed_at": "2026-11-06T23:14:58Z"
-    },
-    {
       "name": "placa-prototipada",
       "description": "Desenha placa de circuito impresso no navegador: componentes com medidas de datasheet, ligações e trilhas sem cruzamento em 1 ou 2 camadas, com PDF 1:1 e arquivos Gerber para fabricação",
       "url": "https://github.com/matheusmerlim1/placa-prototipada",
@@ -159,18 +183,6 @@
       ],
       "updated_at": "2026-10-31T15:38:41Z",
       "pushed_at": "2026-10-31T15:38:38Z"
-    },
-    {
-      "name": "compilador-de-c",
-      "description": "Ambiente para escrever, compilar e testar exercicios em C, com os erros do compilador traduzidos para portugues",
-      "url": "https://github.com/matheusmerlim1/compilador-de-c",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "Python",
-      "topics": [],
-      "updated_at": "2026-10-31T15:38:38Z",
-      "pushed_at": "2026-10-31T15:38:35Z"
     },
     {
       "name": "backup",
