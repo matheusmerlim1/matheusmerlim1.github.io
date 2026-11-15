@@ -1,6 +1,18 @@
 {
-  "updated": "2026-11-14T21:15:45.607264+00:00",
+  "updated": "2026-11-15T09:05:16.636160+00:00",
   "projects": [
+    {
+      "name": "historico-de-precos",
+      "description": "Histórico de preço de produtos da Amazon e do Mercado Livre: cole o link e veja o gráfico",
+      "url": "https://github.com/matheusmerlim1/historico-de-precos",
+      "homepage": "https://matheusmerlim1.github.io/historico-de-precos/",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-11-15T03:38:46Z",
+      "pushed_at": "2026-11-15T03:14:06Z"
+    },
     {
       "name": "compilador-de-c",
       "description": "Ambiente para escrever, compilar e testar exercicios em C, com os erros do compilador traduzidos para portugues",
@@ -12,18 +24,6 @@
       "topics": [],
       "updated_at": "2026-10-31T15:38:38Z",
       "pushed_at": "2026-11-14T20:37:36Z"
-    },
-    {
-      "name": "historico-de-precos",
-      "description": "Histórico de preço de produtos da Amazon e do Mercado Livre: cole o link e veja o gráfico",
-      "url": "https://github.com/matheusmerlim1/historico-de-precos",
-      "homepage": "https://matheusmerlim1.github.io/historico-de-precos/",
-      "has_pages": true,
-      "archived": false,
-      "language": "TypeScript",
-      "topics": [],
-      "updated_at": "2026-11-14T16:47:09Z",
-      "pushed_at": "2026-11-14T20:12:51Z"
     },
     {
       "name": "simulado-ppc",
