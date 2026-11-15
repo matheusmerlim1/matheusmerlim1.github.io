@@ -1,6 +1,18 @@
 {
-  "updated": "2026-11-15T09:05:16.636160+00:00",
+  "updated": "2026-11-15T21:37:00.693751+00:00",
   "projects": [
+    {
+      "name": "simulado-ppc",
+      "description": "Simulado e resumo de Programacao Paralela e Concorrente - CEFET/RJ UNED Nova Friburgo",
+      "url": "https://github.com/matheusmerlim1/simulado-ppc",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-11-06T23:15:03Z",
+      "pushed_at": "2026-11-15T17:34:20Z"
+    },
     {
       "name": "historico-de-precos",
       "description": "Histórico de preço de produtos da Amazon e do Mercado Livre: cole o link e veja o gráfico",
@@ -11,7 +23,7 @@
       "language": "JavaScript",
       "topics": [],
       "updated_at": "2026-11-15T03:38:46Z",
-      "pushed_at": "2026-11-15T03:14:06Z"
+      "pushed_at": "2026-11-15T16:29:07Z"
     },
     {
       "name": "compilador-de-c",
@@ -24,18 +36,6 @@
       "topics": [],
       "updated_at": "2026-10-31T15:38:38Z",
       "pushed_at": "2026-11-14T20:37:36Z"
-    },
-    {
-      "name": "simulado-ppc",
-      "description": "Simulado e resumo de Programacao Paralela e Concorrente - CEFET/RJ UNED Nova Friburgo",
-      "url": "https://github.com/matheusmerlim1/simulado-ppc",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "JavaScript",
-      "topics": [],
-      "updated_at": "2026-11-06T23:15:03Z",
-      "pushed_at": "2026-11-14T16:40:09Z"
     },
     {
       "name": "olhar-mouse",
