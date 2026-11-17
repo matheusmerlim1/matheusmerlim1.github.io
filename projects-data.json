@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-17T13:00:27.008956+00:00",
+  "updated": "2026-11-17T21:38:25.047341+00:00",
   "projects": [
     {
       "name": "mandarim",
@@ -11,7 +11,31 @@
       "language": "JavaScript",
       "topics": [],
       "updated_at": "2026-11-17T11:46:08Z",
-      "pushed_at": "2026-11-17T11:19:18Z"
+      "pushed_at": "2026-11-17T20:06:12Z"
+    },
+    {
+      "name": "Referencias-normativas",
+      "description": "Projeto destinado a tirar dúvidas sobre normas de engenharia",
+      "url": "https://github.com/matheusmerlim1/Referencias-normativas",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "Python",
+      "topics": [],
+      "updated_at": "2026-11-10T21:49:36Z",
+      "pushed_at": "2026-11-17T19:50:04Z"
+    },
+    {
+      "name": "historico-de-precos",
+      "description": "Histórico de preço de produtos da Amazon e do Mercado Livre: cole o link e veja o gráfico",
+      "url": "https://github.com/matheusmerlim1/historico-de-precos",
+      "homepage": "https://matheusmerlim1.github.io/historico-de-precos/",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-11-15T03:38:46Z",
+      "pushed_at": "2026-11-17T18:42:05Z"
     },
     {
       "name": "simulado-ppc",
@@ -24,18 +48,6 @@
       "topics": [],
       "updated_at": "2026-11-06T23:15:03Z",
       "pushed_at": "2026-11-16T21:26:40Z"
-    },
-    {
-      "name": "historico-de-precos",
-      "description": "Histórico de preço de produtos da Amazon e do Mercado Livre: cole o link e veja o gráfico",
-      "url": "https://github.com/matheusmerlim1/historico-de-precos",
-      "homepage": "https://matheusmerlim1.github.io/historico-de-precos/",
-      "has_pages": true,
-      "archived": false,
-      "language": "JavaScript",
-      "topics": [],
-      "updated_at": "2026-11-15T03:38:46Z",
-      "pushed_at": "2026-11-16T19:43:53Z"
     },
     {
       "name": "compilador-de-c",
@@ -72,18 +84,6 @@
       "topics": [],
       "updated_at": "2026-11-11T15:00:39Z",
       "pushed_at": "2026-11-11T14:03:47Z"
-    },
-    {
-      "name": "Referencias-normativas",
-      "description": "Projeto destinado a tirar dúvidas sobre normas de engenharia",
-      "url": "https://github.com/matheusmerlim1/Referencias-normativas",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "Python",
-      "topics": [],
-      "updated_at": "2026-11-10T21:49:36Z",
-      "pushed_at": "2026-11-10T19:20:12Z"
     },
     {
       "name": "engenharia-mecanica",
