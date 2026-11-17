@@ -1,17 +1,17 @@
 {
-  "updated": "2026-11-16T20:12:47.188258+00:00",
+  "updated": "2026-11-17T03:37:32.533970+00:00",
   "projects": [
     {
-      "name": "historico-de-precos",
-      "description": "Histórico de preço de produtos da Amazon e do Mercado Livre: cole o link e veja o gráfico",
-      "url": "https://github.com/matheusmerlim1/historico-de-precos",
-      "homepage": "https://matheusmerlim1.github.io/historico-de-precos/",
+      "name": "mandarim",
+      "description": "Aprenda mandarim do zero ao HSK 3: trilha de lições curtas com som, imagens, pinyin, frases e tradutor",
+      "url": "https://github.com/matheusmerlim1/mandarim",
+      "homepage": "https://matheusmerlim1.github.io/mandarim/",
       "has_pages": true,
       "archived": false,
       "language": "JavaScript",
       "topics": [],
-      "updated_at": "2026-11-15T03:38:46Z",
-      "pushed_at": "2026-11-16T19:43:53Z"
+      "updated_at": "2026-11-16T22:15:19Z",
+      "pushed_at": "2026-11-16T22:15:15Z"
     },
     {
       "name": "simulado-ppc",
@@ -23,7 +23,19 @@
       "language": "JavaScript",
       "topics": [],
       "updated_at": "2026-11-06T23:15:03Z",
-      "pushed_at": "2026-11-16T15:12:04Z"
+      "pushed_at": "2026-11-16T21:26:40Z"
+    },
+    {
+      "name": "historico-de-precos",
+      "description": "Histórico de preço de produtos da Amazon e do Mercado Livre: cole o link e veja o gráfico",
+      "url": "https://github.com/matheusmerlim1/historico-de-precos",
+      "homepage": "https://matheusmerlim1.github.io/historico-de-precos/",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-11-15T03:38:46Z",
+      "pushed_at": "2026-11-16T19:43:53Z"
     },
     {
       "name": "compilador-de-c",
