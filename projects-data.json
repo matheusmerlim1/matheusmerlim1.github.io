@@ -1,6 +1,30 @@
 {
-  "updated": "2026-11-17T21:38:25.047341+00:00",
+  "updated": "2026-11-18T21:16:30.872721+00:00",
   "projects": [
+    {
+      "name": "simulado-ppc",
+      "description": "Simulado e resumo de Programacao Paralela e Concorrente - CEFET/RJ UNED Nova Friburgo",
+      "url": "https://github.com/matheusmerlim1/simulado-ppc",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-11-06T23:15:03Z",
+      "pushed_at": "2026-11-18T18:17:03Z"
+    },
+    {
+      "name": "historico-de-precos",
+      "description": "Histórico de preço de produtos da Amazon e do Mercado Livre: cole o link e veja o gráfico",
+      "url": "https://github.com/matheusmerlim1/historico-de-precos",
+      "homepage": "https://matheusmerlim1.github.io/historico-de-precos/",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-11-15T03:38:46Z",
+      "pushed_at": "2026-11-18T18:14:11Z"
+    },
     {
       "name": "mandarim",
       "description": "Aprenda mandarim do zero ao HSK 3: trilha de lições curtas com som, imagens, pinyin, frases e tradutor",
@@ -24,30 +48,6 @@
       "topics": [],
       "updated_at": "2026-11-10T21:49:36Z",
       "pushed_at": "2026-11-17T19:50:04Z"
-    },
-    {
-      "name": "historico-de-precos",
-      "description": "Histórico de preço de produtos da Amazon e do Mercado Livre: cole o link e veja o gráfico",
-      "url": "https://github.com/matheusmerlim1/historico-de-precos",
-      "homepage": "https://matheusmerlim1.github.io/historico-de-precos/",
-      "has_pages": true,
-      "archived": false,
-      "language": "JavaScript",
-      "topics": [],
-      "updated_at": "2026-11-15T03:38:46Z",
-      "pushed_at": "2026-11-17T18:42:05Z"
-    },
-    {
-      "name": "simulado-ppc",
-      "description": "Simulado e resumo de Programacao Paralela e Concorrente - CEFET/RJ UNED Nova Friburgo",
-      "url": "https://github.com/matheusmerlim1/simulado-ppc",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "JavaScript",
-      "topics": [],
-      "updated_at": "2026-11-06T23:15:03Z",
-      "pushed_at": "2026-11-16T21:26:40Z"
     },
     {
       "name": "compilador-de-c",
