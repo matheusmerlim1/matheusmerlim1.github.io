@@ -1,6 +1,30 @@
 {
-  "updated": "2026-11-18T21:16:30.872721+00:00",
+  "updated": "2026-11-19T20:22:40.996839+00:00",
   "projects": [
+    {
+      "name": "Referencias-normativas",
+      "description": "Projeto destinado a tirar dúvidas sobre normas de engenharia",
+      "url": "https://github.com/matheusmerlim1/Referencias-normativas",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "Python",
+      "topics": [],
+      "updated_at": "2026-11-10T21:49:36Z",
+      "pushed_at": "2026-11-19T19:42:13Z"
+    },
+    {
+      "name": "historico-de-precos",
+      "description": "Histórico de preço de produtos da Amazon e do Mercado Livre: cole o link e veja o gráfico",
+      "url": "https://github.com/matheusmerlim1/historico-de-precos",
+      "homepage": "https://matheusmerlim1.github.io/historico-de-precos/",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-11-15T03:38:46Z",
+      "pushed_at": "2026-11-19T18:25:52Z"
+    },
     {
       "name": "simulado-ppc",
       "description": "Simulado e resumo de Programacao Paralela e Concorrente - CEFET/RJ UNED Nova Friburgo",
@@ -14,18 +38,6 @@
       "pushed_at": "2026-11-18T18:17:03Z"
     },
     {
-      "name": "historico-de-precos",
-      "description": "Histórico de preço de produtos da Amazon e do Mercado Livre: cole o link e veja o gráfico",
-      "url": "https://github.com/matheusmerlim1/historico-de-precos",
-      "homepage": "https://matheusmerlim1.github.io/historico-de-precos/",
-      "has_pages": true,
-      "archived": false,
-      "language": "JavaScript",
-      "topics": [],
-      "updated_at": "2026-11-15T03:38:46Z",
-      "pushed_at": "2026-11-18T18:14:11Z"
-    },
-    {
       "name": "mandarim",
       "description": "Aprenda mandarim do zero ao HSK 3: trilha de lições curtas com som, imagens, pinyin, frases e tradutor",
       "url": "https://github.com/matheusmerlim1/mandarim",
@@ -36,18 +48,6 @@
       "topics": [],
       "updated_at": "2026-11-17T11:46:08Z",
       "pushed_at": "2026-11-17T20:06:12Z"
-    },
-    {
-      "name": "Referencias-normativas",
-      "description": "Projeto destinado a tirar dúvidas sobre normas de engenharia",
-      "url": "https://github.com/matheusmerlim1/Referencias-normativas",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "Python",
-      "topics": [],
-      "updated_at": "2026-11-10T21:49:36Z",
-      "pushed_at": "2026-11-17T19:50:04Z"
     },
     {
       "name": "compilador-de-c",
