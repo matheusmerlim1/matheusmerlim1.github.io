@@ -1,6 +1,18 @@
 {
-  "updated": "2026-11-23T08:50:07.885799+00:00",
+  "updated": "2026-11-23T21:07:23.822706+00:00",
   "projects": [
+    {
+      "name": "Referencias-normativas",
+      "description": "Projeto destinado a tirar dúvidas sobre normas de engenharia",
+      "url": "https://github.com/matheusmerlim1/Referencias-normativas",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "Python",
+      "topics": [],
+      "updated_at": "2026-11-10T21:49:36Z",
+      "pushed_at": "2026-11-23T12:47:15Z"
+    },
     {
       "name": "simulado-ppc",
       "description": "Simulado e resumo de Programacao Paralela e Concorrente - CEFET/RJ UNED Nova Friburgo",
@@ -48,18 +60,6 @@
       "topics": [],
       "updated_at": "2026-11-17T11:46:08Z",
       "pushed_at": "2026-11-21T11:48:41Z"
-    },
-    {
-      "name": "Referencias-normativas",
-      "description": "Projeto destinado a tirar dúvidas sobre normas de engenharia",
-      "url": "https://github.com/matheusmerlim1/Referencias-normativas",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "Python",
-      "topics": [],
-      "updated_at": "2026-11-10T21:49:36Z",
-      "pushed_at": "2026-11-19T19:42:13Z"
     },
     {
       "name": "compilador-de-c",
