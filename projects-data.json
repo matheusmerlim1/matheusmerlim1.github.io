@@ -1,6 +1,18 @@
 {
-  "updated": "2026-11-24T05:50:39.272927+00:00",
+  "updated": "2026-11-24T17:25:07.005015+00:00",
   "projects": [
+    {
+      "name": "Referencias-normativas",
+      "description": "Projeto destinado a tirar dúvidas sobre normas de engenharia",
+      "url": "https://github.com/matheusmerlim1/Referencias-normativas",
+      "homepage": "",
+      "has_pages": true,
+      "archived": false,
+      "language": "Python",
+      "topics": [],
+      "updated_at": "2026-11-10T21:49:36Z",
+      "pushed_at": "2026-11-24T12:54:46Z"
+    },
     {
       "name": "historico-de-precos",
       "description": "Histórico de preço de produtos da Amazon e do Mercado Livre: cole o link e veja o gráfico",
@@ -12,18 +24,6 @@
       "topics": [],
       "updated_at": "2026-11-15T03:38:46Z",
       "pushed_at": "2026-11-23T21:33:16Z"
-    },
-    {
-      "name": "Referencias-normativas",
-      "description": "Projeto destinado a tirar dúvidas sobre normas de engenharia",
-      "url": "https://github.com/matheusmerlim1/Referencias-normativas",
-      "homepage": "",
-      "has_pages": true,
-      "archived": false,
-      "language": "Python",
-      "topics": [],
-      "updated_at": "2026-11-10T21:49:36Z",
-      "pushed_at": "2026-11-23T12:47:15Z"
     },
     {
       "name": "simulado-ppc",
