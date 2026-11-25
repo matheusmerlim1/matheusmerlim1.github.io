@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-25T02:10:08.560076+00:00",
+  "updated": "2026-11-25T22:19:19.906912+00:00",
   "projects": [
     {
       "name": "historico-de-precos",
@@ -11,7 +11,19 @@
       "language": "JavaScript",
       "topics": [],
       "updated_at": "2026-11-15T03:38:46Z",
-      "pushed_at": "2026-11-24T20:16:28Z"
+      "pushed_at": "2026-11-25T19:26:11Z"
+    },
+    {
+      "name": "perfilario-metalico",
+      "description": "Catalogo interativo de perfis metalicos: desenho cotado, propriedades e perfis mais usuais",
+      "url": "https://github.com/matheusmerlim1/perfilario-metalico",
+      "homepage": "https://matheusmerlim1.github.io/perfilario-metalico/",
+      "has_pages": true,
+      "archived": false,
+      "language": "JavaScript",
+      "topics": [],
+      "updated_at": "2026-10-31T15:38:21Z",
+      "pushed_at": "2026-11-25T19:10:59Z"
     },
     {
       "name": "Referencias-normativas",
@@ -243,18 +255,6 @@
       "topics": [],
       "updated_at": "2026-10-31T15:38:24Z",
       "pushed_at": "2026-10-31T15:38:21Z"
-    },
-    {
-      "name": "perfilario-metalico",
-      "description": "Catalogo interativo de perfis metalicos: desenho cotado, propriedades e perfis mais usuais",
-      "url": "https://github.com/matheusmerlim1/perfilario-metalico",
-      "homepage": "https://matheusmerlim1.github.io/perfilario-metalico/",
-      "has_pages": true,
-      "archived": false,
-      "language": "JavaScript",
-      "topics": [],
-      "updated_at": "2026-10-31T15:38:21Z",
-      "pushed_at": "2026-10-31T15:38:17Z"
     },
     {
       "name": "calculo-icamento",
